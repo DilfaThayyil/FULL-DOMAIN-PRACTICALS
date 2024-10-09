@@ -47,4 +47,5 @@ console.log(arr6)
 
 //splice
 let arr7 = [4,2,8,1,0,6]
-let spliced = arr7.splice(2,2,)
+arr7.splice(2,0,9)
+console.log(arr7)
