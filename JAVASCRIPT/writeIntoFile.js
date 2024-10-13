@@ -1,13 +1,14 @@
 const fs = require('fs')
 
-const currentTime = new Date().toLocaleString()
-
 const filePath = 'time.txt'
+
+const currentTime = new Date().toLocaleString()
 
 fs.writeFile(filePath,currentTime,(err)=>{
     if(err){
-        console.log('Error writing to file')
+        console.log('error time setting')
     }else{
-        console.log('Time written to file successfully!')
+        console.log('time wrote into file successfully')
     }
 })
+
