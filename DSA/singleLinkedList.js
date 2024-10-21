@@ -97,6 +97,4 @@ class LinkedList{
         }
         this.size--
     }
-
-    
 }
