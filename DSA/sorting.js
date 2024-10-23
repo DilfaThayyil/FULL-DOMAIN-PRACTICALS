@@ -18,6 +18,26 @@ bubbleSort(arr)
 console.log(arr)
 
 
+function selectionSort(arr){
+    for(let i=0;i<arr.length-1;i++){
+        let minIndex = i
+        for(let j=i+1;j<arr.length;j++){
+            if(arr[j]<arr[minIndex]){
+                minIndex = j
+            }
+        }
+        if(minIndex!==i){
+            let temp = arr[i]
+            arr[i] = arr[minIndex]
+            arr[minIndex] = temp
+        }
+    }
+    return  arr
+}
+
+const ar = [6,2,4,9,0,1]
+console.log(selectionSort(ar))
+
 function insertionSort(arr){
     for(let i=1;i<arr.length;i++){
         let numToInsert = arr[i]
