@@ -1,3 +1,21 @@
+function binarySearch(arr,target){
+    let left = 0
+    let right = arr.length-1
+    while(left<=right){
+        const mid = Math.floor((right+left)/2)
+        if(arr[mid]===target){
+            return mid
+        }else if(target>arr[mid]){
+            left = mid+1
+        }else{
+            right = mid-1
+        }
+    }
+    return -1
+}
+
+console.log(binarySearch([5,2,3,7,4,9],7))
+
 // class Node{
 //     constructor(value){
 //         this.value = value
@@ -354,67 +372,69 @@
 // queue.display()
 
 
-class Hashtable{
-    constructor(size){
-        this.table = new Array(size)
-        this.size = size
-    }
-    hash(key){
-        let total = 0
-        for(let i=0;i<key.length;i++){
-            total += key.charCodeAt(i)
-        }
-        return total%this.size
-    }
-    set(key,value){
-        const index = this.hash(key)
-        const bucket = this.table[index]
-        if(!bucket){
-            this.table[index] = [[key,value]]
-        }else{
-            const sameKeyItem = bucket.find(item => item[0]===key)
-            if(sameKeyItem){
-                sameKeyItem[1] = value
-            }else{
-                bucket.push([key,value])
-            }
-        }
-    }
-    get(key){
-        const index = this.hash(key)
-        const bucket = this.table[index]
-        if(bucket){
-            const sameKeyItem = bucket.find(item => item[0]===key)
-            if(sameKeyItem){
-                return sameKeyItem[1]
-            }
-        }
-        return undefined
-    }
-    remove(key){
-        const index= this.hash(key)
-        const bucket = this.table[index]
-        if(bucket){
-            const sameKeyItem = bucket.find(item => item[0]===key)
-            if(sameKeyItem){
-                return bucket.splice(bucket.indexOf(sameKeyItem))
-            }
-        }
-    }
-    display(){
-        for(let i=0;i<this.table.length;i++){
-            if(this.table[i]){
-                console.log(i,this.table[i])
-            }
-        }
-    }
-}
+// class Hashtable{
+//     constructor(size){
+//         this.table = new Array(size)
+//         this.size = size
+//     }
+//     hash(key){
+//         let total = 0
+//         for(let i=0;i<key.length;i++){
+//             total += key.charCodeAt(i)
+//         }
+//         return total%this.size
+//     }
+//     set(key,value){
+//         const index = this.hash(key)
+//         const bucket = this.table[index]
+//         if(!bucket){
+//             this.table[index] = [[key,value]]
+//         }else{
+//             const sameKeyItem = bucket.find(item => item[0]===key)
+//             if(sameKeyItem){
+//                 sameKeyItem[1] = value
+//             }else{
+//                 bucket.push([key,value])
+//             }
+//         }
+//     }
+//     get(key){
+//         const index = this.hash(key)
+//         const bucket = this.table[index]
+//         if(bucket){
+//             const sameKeyItem = bucket.find(item => item[0]===key)
+//             if(sameKeyItem){
+//                 return sameKeyItem[1]
+//             }
+//         }
+//         return undefined
+//     }
+//     remove(key){
+//         const index = this.hash(key)
+//         const bucket = this.table[index]
+//         if(bucket){
+//             const sameKeyItem = bucket.find(item => item[0]===key)
+//             if(sameKeyItem){
+//                 return bucket.splice(bucket.indexOf(sameKeyItem))
+//             }
+//         }
+//     }
+//     display(){
+//         for(let i=0;i<this.table.length;i++){
+//             if(this.table[i]){
+//                 console.log(i,this.table[i])
+//             }
+//         }
+//     }
+// }
 
-const table = new Hashtable()
-table.set("name","DIlfa")
-table.set("age",20)
-table.display()
-console.log(table.get("name"))
-console.log('after removing: ')
-table.remove()
-table.display()
+// const table = new Hashtable(50)
+// table.set("name","Dilfa")
+// table.set("age",20)
+
+// table.display()
+// console.log(table.get("age"))
+
+// table.remove("age")
+// console.log('after removal')
+// table.display()

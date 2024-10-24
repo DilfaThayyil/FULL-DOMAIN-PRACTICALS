@@ -5,7 +5,7 @@ function binarySearch(arr,target){
         const mid = Math.floor((right+left)/2)
         if(arr[mid]===target){
             return mid
-        }else if(arr[mid]<target){
+        }else if(target>arr[mid]){
             left = mid+1
         }else{
             right = mid-1
