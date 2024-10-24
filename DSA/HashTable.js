@@ -1,17 +1,15 @@
-class HashTable{
+class Hashtable{
     constructor(size){
         this.table = new Array(size)
         this.size = size
-    } 
-
+    }
     hash(key){
         let total = 0
         for(let i=0;i<key.length;i++){
             total += key.charCodeAt(i)
         }
-        return total % this.size
+        return total%this.size
     }
-
     set(key,value){
         const index = this.hash(key)
         const bucket = this.table[index]
@@ -26,30 +24,27 @@ class HashTable{
             }
         }
     }
-
     get(key){
         const index = this.hash(key)
         const bucket = this.table[index]
         if(bucket){
-            const sameKeyItem = bucket.find(item => item[0]===key)
+            const sameKeyItem = bucket.find(item=>item[0]===key)
             if(sameKeyItem){
                 return sameKeyItem[1]
             }
         }
         return undefined
     }
-
     remove(key){
         const index = this.hash(key)
         const bucket = this.table[index]
         if(bucket){
-            const sameKeyItem = bucket.find(item => item[0]===key)
+            const sameKeyItem = bucket.find(item=>item[0]===key)
             if(sameKeyItem){
-                return bucket.splice(bucket.indexOf(sameKeyItem),1)
+                return bucket.splice(bucket.indexOf(sameKeyItem))
             }
         }
     }
-
     display(){
         for(let i=0;i<this.table.length;i++){
             if(this.table[i]){
@@ -59,13 +54,11 @@ class HashTable{
     }
 }
 
-const table = new HashTable(50)
-
+const table = new Hashtable(50)
 table.set("name","Dilfa")
 table.set("age",20)
 table.display()
-
 console.log(table.get("name"))
-console.log(table.remove("name"))
-console.log("after removal :")
+table.remove("age")
+console.log('after removing')
 table.display()
