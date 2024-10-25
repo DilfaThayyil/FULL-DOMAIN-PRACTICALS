@@ -57,6 +57,34 @@ class Graph{
             }
         }
     }
+
+    hasCycle(){
+        const visited = new Set()
+        const dfsCycle = (vertex,parent)=>{
+            visited.add(vertex)
+            for(let neighbour of this.adjacencyList[vertex]){
+                if(!visited.has(neighbour)){
+                    if(dfsCycle(neighbour,vertex)){
+                        return true
+                    }
+                }
+                else if(neighbour!==parent){
+                    return true
+                }
+            }
+            return false
+        }
+        for(let vertex in this.adjacencyList){
+            if(!visited.has(vertex)){
+                if(dfsCycle(vertex,null)){
+                    return true
+                }
+            }
+        }
+        return false
+    }
+
+
     display(){
         for(let vertex in this.adjacencyList){
             console.log(vertex+'=>'+[...this.adjacencyList[vertex]])
