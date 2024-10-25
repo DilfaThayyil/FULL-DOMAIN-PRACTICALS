@@ -33,6 +33,30 @@ class Graph{
             this.adjacencyList[vertex2].has(this.adjacencyList[vertex1])
         )
     }
+    bfs(start){
+        const queue = [start]
+        const visited = new Set()
+        while(queue.length>0){
+            const vertex = queue.shift()
+            if(!visited.has(vertex)){
+                console.log(vertex)
+                visited.add(vertex)
+                queue.push(...this.adjacencyList[vertex])
+            }
+        }
+    }
+    dfs(start){
+        const stack = [start]
+        const visited = new Set()
+        while(stack.length>0){
+            const vertex = stack.pop()
+            if(!visited.has(vertex)){
+                console.log(vertex)
+                visited.add(vertex)
+                stack.push(...this.adjacencyList[vertex])
+            }
+        }
+    }
     display(){
         for(let vertex in this.adjacencyList){
             console.log(vertex+'=>'+[...this.adjacencyList[vertex]])
@@ -48,7 +72,5 @@ graph.addEdge("A","B")
 graph.addEdge("C","B")
 graph.addEdge("A","C")
 graph.display()
-console.log('after removing')
-graph.removeVertex("A")
-removeEdge("A","C")
-graph.display()
+graph.dfs("A")
+graph.bfs("A")

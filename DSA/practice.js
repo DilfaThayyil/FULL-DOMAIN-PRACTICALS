@@ -1,20 +1,38 @@
-function binarySearch(arr,target){
-    let left = 0
-    let right = arr.length-1
-    while(left<=right){
-        const mid = Math.floor((right+left)/2)
-        if(arr[mid]===target){
-            return mid
-        }else if(target>arr[mid]){
-            left = mid+1
-        }else{
-            right = mid-1
-        }
-    }
-    return -1
-}
+// function binarySearch(arr,target){
+//     let left = 0
+//     let right = arr.length-1
+//     while(left<=right){
+//         const mid = Math.floor((right+left)/2)
+//         if(arr[mid]===target){
+//             return mid
+//         }else if(target>arr[mid]){
+//             left = mid+1
+//         }else{
+//             right = mid-1
+//         }
+//     }
+//     return -1
+// }
+// console.log(binarySearch([2,3,4,5,6,7,8],4))
 
-console.log(binarySearch([5,2,3,7,4,9],7))
+
+
+// function binarySearchRecursion(arr,target,left=0,right=arr.length-1){
+//     if(left>right){
+//         return -1
+//     }
+//     let mid = Math.floor((left+right)/2)
+//     if(target===arr[mid]){
+//         return mid
+//     }else if(target<arr[mid]){
+//         return binarySearch(arr,target,left,mid-1)
+//     }else{
+//         return binarySearch(arr,target,mid+1,right)
+//     }
+// }
+
+// console.log(binarySearchRecursion([2,3,4,5,6,7,8],4))
+
 
 // class Node{
 //     constructor(value){
@@ -438,3 +456,52 @@ console.log(binarySearch([5,2,3,7,4,9],7))
 // table.remove("age")
 // console.log('after removal')
 // table.display()
+
+
+class TrieNode{
+    constructor(){
+        this.children = {}
+        this.isEndOfWord = false
+    }
+}
+class Trie{
+    constructor(){
+        this.root = new TrieNode()
+    }
+    insert(word){
+        let node = this.root
+        for(let char of word){
+            if(!node.children[char]){
+                node.children[char] = new TrieNode()
+            }
+            node = node.children[char]
+        }
+        node.isEndOfWord = true
+    }
+    search(word){
+        let node = this.root
+        for(let char of word){
+            if(!node.children[char]){
+                return false
+            }
+            node = node.children[char]
+        }
+        return node.isEndOfWord
+    }
+    startWith(prefix){
+        let node = this.root
+        for(let char of word){
+            if(!node.children[char]){
+                return false
+            }
+            node = node.children[char]
+        }
+        return true
+    }
+}
+
+const trie = new TrieNode()
+trie.insert("apple")
+trie.insert("orange")
+console.log(trie.search("apple"))
+console.log(trie.startWith("or"))
