@@ -49,7 +49,7 @@ class MaxHeap{
     }
     heapSort(arr){
         this.build(arr)
-        let sorted = []
+         sorted = []
         while(this.heap.length>0){
             sorted.push(this.remove())
         }

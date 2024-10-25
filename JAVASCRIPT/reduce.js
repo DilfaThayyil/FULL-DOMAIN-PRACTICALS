@@ -16,7 +16,7 @@ console.log(findSecLargest([4,7,5,3,5,8]))
 
 
 
-//findSum
+// findSum
 function sum(arr){
     let sum = arr.reduce((acc,curr)=>{
         return acc+curr
@@ -24,3 +24,4 @@ function sum(arr){
     return sum
 }
 console.log(sum([1,2,3,4,5]))
+
