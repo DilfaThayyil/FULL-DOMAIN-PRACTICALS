@@ -458,50 +458,111 @@
 // table.display()
 
 
-class TrieNode{
-    constructor(){
-        this.children = {}
-        this.isEndOfWord = false
-    }
-}
-class Trie{
-    constructor(){
-        this.root = new TrieNode()
-    }
-    insert(word){
-        let node = this.root
-        for(let char of word){
-            if(!node.children[char]){
-                node.children[char] = new TrieNode()
-            }
-            node = node.children[char]
-        }
-        node.isEndOfWord = true
-    }
-    search(word){
-        let node = this.root
-        for(let char of word){
-            if(!node.children[char]){
-                return false
-            }
-            node = node.children[char]
-        }
-        return node.isEndOfWord
-    }
-    startWith(prefix){
-        let node = this.root
-        for(let char of word){
-            if(!node.children[char]){
-                return false
-            }
-            node = node.children[char]
-        }
-        return true
-    }
-}
+// class TrieNode{
+//     constructor(){
+//         this.children = {}
+//         this.isEndOfWord = false
+//     }
+// }
+// class Trie{
+//     constructor(){
+//         this.root = new TrieNode()
+//     }
+//     insert(word){
+//         let node = this.root
+//         for(let char of word){
+//             if(!node.children[char]){
+//                 node.children[char] = new TrieNode()
+//             }
+//             node = node.children[char]
+//         }
+//         node.isEndOfWord = true
+//     }
+//     search(word){
+//         let node = this.root
+//         for(let char of word){
+//             if(!node.children[char]){
+//                 return false
+//             }
+//             node = node.children[char]
+//         }
+//         return node.isEndOfWord
+//     }
+//     startWith(prefix){
+//         let node = this.root
+//         for(let char of word){
+//             if(!node.children[char]){
+//                 return false
+//             }
+//             node = node.children[char]
+//         }
+//         return true
+//     }
+// }
 
-const trie = new TrieNode()
-trie.insert("apple")
-trie.insert("orange")
-console.log(trie.search("apple"))
-console.log(trie.startWith("or"))
+// const trie = new TrieNode()
+// trie.insert("apple")
+// trie.insert("orange")
+// console.log(trie.search("apple"))
+// console.log(trie.startWith("or"))
+
+
+
+class maxHeap{
+    constructor(){
+        this.heap = []
+    }
+    build(arr){
+        this.heap = arr.slice()
+        for(let i=Math.floor(arr.length/2);i>=0;i--){
+            this.heapifyDown(i)
+        }
+    }
+    insert(value){
+        this.heap.push(value)
+        this.heapifyUp(this.heap.length-1)
+    }
+    heapifyUp(index){
+        let parentIndex = Math.floor((index-1)/2)
+        while(index>0&&this.heap[parentIndex]<this.heap[index]){
+            [this.heap[parentIndex],this.heap[index]] = [this.heap[index],this.heap[parentIndex]]
+            index = parentIndex
+            parentIndex = Math.floor((index-1)/2)
+        }
+    }
+    heapifyDown(index){
+        let leftChildIndex = Math.floor((2*index)+1)
+        let rightChildIndex = Math.floor((2*index)+2)
+        largest = index
+        if(leftChildIndex<this.heap.length&&this.heap[leftChildIndex]>this.heap[largest]){
+            largest = leftChildIndex
+        }
+        if(rightChildIndex<this.heap.length&&this.heap[rightChildIndex]>this.heap[largest]){
+            largest = rightChildIndex
+        }
+        if(largest!==index){
+            [this.heap[largest],this.heap[index]] = [this.heap[index],this.heap[largest]]
+            this.heapifyDown(largest)
+        }
+    }
+    remove(){
+        if(this.heap.length===0){
+            return null
+        }
+        const root = this.heap[0]
+        if(this.heap.length===1){
+            return this.heap.pop()
+        }
+        this.heap[0] = this.heap.pop()
+        this.heapifyDown(0)
+        return root
+    }
+    heapSort(arr){
+        this.build(arr)
+        let sorted = []
+        while(this.heap.length>0){
+            sorted.push(this.remove())
+        }
+        return sorted
+    }
+}
