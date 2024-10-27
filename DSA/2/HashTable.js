@@ -21,7 +21,7 @@ class Hashtable{
                 sameKeyItem[1] = value
             }else{
                 bucket.push([key,value])
-            }
+            }                               
         }
     }
     get(key){
