@@ -3,12 +3,11 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import axios from 'axios'
-import fetchdata from './pages/fetchData'
+import Fetchdata from './pages/fetchData'
+import React from 'react'
 
 function App() {
-  <>
-    <fetchData/>
-  </>
+  
 }
 
 export default App

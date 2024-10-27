@@ -508,61 +508,154 @@
 
 
 
-class maxHeap{
-    constructor(){
-        this.heap = []
-    }
-    build(arr){
-        this.heap = arr.slice()
-        for(let i=Math.floor(arr.length/2);i>=0;i--){
-            this.heapifyDown(i)
-        }
-    }
-    insert(value){
-        this.heap.push(value)
-        this.heapifyUp(this.heap.length-1)
-    }
-    heapifyUp(index){
-        let parentIndex = Math.floor((index-1)/2)
-        while(index>0&&this.heap[parentIndex]<this.heap[index]){
-            [this.heap[parentIndex],this.heap[index]] = [this.heap[index],this.heap[parentIndex]]
-            index = parentIndex
-            parentIndex = Math.floor((index-1)/2)
-        }
-    }
-    heapifyDown(index){
-        let leftChildIndex = Math.floor((2*index)+1)
-        let rightChildIndex = Math.floor((2*index)+2)
-        largest = index
-        if(leftChildIndex<this.heap.length&&this.heap[leftChildIndex]>this.heap[largest]){
-            largest = leftChildIndex
-        }
-        if(rightChildIndex<this.heap.length&&this.heap[rightChildIndex]>this.heap[largest]){
-            largest = rightChildIndex
-        }
-        if(largest!==index){
-            [this.heap[largest],this.heap[index]] = [this.heap[index],this.heap[largest]]
-            this.heapifyDown(largest)
-        }
-    }
-    remove(){
-        if(this.heap.length===0){
-            return null
-        }
-        const root = this.heap[0]
-        if(this.heap.length===1){
-            return this.heap.pop()
-        }
-        this.heap[0] = this.heap.pop()
-        this.heapifyDown(0)
-        return root
-    }
-    heapSort(arr){
-        this.build(arr)
-        let sorted = []
-        while(this.heap.length>0){
-            sorted.push(this.remove())
-        }
-        return sorted
-    }
-}
+// class maxHeap{
+//     constructor(){
+//         this.heap = []
+//     }
+//     build(arr){
+//         this.heap = arr.slice()
+//         for(let i=Math.floor(arr.length/2);i>=0;i--){
+//             this.heapifyDown(i)
+//         }
+//     }
+//     insert(value){
+//         this.heap.push(value)
+//         this.heapifyUp(this.heap.length-1)
+//     }
+//     heapifyUp(index){
+//         let parentIndex = Math.floor((index-1)/2)
+//         while(index>0&&this.heap[parentIndex]<this.heap[index]){
+//             [this.heap[parentIndex],this.heap[index]] = [this.heap[index],this.heap[parentIndex]]
+//             index = parentIndex
+//             parentIndex = Math.floor((index-1)/2)
+//         }
+//     }
+//     heapifyDown(index){
+//         let leftChildIndex = Math.floor((2*index)+1)
+//         let rightChildIndex = Math.floor((2*index)+2)
+//         largest = index
+//         if(leftChildIndex<this.heap.length&&this.heap[leftChildIndex]>this.heap[largest]){
+//             largest = leftChildIndex
+//         }
+//         if(rightChildIndex<this.heap.length&&this.heap[rightChildIndex]>this.heap[largest]){
+//             largest = rightChildIndex
+//         }
+//         if(largest!==index){
+//             [this.heap[largest],this.heap[index]] = [this.heap[index],this.heap[largest]]
+//             this.heapifyDown(largest)
+//         }
+//     }
+//     remove(){
+//         if(this.heap.length===0){
+//             return null
+//         }
+//         const root = this.heap[0]
+//         if(this.heap.length===1){
+//             return this.heap.pop()
+//         }
+//         this.heap[0] = this.heap.pop()
+//         this.heapifyDown(0)
+//         return root
+//     }
+//     heapSort(arr){
+//         this.build(arr)
+//         let sorted = []
+//         while(this.heap.length>0){
+//             sorted.push(this.remove())
+//         }
+//         return sorted
+//     }
+// }
+
+
+
+// //Merge sort
+
+// function mergeSort(arr){
+//     if(arr.length<2){
+//         return arr
+//     }
+//     let mid = Math.floor(arr.length/2)
+//     let left = arr.slice(0,mid)
+//     let right = arr.slice(mid)
+//     return merge(mergeSort(left),mergeSort(right))
+// }
+
+// function merge(left,right){
+//     let sorted = []
+//     while(left.length&&right.length){
+//         if(left[0]<=right[0]){
+//             sorted.push(left.shift())
+//         }else{
+//             sorted.push(right.shift())
+//         }
+//     }
+//     return [...sorted,...left,...right]
+// }
+// console.log(mergeSort([5,2,8,4,6,1]))
+
+
+
+// //hashtable
+
+// class Hashtable{
+//     constructor(size){
+//         this.table = new Array(size)
+//         this.size = size
+//     }
+//     hash(key){
+//         let total = 0
+//         for(let i=0;i<key.length;i++){
+//             total += key.charCodeAt(i)
+//         }
+//         return total
+//     }
+//     set(key,value){
+//         const index = this.hash(key)
+//         const bucket = this.table[index]
+//         if(!bucket){
+//             this.table[index] = [[key,value]]
+//         }else{
+//             const sameKeyItem = bucket.find(item => item[0]===key)
+//             if(sameKeyItem){
+//                 sameKeyItem[1] = value
+//             }else{
+//                 bucket.push([key,value])
+//             }
+//         }
+//     }
+//     get(key){
+//         const index = this.hash(key)
+//         const bucket = this.table[index]
+//         if(bucket){
+//             const sameKeyItem = bucket.find(item => item[0]===key)
+//             if(sameKeyItem){
+//                 return sameKeyItem[1]
+//             }
+//         }
+//         return undefined
+//     }
+//     remove(key){
+//         const index = this.hash(key)
+//         const bucket = this.table[index]
+//         if(bucket){
+//             const sameKeyItem = bucket.find(item => item[0]===key)
+//             if(sameKeyItem){
+//                 return bucket.splice(bucket.indexOf(sameKeyItem))
+//             }
+//         }
+//     }
+//     display(){
+//         for(let i=0;i<this.table.length;i++){
+//             if(this.table[i]){
+//                 console.log(i,this.table[i])
+//             }
+//         }
+//     }
+// }
+
+// const table = new Hashtable()
+// table.set("nam","Dil")
+// table.set("age","20")
+// table.display()
+

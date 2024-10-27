@@ -1,3 +1,6 @@
+import { useState,useEffect } from "react"
+import axios from "axios"
+
 const fetchData = ()=>{
     const [posts,setPosts] = useState([])
     const [showData,setShowData] = useState(false)
@@ -51,3 +54,5 @@ const fetchData = ()=>{
       </div>
     )
 }
+
+export default fetchData
