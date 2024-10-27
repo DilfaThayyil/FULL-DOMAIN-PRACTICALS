@@ -45,6 +45,7 @@ class Graph{
             }
         }
     }
+    
     dfs(start){
         const stack = [start]
         const visited = new Set()
@@ -58,7 +59,7 @@ class Graph{
         }
     }
 
-    hasCycle(){
+    hasCycles(){
         const visited = new Set()
         const dfsCycle = (vertex,parent)=>{
             visited.add(vertex)
@@ -79,11 +80,36 @@ class Graph{
                 if(dfsCycle(vertex,null)){
                     return true
                 }
+                
+            }
+        }
+        return false  
+    }
+    countCycles(){
+        let visited = new Set()
+        countCycles = 0
+        const dfsCycle = (vertex,parent)=>{
+            visited.add(vertex)
+            for(let neighbour of this.adjacencyList[vertex]){
+                if(!visited.has(neighbour)){
+                    if(dfsCycle(neighbour,vertex)){
+                        countCycles++
+                    }
+                }else if(neighbour!==parent){
+                    countCycles++
+                }
+            }
+            return false
+        }
+        for(let vertex of this.adjacencyList){
+            if(!visited.has(vertex)){
+                if(dfsCycle(vertex,null)){
+                    return true
+                }
             }
         }
         return false
-    }
-
+    }    
 
     display(){
         for(let vertex in this.adjacencyList){
@@ -102,3 +128,5 @@ graph.addEdge("A","C")
 graph.display()
 graph.dfs("A")
 graph.bfs("A")
+console.log(graph.hasCycles())
+console.log("number of cycles :",graph.countCycles())
