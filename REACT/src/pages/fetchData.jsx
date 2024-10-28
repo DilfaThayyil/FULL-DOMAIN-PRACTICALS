@@ -1,58 +1,46 @@
-import { useState,useEffect } from "react"
-import axios from "axios"
+import { useState } from "react"
+import {useDispatch,useSelector} from 'react-redux'
+import { fetchPosts } from "../redux/postsSlice"
 
-const fetchData = ()=>{
-    const [posts,setPosts] = useState([])
-    const [showData,setShowData] = useState(false)
+const FetchData = () => {
+  const dispatch = useDispatch()
+  const { posts, loading, error } = useSelector((state) => state.posts)
+  const [showData, setShowData] = useState(false)
 
-    const fetchPosts = async()=>{
-        try{
-            const response = await axios.get("https://jsonplaceholder.typicode.com/posts")
-            setPosts(response.data)
-        }catch(error){
-            console.log(error)
-        }
-    }
+  const handleData = () => {
+    setShowData(true)
+    dispatch(fetchPosts())
+  }
 
-    useEffect(()=>{
-        fetchPosts()
-    },[])
-
-    const handleData = ()=>{
-        setShowData(true)
-    }
-
-    return (
-      <div>
-        {!showData &&(
-          <button onClick={handleData}>Click to fetch Data</button>
-        )}
-        {showData &&(
-          <table>
-            <thead>
-              <tr>
-                <th>Id</th>
-                <th>UserId</th>
-                <th>Title</th>
-                <th>Body</th>
+  return (
+    <div>
+      {!showData && <button onClick={handleData}>Click to fetch Data</button>}
+      {loading && <p>Loading...</p>}
+      {error && <p>Error: {error}</p>}
+      {showData && !loading && !error && (
+        <table>
+          <thead>
+            <tr>
+              <th>Id</th>
+              <th>UserId</th>
+              <th>Title</th>
+              <th>Body</th>
+            </tr>
+          </thead>
+          <tbody>
+            {posts.map((post) => (
+              <tr key={post.id}>
+                <td>{post.id}</td>
+                <td>{post.userId}</td>
+                <td>{post.title}</td>
+                <td>{post.body}</td>
               </tr>
-            </thead>
-            <tbody>
-              {posts.map((post)=>{
-                return (
-                  <tr key={post.id}>
-                    <td>{post.id}</td>
-                    <td>{post.userId}</td>
-                    <td>{post.title}</td>
-                    <td>{post.body}</td>
-                  </tr>
-                )
-              })}
-            </tbody>
-          </table>
-        )}
-      </div>
-    )
+            ))}
+          </tbody>
+        </table>
+      )}
+    </div>
+  )
 }
 
-export default fetchData
+export default FetchData

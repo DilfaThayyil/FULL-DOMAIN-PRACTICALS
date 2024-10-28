@@ -7,12 +7,13 @@ import Fetchdata from './pages/fetchData'
 import React from 'react'
 import HandleClick from './pages/righClick'
 
-
 function App() {
  
+   return (
     <>
-    <HandleClick/>
+    <Fetchdata/>
     </>
+   )
 
 }
 
