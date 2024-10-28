@@ -5,9 +5,15 @@ import './App.css'
 import axios from 'axios'
 import Fetchdata from './pages/fetchData'
 import React from 'react'
+import HandleClick from './pages/righClick'
+
 
 function App() {
-  
+ 
+    <>
+    <HandleClick/>
+    </>
+
 }
 
 export default App
