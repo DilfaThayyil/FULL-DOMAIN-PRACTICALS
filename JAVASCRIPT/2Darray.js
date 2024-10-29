@@ -25,7 +25,7 @@ function* yieldNumbers(arr){
     }
 }
 const arr1 = [[1,2],[3,4],[5,6]]
-const generator = yieldNumbers(arr1)
+const generator = yieldNumbers(arr1)   
 for(let num of generator){
     console.log(num)
 }
