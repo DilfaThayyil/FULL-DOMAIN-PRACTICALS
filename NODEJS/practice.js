@@ -33,14 +33,28 @@
 // })
 
 
+// ----------------------------------------------------------------------
 
 
 
+// const express = require('express')
+// const app = express()
+// const PORT = 3000
 
-const express = require('express')
-const app = express()
+// app.use((req,res,next)=>{
+//     if(req.method==='GET'){
+//         return res.status(403).send('Get requests are blocked')
+//     }
+//     next()
+// })
+// app.get('/',(req,res)=>{
+//     res.send('this route cant be accessible')
+// })
+// app.listen(PORT,()=>{
+//     console.log(`server listeing on http://localhost:${PORT}`)
+// })
 
 
-
+// ----------------------------------------------------------------------
 
 
