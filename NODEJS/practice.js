@@ -59,10 +59,15 @@
 
 
 //event emitter
-const EventEmitter = require('events')
-const emitter = new EventEmitter()         
+// const EventEmitter = require('events')
+// const emitter = new EventEmitter()
 
-emitter.on('dataReceived',(data)=>{
-    console.log(`data received ${data}`)  //on is used to add a callback function that's going to be executed when the event is triggered
-})
-emitter.emit('dataReceived','Hello world!')   //emit is used to trigger an event
+// emitter.on('DataReceived',(data)=>{
+//     console.log(`data is received : ${data}`)
+// })
+// emitter.emit('DataReceived','You are in the right path girl..')
+
+
+//--------------------------------------------------------------------------
+
+
