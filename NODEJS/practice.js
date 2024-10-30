@@ -59,6 +59,7 @@
 
 
 //event emitter
+
 // const EventEmitter = require('events')
 // const emitter = new EventEmitter()
 
@@ -69,5 +70,53 @@
 
 
 //--------------------------------------------------------------------------
+
+
+// //readable streams
+
+// const fs = require('fs')
+
+// const readableStream = fs.createReadStream('example.txt',{encoding:'utf8'})
+// readableStream.on('data',(chunk)=>{
+//     console.log('received chunk: ',chunk)
+// })
+// readableStream.on('end',()=>{
+//     console.log('no more data')
+// })
+// readableStream.on('error',(error)=>{
+//     console.error('error : ',error)
+// })
+
+
+// --------------------------------------------------------------------------
+
+
+// // application middleware
+// const express = require('express')
+// const app = express()
+
+//error handling middleware
+// app.use((req,res,next,err)=>{
+//     console.error("error :",err)
+//     res.status(500).send('internal server error')
+// })
+
+//router level middleware
+// app.get('/',(req,res)=>{
+//     res.send('Hello world!')
+// })
+
+// middleware to check for token in req headers
+// app.use((req,res,next)=>{
+//     if(req.headers['authToken']){
+//         console.log('token found')
+//         next()
+//     }else{
+//         res.status(403).send('forbidden : no token provided')
+//     }
+// })
+
+
+// -----------------------------------------------------------------------------
 
 
