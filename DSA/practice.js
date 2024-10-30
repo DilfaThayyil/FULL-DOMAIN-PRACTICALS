@@ -672,22 +672,22 @@ class Graph{
     }
     addEdge(vertex1,vertex2){
         if(!this.adjacencyList[vertex1]){
-            this.addVertex[vertex1]
+            this.addVertex(vertex1)
         }
         if(!this.adjacencyList[vertex2]){
-            this.addVertex[vertex2]
+            this.addVertex(vertex2)
         }
         this.adjacencyList[vertex1].add(vertex2)
         this.adjacencyList[vertex2].add(vertex1)
     }
     hasEdge(vertex1,vertex2){
         return (
-            this.adjacencyList[vertex1]&&
-            this.adjacencyList[vertex2]
+            this.adjacencyList[vertex1].has(vertex2)&&
+            this.adjacencyList[vertex2].has(vertex1)
         )
     }
     removeVertex(vertex){
-        if(this.adjacencyList[vertex]){
+        if(!this.adjacencyList[vertex]){
             return
         }
         delete this.adjacencyList[vertex]
@@ -696,32 +696,8 @@ class Graph{
         this.adjacencyList[vertex1].delete(vertex2)
         this.adjacencyList[vertex2].delete(vertex1)
     }
-    bfs(start){
-        const queue = [start]
-        const visited = new Set()
-        while(queue.length>0){
-            const vertex = queue.shift()
-            if(!visited.has(vertex)){
-                console.log(vertex)
-                visited.add(vertex)
-                queue.push(...this.adjacencyList[vertex])
-            }
-        }
-    }
-    dfs(start){
-        const stack = [start]
-        const visited  = new Set()
-        while(stack.length>0){
-            const vertex = stack.pop()
-            if(!visited.has(vertex)){
-                console.log(vertex)
-                visited.add(vertex)
-                stack.push(...this.adjacencyList[vertex])
-            }
-        }
-    }
     hasCycle(){
-        let visited = new Set()
+        const visited = new Set()
         const dfsCycle = (vertex,parent)=>{
             visited.add(vertex)
             for(let neighbour of this.adjacencyList[vertex]){
@@ -744,6 +720,31 @@ class Graph{
         }
         return false
     }
+    countCycles(){
+        let visited = new Set();
+        let countCycles = 0;
+    
+        const dfsCycle = (vertex, parent) => {
+            visited.add(vertex);
+            for (let neighbor of this.adjacencyList[vertex]) {
+                if (!visited.has(neighbor)) {
+                    if (dfsCycle(neighbor, vertex)) {
+                        countCycles++;
+                    }
+                } else if (neighbor !== parent) {
+                    countCycles++;
+                }
+            }
+            return false;
+        };
+    
+        for (let vertex in this.adjacencyList) {
+            if (!visited.has(vertex)) {
+                dfsCycle(vertex, null);
+            }
+        }
+        return countCycles / 2; 
+    }    
     display(){
         for(let vertex in this.adjacencyList){
             console.log(vertex+"=>"+[...this.adjacencyList[vertex]])
@@ -752,9 +753,13 @@ class Graph{
 }
 
 const graph = new Graph()
-graph.addVertex("A")
 graph.addVertex("B")
-graph.addEdge("A","B")
+graph.addVertex("C")
+graph.addVertex("D")
+graph.addEdge("D","B")
+graph.addEdge("B","C")
+graph.addEdge("C","D")
 graph.display()
-graph.bfs("B")
-graph.dfs("B")
+console.log(graph.hasEdge("B","C"))
+console.log(graph.hasCycle())
+console.log(graph.countCycles())
