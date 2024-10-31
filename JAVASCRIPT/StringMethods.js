@@ -18,3 +18,6 @@ let string3 = 'Apple,banana,orange,grape'
 let splitted = string3.split(',',2)
 console.log(splitted)
 
+//charAt()
+let string4 = 'Hello'
+console.log(string4.charAt(1))
