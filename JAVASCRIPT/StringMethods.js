@@ -1,5 +1,5 @@
 //toupperCase
-let string= 'shibil'
+let string= 'shi..'
 let a = string.toUpperCase()
 console.log(a)
 
