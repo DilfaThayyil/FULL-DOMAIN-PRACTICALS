@@ -11,7 +11,7 @@ class BinarySearchTree{
     }
     insert(value){
         const node = new Node(value)
-        if(!this.root){
+        if(!this.root){ 
             this.root = node
         }else{
             return this.insertNode(this.root,node)
