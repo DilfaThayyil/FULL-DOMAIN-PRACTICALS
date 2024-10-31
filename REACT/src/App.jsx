@@ -6,12 +6,13 @@ import axios from 'axios'
 import Fetchdata from './pages/fetchData'
 import React from 'react'
 import HandleClick from './pages/righClick'
+import CounterParent from './pages/counterParent'
 
 function App() {
  
    return (
     <>
-    <Fetchdata/>
+    <CounterParent/>
     </>
    )
 
