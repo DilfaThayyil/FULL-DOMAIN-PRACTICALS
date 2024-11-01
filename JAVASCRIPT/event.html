@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="outer">
+        <div id="inner">
+            <button id="myButton">Click Me</button>
+        </div>
+    </div>
+    <script>
+        let outer = document.getElementById("outer")
+        let inner = document.getElementById("inner")
+        let button = document.getElementById("myButton")
+        function handleCapture(event){
+            console.log('capturing..',this.id)
+        }
+        //event capturing
+        outer.addEventListener('click',handleCapture,true)
+        inner.addEventListener('click',handleCapture,true)
+        myButton.addEventListener('click',handleCapture,true)
+    </script>
+</body>
+</html>
