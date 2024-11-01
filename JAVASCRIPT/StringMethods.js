@@ -44,4 +44,9 @@ console.log(string3.replace("a","B"))
 //replaceAll()
 console.log(string3.replaceAll("a","B"))
 //split()
-console.log(string.)
+console.log(string1.split(" "))
+//startWith
+console.log(string.startsWith("h"))
+//repeat()
+console.log("Hi".repeat(3))
+//
