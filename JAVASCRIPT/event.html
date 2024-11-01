@@ -18,10 +18,10 @@
         function handleCapture(event){
             console.log('capturing..',this.id)
         }
-        //event capturing
-        outer.addEventListener('click',handleCapture,true)
-        inner.addEventListener('click',handleCapture,true)
-        myButton.addEventListener('click',handleCapture,true)
+        //event bubbling
+        outer.addEventListener('click',handleCapture)
+        inner.addEventListener('click',handleCapture)
+        myButton.addEventListener('click',handleCapture)
     </script>
 </body>
 </html>
