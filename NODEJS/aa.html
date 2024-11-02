@@ -6,23 +6,22 @@
     <title>Document</title>
 </head>
 <body>
-    <div>
-        <ul id="category">
-            <li>item1</li>
-            <li>item2</li>
-            <li>item3</li>
-        </ul>
+    <div id="category">
+        <div class="box">box1</div>
+        <div class="box">box2</div>
+        <div class="box">box3</div>
     </div>
     <script>
-        const itemList = document.getElementById('category')
-        itemList.addEventListener('click',(e)=>{
-            if(e.target.tagName==='LI'){
-                console.log("You clicked on : ",e.target.textContent)
+        const box = document.getElementById('category')
+        box.addEventListener('click',(e)=>{
+            if(e.target.classList.contains('box')){
+                console.log('you clicked on : ',e.target.textContent)
             }
         })
-        const newItem = document.createElement('li')
-        newItem.textContent = 'item4'
-        itemList.appendChild(newItem)
+        const newBox = document.createElement('div')
+        newBox.className = 'box'
+        newBox.textContent = 'box4'
+        box.appendChild(newBox)
     </script>
 </body>
 </html>
