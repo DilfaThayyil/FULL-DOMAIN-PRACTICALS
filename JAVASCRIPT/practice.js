@@ -126,7 +126,7 @@ app.get('/',(req,res)=>{
 app.post('/data',(req,res)=>{
     const datas = req.body
     res.json({
-        message:'This.is a post request',
+        message:'This is a post request',
         data:datas
     })
 })
