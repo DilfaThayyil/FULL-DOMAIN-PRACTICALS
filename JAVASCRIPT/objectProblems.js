@@ -19,3 +19,5 @@ for(let key in obj1){
 }
 delete obj1[lastKey]
 console.log(obj1)
+
+
