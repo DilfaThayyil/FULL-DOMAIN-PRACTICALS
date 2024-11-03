@@ -7,12 +7,13 @@ import Fetchdata from './pages/fetchData'
 import React from 'react'
 import HandleClick from './pages/righClick'
 import CounterParent from './pages/counterParent'
+import InputComponent from './pages/useRef'
 
 function App() {
  
    return (
     <>
-    <CounterParent/>
+    <InputComponent/>
     </>
    )
 

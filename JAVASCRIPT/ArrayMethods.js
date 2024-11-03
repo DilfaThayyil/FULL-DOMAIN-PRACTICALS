@@ -56,3 +56,25 @@ const set = new Set()
 const arr0 = Array.from(str)
 console.log(arr0)
 
+//structuredClone(deepclone)
+let original = [1,[2,3],{a:5}]
+let clone = structuredClone(original)
+console.log(clone)
+
+//using recursion
+function deepClone(arr){
+    if(arr===null||typeof arr!==Array){
+        return arr
+    }
+    let clone
+    if(Array.isArray(arr)){
+        clone = []
+    }else{
+        clone = {}
+    }
+    if(Array.isArray(clone)){
+        clone = deepClone(clone)
+    }
+    return clone
+}
+console.log(deepClone(original))
