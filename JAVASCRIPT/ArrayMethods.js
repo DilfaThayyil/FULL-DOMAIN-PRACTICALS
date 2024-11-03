@@ -49,3 +49,10 @@ console.log(arr6)
 let arr7 = [4,2,8,1,0,6]
 arr7.splice(2,0,9)
 console.log(arr7)
+
+//Array.from
+const str = 'hello'
+const set = new Set()
+const arr0 = Array.from(str)
+console.log(arr0)
+
