@@ -19,3 +19,13 @@ delete obj1[lastKey]
 console.log(obj1)
 
 
+//how to find the length of an object
+let obj2 = {a:1,b:2,c:3}
+let length = Object.keys(obj2).length
+console.log(length)
+// or
+let length1 = Object.entries(obj2).length
+console.log(length1)
+//or
+let length2 = Object.values(obj2).length
+console.log(length2)
