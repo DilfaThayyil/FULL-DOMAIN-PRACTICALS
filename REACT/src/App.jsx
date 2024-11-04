@@ -8,12 +8,13 @@ import React from 'react'
 import HandleClick from './pages/righClick'
 import CounterParent from './pages/counterParent'
 import InputComponent from './pages/useRef'
+import ParentComponent from './pages/forwardRefParent'
 
 function App() {
  
    return (
     <>
-    <InputComponent/>
+    <ParentComponent/>
     </>
    )
 

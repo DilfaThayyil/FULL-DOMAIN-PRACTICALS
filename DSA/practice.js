@@ -769,8 +769,6 @@
 // ------------------------------------------
 
 
-
-
 class Node{
     constructor(value){
         this.value = value
@@ -787,8 +785,396 @@ class BinarySearchTree{
         if(!this.root){
             this.root = node
         }else{
-            return this.insertNode(this.root,node)
+            this.insertNode(this.root,node)
         }
     }
-    insertNode(root)
+    insertNode(root,node){
+        if(node.value<root.value){
+            if(!root.left){
+                root.left = node
+            }else{
+                this.insertNode(root.left,node)
+            }
+        }else{
+            if(!root.right){
+                root.right = node
+            }else{
+                this.insertNode(root.right,node)
+            }
+        }
+    }
+    delete(value){
+        this.root = this.deleteNode(this.root,value)
+    }
+    deleteNode(root,value){
+        if(!root){
+            return root
+        }
+        if(value<root.value){
+            root.left = this.deleteNode(root.left,value)
+        }else if(value>root.value){
+            root.right = this.deleteNode(root.right,value)
+        }else{
+            if(!root.left&&!root.right){
+                return null
+            }
+            if(!root.left){
+                return root.right
+            }else if(!root.right){
+                return root.left
+            }
+            root.value = this.min(root.right)
+            root.right = this.deleteNode(root.right,root.value)
+        }
+        return root
+    }
+    preOrder(root){
+        if(root){
+            console.log(root.value)
+            this.preOrder(root.left)
+            this.preOrder(root.right)
+        }
+    }
+    inOrder(root){
+        if(root){
+            this.inOrder(root.left)
+            console.log(root.value)
+            this.inOrder(root.right)
+        }
+        
+    }
+    postOrder(root){
+        if(root){
+            this.postOrder(root.left)
+            this.postOrder(root.right)
+            console.log(root.value)
+        }
+    }
+    levelOrder(){
+        const queue = []
+        queue.push(this.root)
+        while(queue.length){
+            let curr = queue.shift()
+            console.log(curr.value)
+            if(curr.left){+
+                queue.push(curr.left)
+            }else{
+                queue.push(curr.right)
+            }
+        }
+    }
+    min(root){
+        if(!root.left){
+            return root.value
+        }
+        return this.min(root.left)
+    }
+    max(root){
+        if(!root.right){
+            return root.value
+        }
+        return this.min(root.right)
+    }
+    findClosest(root,target){
+        let closest = root.value
+        while(root){
+            if(Math.abs(target-closest)<Math.abs(target-root.value)){
+                closest = root.value
+            }
+            if(target<root.value){
+                root = root.left
+            }else if(target>root.value){
+                root = root.right
+            }else{
+                break
+            }
+        }
+        return closest
+    }
+    sum(root){
+        if(!root){
+            return 0
+        }
+        return root.value+this.sum(root.left)+this.sum(root.right)
+    }
+    isBst(root,min=null,max=null){
+        if(!root){
+            return true
+        }
+        if(min&&root.value>=min||max&&root.value<=max){
+            return false
+        }
+        return this.isBst(root.left,min,root.value)&&this.isBst(root.right,root.value,max)
+    }
+}
+
+// --------------------------------------------------------------------
+
+
+class Graph{
+    constructor(){
+        this.adjacencyList = {}
+    }
+    addVertex(vertex){
+        if(!this.adjacencyList[vertex]){
+            this.adjacencyList[vertex] = new Set()
+        }
+    }
+    addEdge(vertex1,vertex2){
+        if(!this.adjacencyList[vertex1]){
+            this.addVertex(vertex1)
+        }
+        if(!this.adjacencyList[vertex2]){
+            this.addVertex(vertex2)
+        }
+        this.adjacencyList[vertex1].add(vertex2)
+        this.adjacencyList[vertex2].add(vertex1)
+    }
+    hasEdge(vertex1,vertex2){
+        return (
+            this.adjacencyList[vertex1].has(vertex2)&&
+            this.adjacencyList[vertex2].has(vertex1)
+        )
+    }
+    removeEdge(vertex1,vertex2){
+        this.adjacencyList[vertex1].delete(vertex2)
+        this.adjacencyList[vertex2].delete(vertex1)
+    }
+    removeVertex(vertex){
+        if(!this.adjacencyList[vertex]){
+            return
+        }
+        for(let adjacentVertex of this.adjacencyList[vertex]){
+            this.removeEdge(vertex,adjacentVertex)
+        }
+        delete this.adjacencyList[vertex]
+    }
+    display(){
+        for(let vertex in this.adjacencyList){
+            console.log(vertex+"=>"+[...this.adjacencyList[vertex]])
+        }
+    }
+    dfs(start){
+        const stack = [start]
+        const visited = new Set()
+        while(stack.length>0){
+            const vertex = stack.pop()
+            if(!visited.has(vertex)){
+                console.log(vertex)
+                visited.add(vertex)
+                stack.push(...this.adjacencyList[vertex])
+            }
+        }
+    }
+    bfs(start){
+        const queue = [start]
+        const visited = new Set()
+        while(queue.length>0){
+            const vertex = queue.shift()
+            if(!visited.has(vertex)){
+                console.log(vertex)
+                visited.add(vertex)
+                queue.push(...this.adjacencyList[vertex])
+            }
+        }
+    }
+    hasCycle(){
+        const visited = new Set()
+        const dfsCycle = (vertex,parent)=>{
+            visited.add(vertex)
+            for(let neighbour of this.adjacencyList[vertex]){
+                if(!visited.has(neighbour)){
+                    if(dfsCycle(neighbour,vertex)){
+                        return true
+                    }
+                }else if(neighbour!==parent){
+                    return true
+                }
+            }
+            return false
+        }
+        for(let vertex in this.adjacencyList){
+            if(!visited.has(vertex)){
+                if(dfsCycle(vertex,null)){
+                    return true
+                }
+            }
+        }
+        return false
+    }
+    countCycle(){
+        const visited = new Set()
+        cycleCount = 0
+        const dfsCycle = (vertex,parent)=>{
+            visited.add(vertex)
+            for(let neighbour of this.adjacencyList[vertex]){
+                if(!visited.has(neighbour)){
+                    if(dfsCycle(neighbour,vertex)){
+                        cycleCount++
+                    }
+                }else if(neighbour!==parent){
+                    cycleCount++
+                }
+            }
+        }
+        for(let vertex in this.adjacencyList){
+            if(!visited.has(vertex)){
+                dfsCycle(vertex,null)
+            }
+        }
+        return cycleCount/2
+    }
+    display(){
+        for(let vertex in this.adjacencyList){
+            console.log(vertex+"=>"+[...this.adjacencyList[vertex]])
+        }
+    }
+}
+
+// -------------------------------------------------------------
+
+class Hashtable{
+    constructor(size){
+        this.table = new Array(size)
+        this.size = size
+    }
+    hash(key){
+        let total = 0
+        for(let i=0;i<key.length;i++){
+            total += charCodeAt(i)
+        }
+        return total
+    }
+    set(key,value){
+        const index = this.hash(key)
+        const bucket = this.table[index]
+        if(!bucket){
+            this.table[index] = [[key,value]]
+        }else{
+            const sameKeyItem = bucket.find(item=>item[0]===key)
+            if(sameKeyItem){
+                sameKeyItem[1] = value
+            }else{
+                bucket.push([key,value])
+            }
+        }
+    }
+    get(key){
+        const index = this.hash(key)
+        const bucket = this.table[index]
+        if(bucket){
+            const sameKeyItem = bucket.find(item=>item[0]===key)
+            if(sameKeyItem){
+                return sameKeyItem[1]
+            }
+        }
+        return undefined
+    }
+    remove(key){
+        const index = this.hash(key)
+        const bucket = this.table[index]
+        if(bucket){
+            const sameKeyItem = bucket.find(item=>item[0]===key)
+            if(sameKeyItem){
+                return bucket.splice(bucket.indexOf(sameKeyItem))
+            }
+        }
+    }
+    display(){
+        for(let i=0;i<this.table.length;i++){
+            if(this.table[i]){
+                console.log(i,this.table[i])
+            }
+        }
+    }
+}
+
+
+// ----------------------------------------------------------------
+
+function mergeSort(arr){
+    if(arr.length<2){
+        return arr
+    }
+    let mid = Math.floor(arr.length/2)
+    let left = arr.slice(0,mid)
+    let right = arr.slice(mid)
+    return merge(mergeSort(left),mergeSort(right))
+}
+function merge(left,right){
+    let sorted = []
+    while(left.length&&right.length){
+        if(left[0]<=right[0]){
+            sorted.push(left.shift())
+        }else{
+            sorted.push(right.shift())
+        }
+    }
+    return [...sorted,...left,...right]
+}
+
+const arr = [1,6,2,9,4]
+console.log(mergeSort(arr))
+
+
+// --------------------------------------------------------------------
+
+
+class MaxHeap{
+    constructor(){
+        this.heap = []
+    }
+    build(arr){
+        this.heap = arr.slice()
+        for(let i=Math.floor(arr.length/2);i>=0;i--){
+            this.heapifyDown(i)
+        }
+    }
+    insert(value){
+        this.heap.push(value)
+        this.heapifyUp(this.heap.length-1)
+    }
+    heapifyUp(index){
+        let parentIndex = Math.floor((index-1)/2)
+        while(index>0&&this.heap[parentIndex]<this.heap[index]){
+            [this.heap[parentIndex],this.heap[index]] = [this.heap[index],this.heap[parentIndex]]
+            index = parentIndex
+            parentIndex = Math.floor((index-1)/2)
+        }
+    }
+    heapifyDown(index){
+        let leftChildIndex = Math.floor((2*index)+1)
+        let rightChildIndex = Math.floor((2*index)+2)
+        largest = index
+        if(leftChildIndex<this.heap.length&&this.heap[leftChildIndex]>this.heap[largest]){
+            largest = leftChildIndex
+        }
+        if(rightChildIndex<this.heap.length&&this.heap[rightChildIndex]>this.heap[index]){
+            largest = rightChildIndex
+        }
+        if(largest!==index){
+            [this.heap[largest],this.heap[index]] = [this.heap[index],this.heap[largest]]
+            this.heapifyDown(largest)
+        }
+    }
+    remove(){
+        if(this.heap.length===0){
+            return null
+        }
+        const root = this.heap[0]
+        if(this.heap.length===1){
+            return this.heap.pop()
+        }
+        this.heap[0] = this.heap.pop()
+        this.heapifyDown(0)
+        return root
+    }
+    heapSort(arr){
+        this.build(arr)
+        let sorted = []
+        while(this.heap.length>0){
+            sorted.push(this.remove())
+        }
+        return sorted
+    }
 }

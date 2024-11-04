@@ -103,17 +103,18 @@
 // console.log(deepClone(obj))
 
 
-//merge 2 object
-let obj = {a:1,b:2,c:3}
-let obj1 = {a:4,b:5,c:6}
-function merge(obj1,obj2){
-    let merged = {}
-    for(let key in obj1){
-        merged[key] = obj1[key]
-    }
-    for(let key in obj2){
-        merged[key] = obj2[key]
-    }
-    return merged
-}
-console.log(merge(obj,obj1))
+// //merge 2 object
+// let obj = {a:1,b:2,c:3}
+// let obj1 = {a:4,b:5,c:6}
+// function merge(obj1,obj2){
+//     let merged = {}
+//     for(let key in obj1){
+//         merged[key] = obj1[key]
+//     }
+//     for(let key in obj2){
+//         merged[key] = obj2[key]
+//     }
+//     return merged
+// }
+// console.log(merge(obj,obj1))
+
