@@ -660,106 +660,135 @@
 // table.display()
 
 
-// Graph
-class Graph{
-    constructor(){
-        this.adjacencyList = {}
-    }
-    addVertex(vertex){
-        if(!this.adjacencyList[vertex]){
-            this.adjacencyList[vertex] = new Set()
-        }
-    }
-    addEdge(vertex1,vertex2){
-        if(!this.adjacencyList[vertex1]){
-            this.addVertex(vertex1)
-        }
-        if(!this.adjacencyList[vertex2]){
-            this.addVertex(vertex2)
-        }
-        this.adjacencyList[vertex1].add(vertex2)
-        this.adjacencyList[vertex2].add(vertex1)
-    }
-    hasEdge(vertex1,vertex2){
-        return (
-            this.adjacencyList[vertex1].has(vertex2)&&
-            this.adjacencyList[vertex2].has(vertex1)
-        )
-    }
-    removeVertex(vertex){
-        if(!this.adjacencyList[vertex]){
-            return
-        }
-        delete this.adjacencyList[vertex]
-    }
-    removeEdge(vertex1,vertex2){
-        this.adjacencyList[vertex1].delete(vertex2)
-        this.adjacencyList[vertex2].delete(vertex1)
-    }
-    hasCycle(){
-        const visited = new Set()
-        const dfsCycle = (vertex,parent)=>{
-            visited.add(vertex)
-            for(let neighbour of this.adjacencyList[vertex]){
-                if(!visited.has(neighbour)){
-                    if(dfsCycle(neighbour,vertex)){
-                        return true
-                    }
-                }else if(neighbour!==parent){
-                    return true
-                }
-            }
-            return false
-        }
-        for(let vertex in this.adjacencyList){
-            if(!visited.has(vertex)){
-                if(dfsCycle(vertex,null)){
-                    return true
-                }
-            }
-        }
-        return false
-    }
-    countCycles(){
-        let visited = new Set();
-        let countCycles = 0;
+// // Graph
+// class Graph{
+//     constructor(){
+//         this.adjacencyList = {}
+//     }
+//     addVertex(vertex){
+//         if(!this.adjacencyList[vertex]){
+//             this.adjacencyList[vertex] = new Set()
+//         }
+//     }
+//     addEdge(vertex1,vertex2){
+//         if(!this.adjacencyList[vertex1]){
+//             this.addVertex(vertex1)
+//         }
+//         if(!this.adjacencyList[vertex2]){
+//             this.addVertex(vertex2)
+//         }
+//         this.adjacencyList[vertex1].add(vertex2)
+//         this.adjacencyList[vertex2].add(vertex1)
+//     }
+//     hasEdge(vertex1,vertex2){
+//         return (
+//             this.adjacencyList[vertex1].has(vertex2)&&
+//             this.adjacencyList[vertex2].has(vertex1)
+//         )
+//     }
+//     removeVertex(vertex){
+//         if(!this.adjacencyList[vertex]){
+//             return
+//         }
+//         delete this.adjacencyList[vertex]
+//     }
+//     removeEdge(vertex1,vertex2){
+//         this.adjacencyList[vertex1].delete(vertex2)
+//         this.adjacencyList[vertex2].delete(vertex1)
+//     }
+//     hasCycle(){
+//         const visited = new Set()
+//         const dfsCycle = (vertex,parent)=>{
+//             visited.add(vertex)
+//             for(let neighbour of this.adjacencyList[vertex]){
+//                 if(!visited.has(neighbour)){
+//                     if(dfsCycle(neighbour,vertex)){
+//                         return true
+//                     }
+//                 }else if(neighbour!==parent){
+//                     return true
+//                 }
+//             }
+//             return false
+//         }
+//         for(let vertex in this.adjacencyList){
+//             if(!visited.has(vertex)){
+//                 if(dfsCycle(vertex,null)){
+//                     return true
+//                 }
+//             }
+//         }
+//         return false
+//     }
+//     countCycles(){
+//         let visited = new Set();
+//         let countCycles = 0;
     
-        const dfsCycle = (vertex, parent) => {
-            visited.add(vertex);
-            for (let neighbor of this.adjacencyList[vertex]) {
-                if (!visited.has(neighbor)) {
-                    if (dfsCycle(neighbor, vertex)) {
-                        countCycles++;
-                    }
-                } else if (neighbor !== parent) {
-                    countCycles++;
-                }
-            }
-            return false;
-        };
+//         const dfsCycle = (vertex, parent) => {
+//             visited.add(vertex);
+//             for (let neighbor of this.adjacencyList[vertex]) {
+//                 if (!visited.has(neighbor)) {
+//                     if (dfsCycle(neighbor, vertex)) {
+//                         countCycles++;
+//                     }
+//                 } else if (neighbor !== parent) {
+//                     countCycles++;
+//                 }
+//             }
+//             return false;
+//         };
     
-        for (let vertex in this.adjacencyList) {
-            if (!visited.has(vertex)) {
-                dfsCycle(vertex, null);
-            }
-        }
-        return countCycles / 2; 
-    }    
-    display(){
-        for(let vertex in this.adjacencyList){
-            console.log(vertex+"=>"+[...this.adjacencyList[vertex]])
-        }
+//         for (let vertex in this.adjacencyList) {
+//             if (!visited.has(vertex)) {
+//                 dfsCycle(vertex, null);
+//             }
+//         }
+//         return countCycles / 2; 
+//     }    
+//     display(){
+//         for(let vertex in this.adjacencyList){
+//             console.log(vertex+"=>"+[...this.adjacencyList[vertex]])
+//         }
+//     }
+// }
+
+// const graph = new Graph()
+// graph.addVertex("B")
+// graph.addVertex("C")
+// graph.addVertex("D")
+// graph.addEdge("D","B")
+// graph.addEdge("B","C")
+// graph.addEdge("C","D")
+// graph.display()
+// console.log(graph.hasEdge("B","C"))
+// console.log(graph.hasCycle())
+// console.log(graph.countCycles())
+
+
+
+// ------------------------------------------
+
+
+
+
+class Node{
+    constructor(value){
+        this.value = value
+        this.left = null
+        this.right = null
     }
 }
-
-const graph = new Graph()
-graph.addVertex("B")
-graph.addVertex("C")
-graph.addVertex("D")
-graph.addEdge("D","B")
-graph.addEdge("B","C")
-graph.addEdge("C","D")
-graph.display()
-console.log(graph.hasEdge("B","C"))
-console.log(graph.hasCycle())
-console.log(graph.countCycles())
+class BinarySearchTree{
+    constructor(){
+        this.root = null
+    }
+    insert(value){
+        const node = new Node(value)
+        if(!this.root){
+            this.root = node
+        }else{
+            return this.insertNode(this.root,node)
+        }
+    }
+    insertNode(root)
+}

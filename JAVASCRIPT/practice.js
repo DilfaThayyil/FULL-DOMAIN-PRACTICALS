@@ -165,3 +165,55 @@
 //     console.log(`server running at http://localhost:${PORT}`)
 // })
 
+// -----------------------------------------------
+
+// //remove last key value from an object
+// let obj = {
+//     name:"DIlfa",
+//     age:20
+// }
+// function removeLastKey(obj){
+//     let lastKey
+//     for(let key in obj){
+//         lastKey = key
+//     }
+//     if(lastKey){
+//         delete obj[lastKey]
+//     }
+//     return obj
+// }
+// console.log(removeLastKey(obj))
+
+// --------------------------------------------------
+
+// //reverse even numbers with 1 sec delay
+// function* reversedEven(n){
+//     for(let i=n;i>=0;i-=2){
+//         yield i
+//     }
+// }
+// async function print(n){
+//     const generator = reversedEven(n)
+//     for(let num of generator){
+//         console.log(num)
+//         await new Promise((resolve)=>setTimeout(resolve,1000))
+//     }
+// }
+// print(10)
+
+// ---------------------------------------------------
+
+// //yield numbers from a 2D array
+// function* gen(arr){
+//     for(let i=0;i<arr.length;i++){
+//         for(let j=0;j<arr[i].length;j++){
+//             yield arr[i][j]
+//         }
+//     }
+// }
+// let arr = [[1,2],[3,4],[5,6]]
+// const gener = gen(arr)
+// for(let num of gener){
+//     console.log(num)
+// }
+
