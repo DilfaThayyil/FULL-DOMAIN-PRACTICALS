@@ -9,12 +9,14 @@ import HandleClick from './pages/righClick'
 import CounterParent from './pages/counterParent'
 import InputComponent from './pages/useRef'
 import ParentComponent from './pages/forwardRefParent'
+import Counter from './pages/customHookParent'
+
 
 function App() {
  
    return (
     <>
-    <ParentComponent/>
+    <Counter/>
     </>
    )
 
