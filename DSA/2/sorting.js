@@ -98,3 +98,4 @@ function merge(leftArr,rightArr){
 
 const arr3 = [5,2,8,6,1,0]
 console.log(mergeSort(arr3))
+
