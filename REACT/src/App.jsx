@@ -9,20 +9,15 @@ import HandleClick from './pages/righClick'
 import CounterParent from './pages/counterParent'
 import InputComponent from './pages/useRef'
 import ParentComponent from './pages/forwardRefParent'
-import Counter from './pages/customHookParent'
-
+import { Counter } from './pages/useReducer'
 
 function App() {
-   const [count,setCount] = useState(0)
 
  
    return (
-    <div>
-      <h1>count : {count}</h1>
-      <button onClick={()=>setCount((prev)=>prev+1)}>increment</button>
-      <button onClick={()=>setCount((prev)=>prev-1)}>decrement</button>
-      <button onClick={()=>setCount(0)}>reset</button>
-    </div>
+    <>
+    <Counter/>
+    </>
    )
 
 }
