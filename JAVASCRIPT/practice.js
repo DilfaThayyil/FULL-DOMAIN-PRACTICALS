@@ -391,4 +391,7 @@
 //     console.log(num)
 // }
 // ---------------------------------
-function 
+//fibonacci
+function fibonacci(arr){
+    
+}
