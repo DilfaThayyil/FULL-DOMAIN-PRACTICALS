@@ -285,6 +285,45 @@
 // console.log(moveZero(arr))
 // -------------------------------------------
 //findLargestThree elements from an array
-function findLargestThree(arr){
-    
-} 
+// function findLargestThree(arr){
+//     let first = -Infinity
+//     let second = -Infinity
+//     let third = -Infinity
+//     for(let i=0;i<arr.length;i++){
+//         if(arr[i]>first){
+//             third = second
+//             second = first
+//             first = arr[i]
+//         }else if(arr[i]>second && arr[i]!==first){
+//             third = second
+//             second = arr[i]
+//         }else if(arr[i]>third && arr[i]<second){
+//             third = arr[i]
+//         }
+//     }
+//     return [first,second,third]
+// } 
+// let arr = [5,2,9,0,4,1,6]
+// console.log(findLargestThree(arr))
+// --------------------------------------------
+//find secondLargest & secondSmallest
+function secondLargest(arr){
+    let largest = -Infinity
+    let secLargest = -Infinity
+    for(let i=0;i<arr.length;i++){
+        if(arr[i]>largest){
+            secLargest = largest
+            largest = arr[i]
+        }else if(arr[i]>secLargest&&arr[i]!==largest){
+            secLargest = arr[i]
+        }
+    }
+    return secLargest
+}
+function secondSmallest(arr){
+    let smallest = Infinity
+    let secSmallest = Infinity
+    for(let i=)
+}
+let arr = [4,2,8,0,1,6]
+console.log(secondLargest(arr))
