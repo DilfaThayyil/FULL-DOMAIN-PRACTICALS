@@ -220,9 +220,16 @@
 
 
 
-
-
-
+//sum of array
+// function sum(arr){
+//     let sum = arr.reduce((acc,curr)=>{
+//         return acc+=curr
+//     },0)
+//     return sum
+// }
+// let arr = [1,2,3,4,5]
+// console.log(sum(arr))
+// ------------------------------------------
 // //sum of array using recursion
 // function sum(arr){
 //     if(arr.length===0){
@@ -231,3 +238,53 @@
 //     return arr[0]+sum(arr.slice(1))
 // }
 // console.log(sum([1,2,3,4]))
+// ------------------------------------------
+//reversing an array
+// function reverse(arr){
+//     let left = 0
+//     let right = arr.length-1
+//     while(left<right){
+//         let temp =  arr[left]
+//         arr[left] = arr[right]
+//         arr[right] = temp
+//         left++
+//         right--
+//     }
+//     return arr
+// }
+// let arr = [5,6,7]
+// console.log(reverse(arr))
+// -------------------------------------------
+//reverse an array using recursion
+// function reverse(arr,left=0,right=arr.length-1){
+//     if(left>=right){
+//         return arr
+//     }
+//     [arr[left],arr[right]] = [arr[right],arr[left]]
+//     return reverse(arr,left+1,right-1)
+// }
+// let arr = [1,2,3,4]
+// console.log(reverse(arr))
+// -------------------------------------------
+//move all zero elements into rightSide
+// function moveZero(arr){
+//     let j = 0
+//     for(let i=0;i<arr.length;i++){
+//         if(arr[i]!==0){
+//             arr[j] = arr[i]
+//             j++
+//         }
+//     }
+//     for(let i=j;i<arr.length;i++){
+//         arr[i] = 0
+//     }
+//     return arr
+// }
+
+// let arr = [1,0,3,0,0,5]
+// console.log(moveZero(arr))
+// -------------------------------------------
+//findLargestThree elements from an array
+function findLargestThree(arr){
+    
+} 
