@@ -391,21 +391,23 @@
 //     console.log(num)
 // }
 // ---------------------------------
+//fibonacci using recursion
 //fibonacci
-function fibonacci(n){
-    let fib = [0,1]
-    for(let i=2;i<=n;i++){
-        fib[i] = fib[i-1]+fib[i-2]
-    }
-    return fib
-}
-console.log(fibonacci(5))
+// function fibonacci(n){
+//     let fib = [0,1]
+//     for(let i=2;i<=n;i++){
+//         fib[i] = fib[i-1]+fib[i-2]
+//     }
+//     return fib
+// }
+//factorial using recursion
 //factorial
-function factorial(n){
-    let result = 1
-    for(let i=2;i<=n;i++){
-        result = result*2
-    }
-    return result
-}
-console.log(factorial(2))
+// function factorial(n){
+//     let result = 1
+//     for(let i=2;i<=n;i++){
+//         result = i*result
+//     }
+//     return result
+// }
+// console.log(fibonacci(5))
+// console.log(factorial(5))
