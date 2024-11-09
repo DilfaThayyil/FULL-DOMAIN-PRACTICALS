@@ -391,8 +391,19 @@
 //     console.log(num)
 // }
 // ---------------------------------
-//fibonacci using recursion
-//fibonacci
+//fibonacci series using recursion
+// function fibonacci(n){
+//     if(n===0){
+//         return [0]
+//     }else if(n===1){
+//         return [0,1]
+//     }
+//     const series = fibonacci(n-1)
+//     series.push(series[n-1]+series[n-2])
+//     return series
+// }
+// ---------------------------------
+//fibonacci series
 // function fibonacci(n){
 //     let fib = [0,1]
 //     for(let i=2;i<=n;i++){
@@ -400,8 +411,24 @@
 //     }
 //     return fib
 // }
+// -----------------------------------
+//fibonacci of nth number
+// function fib(n){
+//     if(n<2){
+//         return n
+//     }
+//     return fib(n-1)+fib(n-2)
+// }
+// ----------------------------------
 //factorial using recursion
-//factorial
+// function factorial(n){
+//     if(n===0||n===1){
+//         return n
+//     }
+//     return n*factorial(n-1)
+// }
+// -----------------------------------
+//factorial of nth number
 // function factorial(n){
 //     let result = 1
 //     for(let i=2;i<=n;i++){
@@ -409,5 +436,6 @@
 //     }
 //     return result
 // }
-// console.log(fibonacci(5))
-// console.log(factorial(5))
+// console.log(fibonacci(6))
+// console.log(fib(6))
+// console.log(factorial(6))
