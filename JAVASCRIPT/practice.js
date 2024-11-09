@@ -307,23 +307,88 @@
 // console.log(findLargestThree(arr))
 // --------------------------------------------
 //find secondLargest & secondSmallest
-function secondLargest(arr){
-    let largest = -Infinity
-    let secLargest = -Infinity
-    for(let i=0;i<arr.length;i++){
-        if(arr[i]>largest){
-            secLargest = largest
-            largest = arr[i]
-        }else if(arr[i]>secLargest&&arr[i]!==largest){
-            secLargest = arr[i]
-        }
-    }
-    return secLargest
-}
-function secondSmallest(arr){
-    let smallest = Infinity
-    let secSmallest = Infinity
-    for(let i=)
-}
-let arr = [4,2,8,0,1,6]
-console.log(secondLargest(arr))
+// function secondLargest(arr){
+//     let largest = -Infinity
+//     let secLargest = -Infinity
+//     for(let i=0;i<arr.length;i++){
+//         if(arr[i]>largest){
+//             secLargest = largest
+//             largest = arr[i]
+//         }else if(arr[i]>secLargest&&arr[i]!==largest){
+//             secLargest = arr[i]
+//         }
+//     }
+//     return secLargest
+// }
+// function secondSmallest(arr){
+//     let smallest = Infinity
+//     let secSmallest = Infinity
+//     for(let i=0;i<arr.length;i++){
+//         if(arr[i]<smallest){
+//             smallest = arr[i]
+//             secSmallest = smallest
+//         }else if(arr[i]<secSmallest&&arr[i]!==smallest){
+//             secSmallest = arr[i]
+//         }
+//     }
+//     return secSmallest
+// }
+// let arr = [4,2,8,0,1,6]
+// console.log(secondLargest(arr))
+// console.log(secondSmallest(arr))
+// --------------------------------------
+//secondLargest & secondSmallest using reduce
+// function secondLargest(arr){
+//     let result = arr.reduce((acc,curr)=>{
+//         if(curr>acc.largest){
+//             acc.secLargest = acc.largest
+//             acc.largest = curr
+//         }else if(curr>acc.secLargest&&curr!==acc.largest){
+//             acc.secLargest = curr
+//         }
+//         return acc
+//     },{largest:-Infinity,secLargest:-Infinity})
+//     return result
+// }
+// function secondSmallest(arr){
+//     let result = arr.reduce((acc,curr)=>{
+//         if(curr<acc.smallest){
+//             acc.secSmallest = acc.smallest
+//             acc.smallest = curr
+//         }else if(curr<acc.secSmallest&&curr!==acc.smallest){
+//             acc.secSmallest = curr
+//         }
+//         return acc
+//     },{smallest:Infinity,secSmallest:Infinity})
+//     return result
+// }
+// let arr = [5,2,9,7,1,0,3]
+// console.log(secondLargest(arr))
+// console.log(secondSmallest(arr))
+// --------------------------------------
+// let arr = [[1,2],[3,4],[5,6]]
+//flatten 2D array
+// function flatten(arr){
+//     let result = []
+//     for(let i=0;i<arr.length;i++){
+//         for(let j=0;j<arr[i].length;j++){
+//             result.push(arr[i][j])
+//         }
+//     }
+//     return result
+// }
+// console.log(flatten(arr))
+// //yield numbers from a 2D array
+// function* yieldNumbers(arr){
+//     for(let i=0;i<arr.length;i++){
+//         for(let j=0;j<arr[i].length;j++){
+//             yield arr[i][j]
+//         }
+//     }
+// }
+// const generator = yieldNumbers(arr)
+// for(const num of generator){
+//     console.log(num)
+// }
+// ---------------------------------
+function 
