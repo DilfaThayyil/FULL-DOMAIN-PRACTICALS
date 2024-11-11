@@ -1212,3 +1212,61 @@ function heapSort(arr){
 let arr1 = [6,2,4,9,5,1]
 heapSort(arr1);
 console.log("Sorted array:", arr1);
+
+// ----------------------------------------------Day 1------------------------------------------------------(11-11-2024)
+
+class Node{
+    constructor(value){
+        this.value = value
+        this.next = null
+        this.prev = null
+    }
+}
+class LinkedList{
+    constructor(){
+        this.head = null
+        this.tail = null
+    }
+    prepend(value){
+        const node = new Node(value)
+        if(!this.head){
+            this.head = node
+            this.tail = node
+        }else{
+            node.next = this.head
+            this.head.prev = node
+            this.head = node
+        }
+    }
+    append(value){
+        const node = new Node(value)
+        if(!this.head){
+            this.head = node
+            this.tail = node
+        }else{
+            this.tail.next = node
+            node.prev = this.tail
+            this.tail = node
+        }
+    }
+    insert(value){
+        const node = new Node(value)
+        if(index===0){
+            if(!this.head){
+                this.head = node
+                this.tail = node
+            }else{
+                node.next = this.head
+                this.head.prev = node
+                this.head = node
+            }
+            return
+        }
+        let curr = this.head
+        let currentIndex = 0
+        while(curr&&currentIndex<index){
+            curr = curr.next
+            currentIndex++
+        }
+    }
+}
