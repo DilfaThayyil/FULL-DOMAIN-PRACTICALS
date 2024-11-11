@@ -1298,5 +1298,16 @@ class LinkedList{
             this.head = temp.prev
         }
     }
+    deleteByValue(value){
+        if(!this.head){
+            return 
+        }
+        if(this.head.value===value){
+            if(this.head===this.tail){
+                this.head = null
+                this.tail = null
+            }
+        }
+    }
 }
 
