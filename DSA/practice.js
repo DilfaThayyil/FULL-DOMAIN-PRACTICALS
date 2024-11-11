@@ -1285,5 +1285,18 @@ class LinkedList{
             console.log('index out of bounds')
         }
     }
+    reverse(){
+        let curr = this.head
+        let temp = null
+        while(curr){
+            temp = curr.prev
+            curr.prev = curr.next
+            curr.next = temp
+            curr = curr.prev
+        }
+        if(temp){
+            this.head = temp.prev
+        }
+    }
 }
 
