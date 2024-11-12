@@ -1535,15 +1535,18 @@ class LinkedList{
         node.next = curr.next
         curr.next = node
     }
-    deleteByIndex(value){
+    deleteByIndex(index){
         if(!this.head){
             return
         }
-        if(this.head.value===value){
+        if(index===0){
             this.head = this.head.next
         }
         let curr = this.head
-        if(curr.next&&curr.next.value!==value){
+        for(let i=0;i<index-1;i++){
+            if(!curr.next){
+                return
+            }
             curr = curr.next
         }
         if(curr.next){
@@ -1621,6 +1624,298 @@ class LinkedList{
         while(curr){
             console.log(curr.value)
             curr = curr.next
+        }
+    }
+}
+
+
+// ----------------------------------------------------Day 2--------------------------------------------(12-11-2024)
+
+
+
+class Node{
+    constructor(value){
+        this.value = value
+        this.next = null
+    }
+}
+class LinkedList{
+    constructor(){
+        this.head = null
+    }
+    prepend(value){
+        const node = new Node(value)
+        if(!this.head){
+            this.head = node
+        }else{
+            node.next = this.head
+            this.head = node
+        }
+    }
+    append(value){
+        const node = new Node(value)
+        if(!this.head){
+            this.head = node
+        }else{
+            let curr = this.head
+            while(curr){
+                curr = curr.next
+            }
+            curr.next = node
+        }
+    }
+    insert(value){
+        const node = new Node(value)
+        if(index===0){
+            if(!this.head){
+                this.head = node
+            }else{
+                node.next = this.head
+                this.head = node
+            }
+            return
+        }
+        let curr = this.head
+        for(let i=0;i<index-1;i++){
+            curr = curr.next
+        }
+        curr.next = node
+    }
+    deleteByIndex(index){
+        if(!this.head){
+            return
+        }
+        if(index===0){
+            this.head = this.head.next
+        }
+        let curr = this.head
+        for(let i=0;i<index-1;i++){
+            if(!curr.next){
+                return
+            }
+            curr = curr.next
+        }
+        if(curr.next){
+            curr.next = curr.next.next
+        }
+    }
+    deleteByValue(value){
+        if(!this.head){
+            return
+        }
+        if(this.head.value===value){
+            this.head = this.head.next
+        }
+        let curr = this.head
+        while(curr.next&&curr.next.value!==value){
+            curr = curr.next
+        }
+        if(curr.next){
+            curr.next = curr.next.next
+        }
+    }
+    reverse(){
+        let curr = this.head
+        let prev = null
+        while(curr){
+            let next = curr.next
+            curr.next = prev
+            prev = curr
+            curr = next
+        }
+        this.head = prev
+    }
+    findMiddle(){
+        let slow = this.head
+        let fast = this.head
+        while(fast&&fast.next){
+            slow = slow.next
+            fast = fast.next.next
+        }
+        return slow
+    }
+    search(value){
+        if(!this.head){
+            return
+        }
+        let curr = this.head
+        let i = 0
+        while(curr.next){
+            if(curr.value===value){
+                return i
+            }else{
+                curr = curr.next
+                i++
+            }
+        }
+        return -1
+    }
+    removeDuplicates(){
+        if(!this.head){
+            return null
+        }
+        let curr = this.head
+        let seen = new Set()
+        seen.add(curr.value)
+        while(curr.next){
+            if(seen.has(curr.next.value)){
+                curr.next = curr.next.next
+            }else{
+                seen.add(curr.next.value)
+                curr = curr.next
+            }
+        }
+    }
+}
+
+
+class Node{
+    constructor(value){
+        this.value = value
+        this.next = null
+        this.prev = null
+    }
+}
+class LinkedList{
+    constructor(){
+        this.head = null
+        this.tail = null
+    }
+    prepend(value){
+        const node = new Node(value)
+        if(!this.head){
+            this.head = node
+            this.tail = node
+        }else{
+            node.next = this.head
+            this.head.prev = node
+            this.head = node
+        }
+    }
+    append(value){
+        const node = new Node(value)
+        if(!this.head){
+            this.head = node
+            this.tail = node
+        }else{
+            this.tail.next = node
+            node.prev = this.tail
+            this.tail = node
+        }
+    }
+    insert(value,index){
+        const node = new Node(value)
+        if(index===0){
+            if(!this.head){
+                this.head = node
+                this.tail = node
+            }else{
+                node.next = this.head
+                this.head.prev = node
+                this.head = node
+            }
+            return
+        }
+        let curr = this.head
+        let currentIndex = 0
+        while(curr&&currentIndex<index){
+            curr = curr.next
+            currentIndex++
+        }
+        if(currentIndex===index){
+            if(curr){
+                node.next = curr
+                node.prev = curr.prev
+                if(curr.prev){
+                    curr.prev.next = node
+                }
+                curr.prev = node
+            }else{
+                this.tail.next = node
+                node.prev = this.tail
+                this.tail = node
+            }
+        }else{
+            console.log('index out of bounds')
+        }
+    }
+    deleteByIndex(index){
+        if(!this.head){
+            return
+        }
+        if(index===0){
+            if(this.head===this.tail){
+                this.head = null
+                this.tail = null
+            }else{
+                this.head = this.head.next
+                this.head.prev = null
+            }
+            return
+        }
+        let curr = this.head
+        let currentIndex = 0
+        while(curr&&currentIndex<index){
+            curr = curr.next
+            currentIndex++
+        }
+        if(!curr){
+            console.log('value not found')
+        }
+        if(curr===this.tail){
+            this.tail = curr.prev
+            this.tail.next = null
+        }else{
+            curr.prev.next = curr.next
+            if(curr.next){
+                curr.next.prev = curr.prev
+            }
+        }
+        return
+    }
+    deleteByValue(value){
+        if(!this.head){
+            return
+        }
+        if(this.head.value===value){
+            if(this.head===this.tail){
+                this.head = null
+                this.tail = null
+            }else{
+                this.head = this.head.next
+                this.head.prev = null
+            }
+            return
+        }
+        let curr = this.head
+        while(curr&&curr.value!==value){
+            curr = curr.next
+        }
+        if(!curr){
+            console.log('value not found')
+        }
+        if(curr===this.tail){
+            this.tail = curr.prev
+            this.tail.next = null
+        }else{
+            curr.prev.next = curr.next
+            if(curr.next){
+                curr.next.prev = curr.prev
+            }
+        }
+        return
+    }
+    reverse(){
+        let curr = this.head
+        let temp = null
+        while(curr){
+            temp = curr.prev
+            curr.prev = curr.next
+            curr.next = curr
+            curr = temp
+        }
+        if(temp){
+            this.head = temp.prev
         }
     }
 }
