@@ -1532,6 +1532,95 @@ class LinkedList{
         for(let i=0;i<index-1;i++){
             curr = curr.next
         }
-        
+        node.next = curr.next
+        curr.next = node
+    }
+    deleteByIndex(value){
+        if(!this.head){
+            return
+        }
+        if(this.head.value===value){
+            this.head = this.head.next
+        }
+        let curr = this.head
+        if(curr.next&&curr.next.value!==value){
+            curr = curr.next
+        }
+        if(curr.next){
+            curr.next = curr.next.next
+        }
+    }
+    deleteByValue(value){
+        if(!this.head){
+            return
+        }
+        if(this.head.value===value){
+            this.head = this.head.next
+        }
+        let curr = this.head
+        while(curr.next&&curr.next.value!==value){
+            curr = curr.next
+        }
+        if(curr.next){
+            curr.next = curr.next.next
+        }
+    }
+    reverse(){
+        let curr = this.head
+        let prev = null
+        while(curr){
+            let next = curr.next
+            curr.next = prev
+            prev = curr
+            curr = next
+        }
+        this.head = prev
+    }
+    findMiddle(){
+        let slow = this.head
+        let fast = this.head
+        while(fast&&fast.next){
+            slow = slow.next
+            fast = fast.next.next
+        }
+        return slow
+    }
+    search(value){
+        if(!this.head){
+            return -1
+        }
+        let curr = this.head
+        let i = 0
+        while(curr){
+            if(curr.value===value){
+                return i
+            }
+            curr = curr.next
+            i++
+        }
+        return -1
+    }
+    removeDuplicates(){
+        if(!this.head){
+            return null
+        }
+        let curr = this.head
+        let seen = new Set()
+        seen.add(curr.value)
+        while(curr.next){
+            if(seen.has(curr.next.value)){
+                curr.next = curr.next.next
+            }else{
+                seen.add(curr.value)
+                curr = curr.next
+            }
+        }
+    }
+    print(){
+        let curr = this.head
+        while(curr){
+            console.log(curr.value)
+            curr = curr.next
+        }
     }
 }
