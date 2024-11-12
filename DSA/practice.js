@@ -1963,3 +1963,64 @@ function binarySearch(arr,target,left=0,right=arr.length-1){
         return binarySearch(arr,target,left,mid+1)
     }
 }
+
+//stack
+class Stack{
+    constructor(){
+        this.items = []
+    }
+    push(element){
+        this.items.push(element)
+    }
+    pop(){
+        if(this.items.length===0){
+            return null
+        }
+        return this.items.pop()
+    }
+    reverse(){
+        if(this.items.length===0){
+            return null
+        }
+        let top = this.pop()
+        this.reverse()
+        this.insertAtBottom(top)
+    }
+    insertAtBottom(element){
+        if(this.items.length===0){
+            this.items.push(element)
+        }else{
+            let top = this.items.pop()
+            this.insertAtBottom()
+            this.items.push(top)
+        }
+    }
+    peek(){
+        return this.items[0]
+    }
+    print(){
+        console.log(this.items.toString())
+    }
+}
+
+class Queue{
+    constructor(){
+        this.items = []
+    }
+    enqueue(element){
+        this.items.push(element)
+    }
+    dequeue(){
+        if(this.items.length===0){
+            return null
+        }
+        return this.items.shift()
+    }
+    front(){
+        return this.items[0]
+    }
+    print(){
+        console.log(this.items.toString())
+    }
+}
+
