@@ -1213,7 +1213,7 @@
 // heapSort(arr1);
 // console.log("Sorted array:", arr1);
 
-// // ----------------------------------------------Day 1------------------------------------------------------(11-11-2024)
+// // --------------------------------------------Day 1---------------------------------------------------(11-11-2024)
 
 class Node{
     constructor(value){
@@ -1330,6 +1330,47 @@ class LinkedList{
         }
         return
     }
+    deleteByIndex(index){
+        if(!this.head){
+            return arr
+        }
+        if(index===0){
+            if(this.head===this.tail){
+                this.head = null
+                this.tail = null
+            }else{
+                this.head = this.head.next
+                this.head.prev = null
+            }
+            return
+        }
+        let curr = this.head
+        let currentIndex = 0
+        while(curr&&currentIndex<index){
+            curr = curr.next
+            currentIndex++
+        }
+        if(!curr){
+            console.log('value not found')
+        }
+        if(curr===this.tail){
+            this.tail = curr.prev
+            this.tail.next = null
+        }else{
+            curr.prev.next = curr.next
+            if(curr.next){
+                curr.next.prev = curr.prev
+            }
+        }
+        return
+    }
+    print(){
+        let curr = this.head
+        while(curr){
+            console.log(curr.value)
+            curr = curr.next
+        }
+    }
 }
 
 
@@ -1414,4 +1455,76 @@ function merge(left,right){
         }
     }
     return [...sorted,...left,...right]
+}
+
+function heapify(arr,n,i){
+    let largest = i
+    let leftChild = 2*i+1
+    let rightChild = 2*i+2
+    if(leftChild<n&&arr[leftChild]>arr[largest]){
+        largest = leftChild
+    }
+    if(rightChild<n&&arr[rightChild]>arr[largest]){
+        largest = rightChild
+    }
+    if(largest!==i){
+        [arr[i],arr[largest]] = [arr[largest],arr[i]]
+        heapify(arr,n,largest)
+    }
+}
+
+function heapSort(arr){
+    let n = arr.length-1
+    for(let i=Math.floor(n/2);i>=0;i--){
+        heapify(arr,n,i)
+    }
+    for(let i=n-1;i>=0;i--){
+        [arr[0],arr[i]] = [arr[i],arr[0]]
+        heapify(arr,i,0)
+    }
+}
+
+
+class Node{
+    constructor(value){
+        this.value = value
+        this.next = null
+    }
+}
+
+class LinkedList{
+    constructor(){
+        this.head = null
+    }
+    prepend(value){
+        const node = new Node(value)
+        if(!this.head){
+            this.head = node
+        }else{
+            node.next = this.head
+            this.head = node
+        }
+    }
+    append(value){
+        const node = new Node(value)
+        if(!this.head){
+            this.head = node
+        }else{
+            let curr = this.head
+            while(curr.next){
+                curr = curr.next
+            }
+            curr.next = node
+        }
+    }
+    insert(value,index){
+        const node = new Node(value)
+        if(index===0){
+            if(!this.head){
+                this.head = node
+            }else{
+                
+            }
+        }
+    }
 }
