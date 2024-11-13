@@ -1974,7 +1974,7 @@ class Stack{
     }
     pop(){
         if(this.items.length===0){
-            return null
+            return 
         }
         return this.items.pop()
     }
@@ -1988,11 +1988,11 @@ class Stack{
     }
     insertAtBottom(element){
         if(this.items.length===0){
-            this.items.push(element)
+            this.push(element)
         }else{
-            let top = this.items.pop()
-            this.insertAtBottom()
-            this.items.push(top)
+            let top = this.pop()
+            this.insertAtBottom(element)
+            this.push(top)
         }
     }
     peek(){
@@ -2003,6 +2003,7 @@ class Stack{
     }
 }
 
+//queue
 class Queue{
     constructor(){
         this.items = []
@@ -2016,11 +2017,73 @@ class Queue{
         }
         return this.items.shift()
     }
-    front(){
-        return this.items[0]
+    reverse(){
+        if(this.items.length===0){
+            return null
+        }
+        let front = this.dequeue()
+        this.reverse()
+        this.enqueue(front)
     }
     print(){
         console.log(this.items.toString())
+    }
+}
+
+//hashTable
+class HashTable{
+    constructor(size){
+        this.table = new Array(size)
+        this.size = 0
+    }
+    hash(key){
+        let total = 0
+        for(let i=0;i<key.length;i++){
+            total += charCodeAt(i)
+        }
+        return total%this.size
+    }
+    set(key){
+        let index = this.hash(key)
+        let bucket = this.table[index]
+        if(!bucket){
+            this.table[index] = [[key,value]]
+        }else{
+            const sameKeyItem = bucket.find(item=>item[0]===key)
+            if(sameKeyItem){
+                sameKeyItem[1] = value
+            }else{
+                bucket.push([key,value])
+            }
+        }
+    }
+    get(key){
+        let index = this.hash(key)
+        let bucket = this.table[index]
+        if(bucket){
+            const sameKeyItem = bucket.find(item[0]===key)
+            if(sameKeyItem){
+                return sameKeyItem[1]
+            }
+        }    
+        return undefined
+    }
+    remove(key){
+        const index = this.hash(key)
+        const bucket = this.table[index]
+        if(bucket){
+            const sameKeyItem = bucket.find(item=>item[0]===key)
+            if(sameKeyItem){
+                return bucket.splice(bucket.indexOf(sameKeyItem))
+            }
+        }
+    }
+    display(){
+        for(let i=0;i<this.table.length;i++){
+            if(this.table[i]){
+                console.log(i,this.table[i])
+            }
+        }
     }
 }
 
