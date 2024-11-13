@@ -79,7 +79,7 @@ class Graph{
             if(!visited.has(vertex)){
                 if(dfsCycle(vertex,null)){
                     return true
-                }
+                }   
                 
             }
         }
@@ -87,23 +87,20 @@ class Graph{
     }
     countCycles(){
         let visited = new Set()
-        cycleCount = 0
+        let cycleCount = 0
         const dfsCycle = (vertex,parent)=>{
             visited.add(vertex)
             for(let neighbour of this.adjacencyList[vertex]){
                 if(!visited.has(neighbour)){
-                    if(dfsCycle(neighbour,vertex)){
-                        cycleCount++
-                    }
+                    dfsCycle(neighbour,vertex)
                 }else if(neighbour!==parent){
                     cycleCount++
                 }
             }
         }
-        for(let vertex of this.adjacencyList){
+        for(let vertex in this.adjacencyList){
             if(!visited.has(vertex)){
-                if(dfsCycle(vertex,null)){
-                }
+                dfsCycle(vertex,null)
             }
         }
         return cycleCount/2
