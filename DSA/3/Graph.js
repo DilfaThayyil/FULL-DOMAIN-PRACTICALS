@@ -21,11 +21,14 @@ class Graph{
         if(!this.adjacencyList[vertex]){
             return
         }
+        for(let neighbour of this.adjacencyList[vertex]){
+            this.adjacencyList[neighbour].delete(vertex)
+        }
         delete this.adjacencyList[vertex]
     }
     removeEdge(vertex1,vertex2){
-        this.adjacencyList[vertex1].delete(vertex2)
-        this.adjacencyList[vertex2].delete(vertex1)
+        this.adjacencyList[vertex1]?.delete(vertex2)
+        this.adjacencyList[vertex2]?.delete(vertex1)
     }
     hasEdge(vertex1,vertex2){
         return (
