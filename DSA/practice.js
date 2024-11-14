@@ -2087,3 +2087,559 @@ class HashTable{
     }
 }
 
+// -----------------------------------------------------Day3----------------------------------------(14-11-2024)
+
+// class Node{
+//     constructor(value){
+//         this.value = value
+//         this.next = null
+//     }
+// }
+// class LL{
+//     constructor(){
+//         this.head = null
+//     }
+//     prepend(value){
+//         const node = new Node(value)
+//         if(!this.head){
+//             this.head = node
+//         }else{
+//             node.next = this.head
+//             this.head = node
+//         }
+//     }
+//     append(value){
+//         const node = new Node(value)
+//         if(!this.head){
+//             this.head = node
+//         }else{
+//             let curr = this.head
+//             while(curr.next){
+//                 curr = curr.next
+//             }
+//             curr.next = node
+//         }
+//     }
+//     insert(value,index){
+//         const node = new Node(value)
+//         if(index===0){
+//             if(!this.head){
+//                 this.head = node
+//             }else{
+//                 node.next = this.head
+//                 this.head = node
+//             }
+//             return
+//         }
+//         let curr = this.head
+//         for(let i=0;i<index-1;i++){
+//             curr = curr.next
+//         }
+//         curr.next = node
+//     }
+//     deleteByIndex(index){
+//         if(!this.head){
+//             return null
+//         }
+//         if(index===0){
+//             this.head = this.head.next
+//             return
+//         }
+//         let curr = this.head
+//         for(let i=0;i<index-1;i++){
+//             if(!curr.next){
+//                 return
+//             }
+//             curr = curr.next
+//         }
+//         if(curr.next){
+//             curr.next = curr.next.next
+//         }
+//     }
+//     deleteByValue(value){
+//         if(!this.head){
+//             return null
+//         }
+//         if(this.head.value===value){
+//             this.head = this.head.next
+//             return
+//         }
+//         let curr= this.head
+//         while(curr.next&&curr.next.value!==value){
+//             curr= curr.next
+//         }
+//         if(curr.next){
+//             curr.next = curr.next.next
+//         }
+//     }
+//     reverse(){
+//         let curr = this.head
+//         let prev = null
+//         while(curr){
+//             let next = curr.next
+//             curr.next = prev
+//             prev = curr
+//             curr = next
+//         }
+//         this.head = prev
+//     }
+//     findMiddle(){
+//         let slow = this.head
+//         let fast = this.head
+//         while(fast&&fast.next){
+//             slow = slow.next
+//             fast = fast.next.next
+//         }
+//         return slow
+//     }
+//     search(value){
+//         if(!this.head){
+//             return null
+//         }
+//         let curr = this.head
+//         let i = 0
+//         while(curr){
+//             if(curr.value===value){
+//                 return i
+//             }else{
+//                 curr = curr.next
+//                 i++
+//             }
+//         }
+//         return -1
+//     }
+//     removeDuplicates(){
+//         if(!this.head){
+//             return null
+//         }
+//         let curr = this.head
+//         let visited = new Set()
+//         visited.add(curr.value)
+//         while(curr.next){
+//             if(visited.has(curr.next)){
+//                 curr.next = curr.next.next
+//             }else{
+//                 visited.add(curr.next.value)
+//                 curr = curr.next
+//             }
+//         }
+//     }
+//     display(){
+//         let curr = this.head
+//         while(curr){
+//             console.log(curr.value)
+//             curr = curr.next
+//         }
+//     }
+// }
+
+
+// --------------------------------------------------------------
+
+
+// class Node{
+//     constructor(value){
+//         this.value = value
+//         this.next = null
+//         this.prev = null
+//     }
+// }
+// class DLL{
+//     constructor(){
+//         this.head = null
+//         this.tail = null
+//     }
+//     prepend(value){
+//         const node = new Node(value)
+//         if(!this.head){
+//             this.head = node
+//             this.tail = node
+//         }else{
+//             node.next = this.head
+//             this.head.prev = node
+//             this.head = node
+//         }
+//     }
+//     append(value){
+//         const node = new Node(value)
+//         if(!this.head){
+//             this.head = node
+//             this.tail = node
+//         }else{
+//             this.tail.next = node
+//             node.prev = this.tail
+//             this.tail = node
+//         }
+//     }
+//     insert(value,index){
+//         const node = new Node(value)
+//         if(index===0){
+//             if(!this.head){
+//                 this.head = node
+//                 this.tail = node
+//             }else{
+//                 node.next = this.head
+//                 this.head.prev = node
+//                 this.head = node
+//             }
+//             return
+//         }
+//         let curr = this.head
+//         let currentIndex = 0
+//         while(curr&&currentIndex<index){
+//             curr = curr.next
+//             currentIndex++
+//         }
+//         if(currentIndex===index){
+//             if(curr){
+//                 node.next = curr
+//                 node.prev = curr.prev
+//                 if(curr.prev){
+//                     curr.prev.next = node
+//                 }
+//                 curr.prev = node
+//             }else{
+//                 this.tail.next = node
+//                 node.prev = this.tail
+//                 this.tail = node
+//             }
+//         }else{
+//             console.log('index out of bounds')
+//         }
+//     }
+//     deleteByIndex(index){
+//         if(!this.head){
+//             return null
+//         }
+//         if(index===0){
+//             if(this.head===this.tail){
+//                 this.head = null
+//                 this.tail = null
+//             }else{
+//                 this.head = this.head.next
+//                 this.head.prev = null
+//             }
+//             return
+//         }
+//         let curr = this.head
+//         let currentIndex = 0
+//         while(curr&&currentIndex<index){
+//             curr = curr.next
+//             currentIndex++
+//         }
+//         if(!curr){
+//             console.log('value not found')
+//         }
+//         if(curr===this.tail){
+//             this.tail = curr.prev
+//             this.tail.next = null
+//         }else{
+//             curr.prev.next = curr.next
+//             if(curr.next){
+//                 curr.next.prev = curr.prev
+//             }
+//         }
+//         return
+//     }
+//     deleteByValue(value){
+//         if(!this.head){
+//             return
+//         }
+//         if(this.head.value===value){
+//             if(this.head===this.tail){
+//                 this.head = null
+//                 this.tail = null
+//             }else{
+//                 this.head = this.head.next
+//                 this.head.prev = null
+//             }
+//         }
+//         let curr = this.head
+//         while(curr&&curr.value!==value){
+//             curr = curr.next
+//         }
+//         if(!curr){
+//             console.log('value not found')
+//         }
+//         if(curr===this.tail){
+//             this.tail = curr.prev
+//             this.tail.next = null
+//         }else{
+//             curr.prev.next = curr.next
+//             if(curr.next){
+//                 curr.next.prev = curr.prev
+//             }
+//         }
+//         return
+//     }
+//     reverse(){
+//         let curr = this.head
+//         let temp = null
+//         while(curr){
+//             temp = curr.prev
+//             curr.prev = curr.next
+//             curr.next = temp
+//             curr = curr.prev
+//         }
+//         if(temp){
+//             this.head = temp.prev
+//         }
+//     }
+// }
+
+
+// -------------------------------------------------------------
+
+
+// class Stack{
+//     constructor(){
+//         this.items = []
+//     }
+//     push(element){
+//         this.items.push(element)
+//     }
+//     pop(){
+//       if(this.items.length===0){
+//           return null
+//       } 
+//       return this.items.pop()
+//     }
+//     reverse(){
+//         if(this.items.length===0){
+//             return null
+//         }
+//         let top = this.pop()
+//         this.reverse()
+//         this.insertAtBottom(top)
+//     }
+//     insertAtBottom(element){
+//         if(this.items.length===0){
+//             this.push(element)
+//         }else{
+//             let top = this.pop()
+//             this.insertAtBottom(element)
+//             this.push(top)
+//         }
+//     }
+//     print(){
+//         console.log(this.items.toString())
+//     }
+// }
+
+
+// ----------------------------------------------------------------
+
+// class Queue{
+//     constructor(){
+//         this.items = []
+//     }
+//     enqueue(element){
+//         this.items.push(element)
+//     }
+//     dequeue(){
+//         if(this.items.length===0){
+//             return null
+//         }
+//         return this.items.shift()
+//     }
+//     reverse(){
+//         if(this.items.length===0){
+//             return null
+//         }
+//         let front = this.dequeue()
+//         this.reverse()
+//         this.enqueue(front)
+//     }
+// }
+
+
+// -------------------------------------------------------------
+
+// class HashTable{
+//     constructor(size){
+//         this.table = new Array(size)
+//         this.size = size
+//     }
+//     hash(key){
+//         let total = 0
+//         for(let i=0;i<key.length;i++){
+//             total+=charCodeAt(i)
+//         }
+//         return total%this.size
+//     }
+//     set(key,value){
+//         const index = this.hash(key)
+//         const bucket = this.table[index]
+//         if(!bucket){
+//             this.table[index] = [[key,value]]
+//         }else{
+//             const samekeyitem = bucket.find(item=>item[0]===key)
+//             if(samekeyitem){
+//                 samekeyitem[1] = value
+//             }else{
+//                 bucket.push([key,value])
+//             }
+//         }
+//     }
+//     get(key){
+//         const index = this.hash(key)
+//         const bucket = this.table[index]
+//         if(bucket){
+//             const samekeyitem = bucket.find(item=>item[0]===key)
+//             if(samekeyitem){
+//                 return samekeyitem[1]
+//             }
+//         }
+//         return undefined
+//     }
+//     remove(key){
+//         const index = this.hash(key)
+//         const bucket = this.table[index]
+//         if(!bucket){
+//             const samekeyitem = bucket.find(item=>item[0]===key)
+//             if(samekeyitem){
+//                 return bucket.splice(bucket.indexOf(samekeyitem))
+//             }
+//         }
+//     }
+//     display(){
+//         for(let i=0;i<this.table.length;i++){
+//             if(this.table[i]){
+//                 console.log(i,this.table[i])
+//             }
+//         }
+//     }
+// }
+
+// // --------------------------------------------------------------
+
+// class Graph{
+//     constructor(){
+//         this.adjacencyList = {}
+//     }
+//     addVertex(vertex){
+//         if(!this.adjacencyList[vertex]){
+//             this.adjacencyList[vertex] = new Set()
+//         }
+//     }
+//     addEdge(vertex1,vertex2){
+//         if(!this.adjacencyList[vertex1]){
+//             this.addVertex(vertex1)
+//         }
+//         if(!this.adjacencyList[vertex2]){
+//             this.addVertex(vertex2)
+//         }
+//         this.adjacencyList[vertex1].add(vertex2)
+//         this.adjacencyList[vertex2].add(vertex1)
+//     }
+//     hasEdge(vertex1,vertex2){
+//         return (
+//             this.adjacencyList[vertex1]?.has(vertex2)&&
+//             this.adjacencyList[vertex2]?.has(vertex1)
+//             )
+//     }
+//     removeEdge(vertex1,vertex2){
+//         this.adjacencyList[vertex1]?.delete(vertex2)
+//         this.adjacencyList[vertex2]?.delete(vertex1)
+//     }
+//     removeVertex(vertex){
+//         if(!this.adjacencyList[vertex]){
+//             return
+//         }
+//         for(let neighbour of this.adjacencyList[vertex]){
+//             this.adjacencyList[neighbour].delete(vertex)
+//         }
+//         delete this.adjacencyList[vertex]
+//     }
+//     bfs(start){
+//         let queue = [start]
+//         let visited = new Set()
+//         while(queue.length>0){
+//             const vertex = queue.shift()
+//             if(!visited.has(vertex)){
+//                 console.log(vertex)
+//                 visited.add(vertex)
+//                 queue.push(...this.adjacencyList[vertex])
+//             }
+//         }
+//     }
+//     dfs(start){
+//         let stack = [start]
+//         let visited = new Set()
+//         while(stack.length>0){
+//             const vertex = stack.pop()
+//             if(!visited.has(vertex)){
+//                 console.log(vertex)
+//                 visited.add(vertex)
+//                 stack.push(...this.adjacencyList[vertex])
+//             }
+//         }
+//     }
+//     hasCycle(){
+//         let visited = new Set()
+//         const dfsCycle = (vertex,parent)=>{
+//             visited.add(vertex)
+//             for(let neighbour of this.adjacencyList[vertex]){
+//                 if(!visited.has(neighbour)){
+//                     if(dfsCycle(neighbour,vertex)){
+//                         return true
+//                     }
+//                 }else if(neighbour!==parent){
+//                     return true
+//                 }
+//             }
+//             return false
+//         }
+//         for(let vertex in this.adjacencyList){
+//             if(!visited.has(vertex)){
+//                 if(dfsCycle(vertex,null)){
+//                     return true
+//                 }
+//             }
+//         }
+//         return false
+//     }
+//     countCycle(){
+//         let visited = new Set()
+//         let count = 0
+//         const dfsCycle = (vertex,parent)=>{
+//             visited.add(vertex)
+//             for(let neighbour of this.adjacencyList[vertex]){
+//                 if(!visited.has(neighbour)){
+//                     dfsCycle(neighbour,vertex)
+//                 }else if(neighbour!==parent){
+//                     count++
+//                 }
+//             }
+//         }
+//         for(let vertex in this.adjacencyList){
+//             if(!visited.has(vertex)){
+//                 dfsCycle(vertex,null)
+//             }
+//         }
+//         return count/2
+//     }
+//     display(){
+//         for(let vertex in this.adjacencyList){
+//             console.log(vertex,'=>',[...this.adjacencyList[vertex]])
+//         }
+//     }
+// }
+
+// ----------------------------------------------------------------
+
+
+class BinarySearchTree{
+    constructor(){
+        
+    }
+}
+
+
+
+
+
+
+
+
+
