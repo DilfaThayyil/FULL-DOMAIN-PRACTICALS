@@ -1911,8 +1911,8 @@ class LinkedList{
         while(curr){
             temp = curr.prev
             curr.prev = curr.next
-            curr.next = curr
-            curr = temp
+            curr.next = temp
+            curr = curr.prev
         }
         if(temp){
             this.head = temp.prev
