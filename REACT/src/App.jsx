@@ -10,13 +10,15 @@ import CounterParent from './pages/counterParent'
 import InputComponent from './pages/useRef'
 import ParentComponent from './pages/forwardRefParent'
 import { Counter } from './pages/useReducer'
+import Parent from './pages/parent'
+
 
 function App() {
 
  
    return (
     <>
-    <Counter/>
+    <Parent/>
     </>
    )
 
