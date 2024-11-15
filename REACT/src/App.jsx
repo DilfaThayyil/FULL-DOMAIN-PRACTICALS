@@ -12,6 +12,8 @@ import ParentComponent from './pages/forwardRefParent'
 import { Counter } from './pages/useReducer'
 import Parent from './pages/parent'
 import Counterr from './pages/counterrr'
+import SideEffect from './pages/useEffect'
+
 
 
 function App() {
