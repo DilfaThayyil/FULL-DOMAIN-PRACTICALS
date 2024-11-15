@@ -11,6 +11,7 @@ import InputComponent from './pages/useRef'
 import ParentComponent from './pages/forwardRefParent'
 import { Counter } from './pages/useReducer'
 import Parent from './pages/parent'
+import Counterr from './pages/counterrr'
 
 
 function App() {
@@ -18,7 +19,7 @@ function App() {
  
    return (
     <>
-    <Parent/>
+    <Counterr/>
     </>
    )
 
