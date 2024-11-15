@@ -2,9 +2,13 @@
 
 const Child = ({sendMessage})=>{
 
+    function handleClick(){
+        sendMessage('Heyy Girl..!!')
+    }
+
     return (
         <div>
-            <button>send message</button>
+            <button onClick={handleClick}>send message</button>
         </div>
     )
 }
