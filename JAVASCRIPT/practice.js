@@ -392,73 +392,282 @@
 // }
 // ---------------------------------
 //fibonacci series using recursion
-function fibonacci(n){
-    if(n===0){
-        return 0
-    }else if(n===1){
-        return [0,1]
-    }
-    let series = fibonacci(n-1)
-    series.push(series[n-1]+series[n-2])
-    return series
-}
-// ---------------------------------
-//fibonacci series
-    function fibonacc(n){
-        let fib = [0,1]
-        for(let i=2;i<=n;i++){
-            fib[i] = fib[i-1]+fib[i-2]
-        }
-        return fib
-    }
-// -----------------------------------
-//fibonacci of nth number
-    function fib(n){
-        if(n<2){
-            return n
-        }
-        return fib(n-1)+fib(n-2)
-    }
-    console.log(fibonacci(5))
-    console.log(fibonacc(5))
-    console.log(fib(5))
-// ----------------------------------
-//factorial using recursion
-    function factorial(n){
-        if(n<=1){
-            return n
-        }
-        return n*factorial(n-1)
-    }
-// -----------------------------------
-//factorial of nth number
-    function fact(n){
-        let result = 1
-        for(let i=2;i<=n;i++){
-            result = result*i
-        }
-        return result
-    }
-    console.log(factorial(5))
-    console.log(fact(5))
-// ---------------------------------
-//recursive binary search
-function binarySearch(arr,target,left=0,right=arr.length){
-    while(left<right){
-        let mid = Math.floor((left+right)/2)
-        if(arr[mid]===target){
-            return mid
-        }else if(target>arr[mid]){
-            return binarySearch(arr,target,mid+1,right)
-        }else{
-            return binarySearch(arr,target,left,mid-1)
-        }
-    }
-    return -1
-}
-//binary search
-function binarySearch(arr,target,left=0,right=arr.length){
+// function fibonacci(n){
+//     if(n===0){
+//         return 0
+//     }else if(n===1){
+//         return [0,1]
+//     }
+//     let series = fibonacci(n-1)
+//     series.push(series[n-1]+series[n-2])
+//     return series
+// }
+// // ---------------------------------
+// //fibonacci series
+//     function fibonacc(n){
+//         let fib = [0,1]
+//         for(let i=2;i<=n;i++){
+//             fib[i] = fib[i-1]+fib[i-2]
+//         }
+//         return fib
+//     }
+// // -----------------------------------
+// //fibonacci of nth number
+//     function fib(n){
+//         if(n<2){
+//             return n
+//         }
+//         return fib(n-1)+fib(n-2)
+//     }
+//     console.log(fibonacci(5))
+//     console.log(fibonacc(5))
+//     console.log(fib(5))
+// // ----------------------------------
+// //factorial using recursion
+//     function factorial(n){
+//         if(n<=1){
+//             return n
+//         }
+//         return n*factorial(n-1)
+//     }
+// // -----------------------------------
+// //factorial of nth number
+//     function fact(n){
+//         let result = 1
+//         for(let i=2;i<=n;i++){
+//             result = result*i
+//         }
+//         return result
+//     }
+//     console.log(factorial(5))
+//     console.log(fact(5))
+// // ---------------------------------
+// //recursive binary search
+// function binarySearch(arr,target,left=0,right=arr.length){
+//     while(left<right){
+//         let mid = Math.floor((left+right)/2)
+//         if(arr[mid]===target){
+//             return mid
+//         }else if(target>arr[mid]){
+//             return binarySearch(arr,target,mid+1,right)
+//         }else{
+//             return binarySearch(arr,target,left,mid-1)
+//         }
+//     }
+//     return -1
+// }
+// //binary search
+// function binarySearch(arr,target,left=0,right=arr.length){
     
-}
-let index = binarySearch([2,3,4,5,6],6)
-console.log(index)
+// }
+// let index = binarySearch([2,3,4,5,6],6)
+// console.log(index)
+
+
+
+// --------------------------------------------------------------------
+// //callback hell
+// function fetchData(callback){
+//     setTimeout(()=>{
+//         callback(null,'data fetched')
+//     },1000)
+// }
+// function processData(data,callback){
+//     setTimeout(()=>{
+//         callback(null,`data processed , ${data}`)
+//     },1000)
+// }
+// function saveData(data,callback){
+//     setTimeout(()=>{
+//         callback(null,`data saved , ${data}`)
+//     },1000)
+// }
+
+// fetchData((err,data)=>{
+//     if(err){
+//         console.error(err)
+//         return
+//     }
+//     processData(data,(err,processedData)=>{
+//         if(err){
+//             console.error(err)
+//             return
+//         }
+//         saveData(processedData,(err,savedData)=>{
+//             if(err){
+//                 console.error(err)
+//                 return
+//             }
+//             console.log(savedData)
+//         })
+//     })
+// })
+
+// //promise based code
+
+// function fetchData(){
+//     return new Promise((resolve,reject)=>{
+//         setTimeout(()=>{
+//             resolve('data fetched')
+//         },1000)
+//     })
+// }
+// function processData(data){
+//     return new Promise((resolve,reject)=>{
+//         setTimeout(()=>{
+//             resolve(`data processed , ${data}`)
+//         },1000)
+//     })
+// }
+// function saveData(data){
+//     return new Promise((resolve,reject)=>{
+//         setTimeout(()=>{
+//             resolve(`data saved , ${data}`)
+//         },1000)
+//     })
+// }
+
+// fetchData()
+// .then((data)=>processData(data))
+// .then((processData)=>saveData(processData))
+// .then((saveData)=>console.log(saveData))
+// .catch((err)=>console.error(err))
+
+// ----------------------------------------------------------
+// let curr = this.head
+// let prev = null
+// while(curr){
+//     let next = curr.next
+//     curr.next = prev
+//     prev = curr
+//     curr = next
+// }
+// this.head = prev
+
+// ---------------------------------------------------------------
+
+// let arr = [98,45,12,09,45]
+//     let result = arr.reduce((acc,curr)=>{
+//         if(curr>acc.largest){
+//             acc.secLargest = acc.largest
+//             acc.largest = curr
+//         }else if(curr<acc.largest && curr>acc.secLargest){
+//             acc.secLargest = curr
+//         }
+//         return acc
+//     },{largest:-Infinity,secLargest:-Infinity})
+
+// console.log(result)
+
+// -------------------------------------------------------
+//reverse string using another string
+
+// let str = 'dilfa'
+// function manual(str){
+//     let reversed = ''
+//     for(let i=Math.floor(str.length-1);i>=0;i--){
+//         reversed += str[i]
+//     }
+//     return reversed
+// }
+// console.log(str)
+// console.log(manual(str))
+
+// // --------------------------
+//reverse string using recursion
+
+// function recurse(str){
+//     if(str===''){
+//         return ''
+//     }
+//     return recurse(str.slice(1))+str[0]
+// }
+// console.log(str)
+// console.log(recurse(str))
+
+// //--------------------------
+//reverse string using built-in method
+
+// function buitIn(str){
+//     return str.split('').reverse().join('')
+// }
+// console.log(str)
+// console.log(buitIn(str))
+
+// -----------------------------------------------------------
+//isPalindrome of string using another string
+
+// let str1 = "A man, a plan, a canal, Panama"
+// let str2 = 'dilfa'
+// function isPalindrome(str){
+//     let normal = str.replace(/[^a-zA-Z0-9]/g, '').toLowerCase();
+//     let reversed = ''
+//     for(let i=normal.length-1;i>=0;i--){
+//         reversed += normal[i]
+//     }
+//     return normal===reversed
+// }
+
+// console.log(isPalindrome(str2))
+// ------------------------------------------------------------
+//isPalindrome of number by converting to string
+
+// let num = 121
+// function isPalindrome(num){
+//     let string = num.toString()
+//     let reversed = string.split('').reverse().join('')
+//     return string===reversed
+// }
+
+// console.log(isPalindrome(num))
+
+// -------------------------------------------------------
+//isPalindrome of string using recursion
+
+// let str = 'abvcba'
+// function check(str,s=0,e=str.length-1){
+//     if(s>e){
+//         return true
+//     }
+//     if(str[s]!==str[e]){
+//         return false
+//     }
+//     return check(str,s+1,e-1)
+// }
+// console.log(check(str))
+
+// --------------------------------------------------------
+//find sum of digits without converting into string
+
+// let digits = 1234
+// function sum(digits){
+//     let sum = 0
+//     while(digits>0){
+//         let lastDigit = digits%10 
+//         sum+=lastDigit 
+//         digits = Math.floor(digits/10) 
+//     }
+//     return sum
+// }
+// console.log(sum(digits))
+
+// --------------------------------------------------------
+
+//isPalindrome digits without converting into string
+// let digits = 124321
+// function isPalindrome(digits){
+//     if(digits<0){
+//         return false
+//     }
+//     let reversed = 0
+//     let original = digits
+//     while(digits>0){
+//         let lastDigit = digits%10 
+//         reversed = reversed*10+lastDigit
+//         digits = Math.floor(digits/10)
+//     }
+//     return original===reversed
+// }
+// console.log(isPalindrome(digits))
+// --------------------------------------------------------
+
