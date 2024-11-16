@@ -17,3 +17,18 @@ console.log(deepCopy1)
 function deepClone(arr2){
          
 }
+
+// --------------------------------------------
+// //find second largest using reduce
+// let arr = [98,45,12,09,45]
+//     let result = arr.reduce((acc,curr)=>{
+//         if(curr>acc.largest){
+//             acc.secLargest = acc.largest
+//             acc.largest = curr
+//         }else if(curr<acc.largest && curr>acc.secLargest){
+//             acc.secLargest = curr
+//         }
+//         return acc
+//     },{largest:-Infinity,secLargest:-Infinity})
+
+// console.log(result)
