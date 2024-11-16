@@ -13,6 +13,7 @@ import { Counter } from './pages/useReducer'
 import Parent from './pages/parent'
 import Counterr from './pages/counterrr'
 import SideEffect from './pages/useEffect'
+import Form from './pages/unControlled'
 
 
 
@@ -21,7 +22,7 @@ function App() {
  
    return (
     <>
-    <SideEffect/>
+    <Form/>
     </>
    )
 
