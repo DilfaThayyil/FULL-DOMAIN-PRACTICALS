@@ -1,0 +1,44 @@
+
+<!-- event bubbling , event capturing  -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="parent">PARENT
+        <div id="child">CHILD
+            <div id="inner child">INNER CHILD
+                <div id="inner child1">INNER CHILD1
+                    <div id="inner child2">INNER CHILD2</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const parent = document.getElementById("parent")
+        const child = document.getElementById('child')
+        const innerChild = document.getElementById('inner child')
+        const innerChild1 = document.getElementById('inner child1')
+        const innerChild2 = document.getElementById('inner child2')
+        parent.addEventListener('click',()=>{
+            console.log('parent clicked')
+        })
+        child.addEventListener('click',()=>{
+            console.log('child clicked')
+        })
+        innerChild.addEventListener('click',()=>{
+            console.log('inner child clicked')
+        })
+        innerChild1.addEventListener('click',()=>{
+            console.log('inner child1 clicked')
+        })
+        innerChild2.addEventListener('click',()=>{
+            console.log('inner child2 clicked')
+        })
+    </script>
+</body>
+</html>
