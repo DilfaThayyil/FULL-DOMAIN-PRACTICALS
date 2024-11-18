@@ -671,3 +671,32 @@
 // console.log(isPalindrome(digits))
 // --------------------------------------------------------
 
+// let str = ["eat","tea","tan","ate","nat","bat"]
+
+// function groupAnagrams(str){
+//         let map = new Map()
+//         let sorted
+//         for(let word of str){
+//             sorted = word.split('').sort().join('')
+//             if(!map.has(sorted)){
+//                 map.set(sorted,[])
+//             }
+//             map.get(sorted).push(word)
+//         }
+//     return Array.from(map.values())
+// }
+// console.log(groupAnagrams(str))
+
+// --------------------------------------------------------
+//find sum of digits withtout converting into string
+// let digits = 1234
+// function sum(digits){
+//     let sum = 0
+//     while(digits>0){
+//         let lastDigit = digits%10
+//         sum += lastDigit
+//         digits = Math.floor(digits/10)
+//     }
+//     return sum
+// }
+// console.log(sum(digits))
