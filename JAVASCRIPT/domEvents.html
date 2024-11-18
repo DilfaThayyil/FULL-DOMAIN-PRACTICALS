@@ -1,5 +1,5 @@
 
-<!-- event bubbling , event capturing  -->
+<!-- getElementById , addEventListener , e.target.tagName , LI , document , textContent -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -9,6 +9,7 @@
     <title>Document</title>
 </head>
 <body>
+    <!-- event bubbling,capturing -->
     <div id="parent">PARENT
         <div id="child">CHILD
             <div id="inner child">INNER CHILD
@@ -18,13 +19,22 @@
             </div>
         </div>
     </div>
+    <!-- event delegation -->
     <ul id="par">
         <li>item1</li>
         <li>item2</li>
         <li>item3</li>
         <li>item4</li>
     </ul>
+
     <script>
+        //event delegation
+        document.getElementById('par').addEventListener('click',(e)=>{
+            if(e.target.tagName==='LI'){
+                console.log(`${e.target.textContent} is clicked`)
+            }
+        })
+        //event bubblling , capturing
         const parent = document.getElementById("parent")
         const child = document.getElementById('child')
         const innerChild = document.getElementById('inner child')
