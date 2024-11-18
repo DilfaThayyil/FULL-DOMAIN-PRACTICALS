@@ -6,6 +6,6 @@ if(isMainThread){
     worker.postMessage('Do a heavy task')
 }else{
     parentPort.on('message',()=>{
-        parentPor
+        parentPort.postMessage('Task done!')
     })
 }
