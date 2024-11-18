@@ -700,3 +700,159 @@
 //     return sum
 // }
 // console.log(sum(digits))
+//string isPalindrome using recursion
+// function isPal(str,a=0,b=str.length-1){
+//     if(a>b){
+//         return true
+//     }else if(str[a]!==str[b]){
+//         return false
+//     }
+//     return isPal(str,a+1,b-1)
+// }
+// let str = 'abcdba'
+// console.log(isPal(str))
+
+//string reverse using recursion
+// function recurse(str){
+//     if(str===''){
+//         return ''
+//     }
+//     return recurse(str.slice(1))+str[0]
+// }
+// let str = 'shibil'
+// console.log(recurse(str))
+
+//string reverse 
+// function reverse(str){
+//     let reversed = ''
+//     for(let i=str.length-1;i>=0;i--){
+//         reversed += str[i]
+//     }
+//     return reversed
+// }
+// let s = 'dilfa'
+// console.log(reverse(s))
+
+// -----------------------------------------------------
+//string reverse using 2 pointer method
+// function reverse(str){
+//     let left = 0
+//     let right = str.length-1
+//     let arr = []
+//     for(let i=0;str[i]!==undefined;i++){
+//         arr[i] = str[i]
+//     }
+//     while(left<right){
+//         let temp  = arr[left]
+//         arr[left] = arr[right]
+//         arr[right] = temp
+//         left++
+//         right--
+//     }
+//     let reversed = ''
+//     for(let i=0;arr[i]!==undefined;i++){
+//         reversed += arr[i]
+//     }
+//     return reversed
+// }
+// let s = 'aflid'
+// console.log(reverse(s))
+
+// ---------------------------------------------------------
+//remove vowels from a string
+// function removeVowels(str){
+//     let vowels = ['a','e','i','o','u']
+//     let removed = ''
+//     for(let i=0;i<str.length;i++){
+//         if(!vowels.includes(str[i])){
+//             removed+=str[i]
+//         }
+//     }
+//     return removed
+// }
+
+// let str = 'dilfa'
+// console.log(removeVowels(str))
+
+// -----------------------------------------------------------
+// remove vowels without inbuild method
+// function remove(str){
+//     let removed = ''
+//     for(let i=0;i<str.length;i++){
+//         if(str[i]!=='a'&&str[i]!=='e'&&str[i]!=='i'&&str[i]!=='o'&&str[i]!=='u'){
+//             removed+=str[i]
+//         }
+//     }
+//     return removed
+// }
+
+// console.log(remove("shibilshibil"));
+
+// -------------------------------------------------------
+
+//extract digit from a string
+// function extract(str){
+//     let extracted = ''
+//     for(let i=0;i<str.length;i++){
+//         if(str[i]>='0'&&str[i]<='9'){
+//             extracted += str[i]
+//         }
+//     }
+//     return extracted
+// }
+// console.log(extract('1h2e3l4l5o'))
+// ------------------------------------------------------------
+//convert comma separated values into array
+// function intoArr(str){
+//     return str.split(',')
+// }
+// let s = 'd,i,l,f,a'
+// console.log(intoArr(s))
+// -------------------------------------------------------------
+//fn to ensure string ends with a period
+// function endsWith(str){
+//     if(str.endsWith('.')){
+//         return str
+//     }else{
+//         return str+='.'
+//     }
+// }
+// console.log(endsWith('fillll'))
+// --------------------------------------------------------
+//convert comma seapratd values into array without built-in method
+// function convertCSVToArray(csv) {
+//     let result = [];
+//     let value = '';
+//     for (let i = 0; i < csv.length; i++) {
+//         if (csv[i] === ',') {
+//             result.push(value);
+//             value = ''; 
+//         } else {
+//             value += csv[i];
+//         }
+//     }
+//     result.push(value);
+//     return result;
+// }
+// console.log(convertCSVToArray('d,i,l,f,a'))
+// -----------------------------------------------------
+//fn to ensure string ends with a period without built-in
+// function endsWith(str){
+//     if(str[str.length-1]==='.'){
+//         return str
+//     }else{
+//         return str+='.'
+//     }
+// }
+// console.log(endsWith('dil.'))
+// --------------------------------------------------------------
+//find the occurrence of elements in an array
+// function occurrence(arr){
+//     let count = {}
+//     for(let value of arr){
+//         count[value] = (count[value]||0)+1
+//     }
+//     return count
+// }
+// console.log(occurrence([1,4,2,1,5,3,6,2,4,3]))
+// --------------------------------------------------------
