@@ -1,0 +1,35 @@
+
+<!-- getElementById , addEventListener , createElement , appendChild , removeChild , 
+    document , textContent  -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="parent">PARENT
+        <div id="sub">SUB</div>
+    </div>
+    <button id="add">ADD</button>
+    <button id="remove">REMOVE</button>
+    <script>
+        const parent = document.getElementById('parent')
+        const sub = document.getElementById('sub')
+        const add = document.getElementById('add')
+        const remove = document.getElementById('remove')
+        add.addEventListener('click',()=>{
+            const newDiv = document.createElement('div')
+            newDiv.textContent = 'Heyy Girrlll!!'
+            parent.appendChild(newDiv)
+        })
+        remove.addEventListener('click',()=>{
+            parent.removeChild(sub)
+        })
+        
+    </script>
+</body>
+</html>
+
