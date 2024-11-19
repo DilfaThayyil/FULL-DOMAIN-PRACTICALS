@@ -119,4 +119,15 @@
 
 // -----------------------------------------------------------------------------
 
+//cluster module
+const cluster = require('cluster')
+const http = require('http')
+const os = require('os')
 
+if(cluster.isMaster){
+    os.cpus().forEach(()=>cluster.fork())
+}else{
+    http.createServer((req,res)=>{
+        res.end('handled by worker')
+    }).listen(8000)
+}

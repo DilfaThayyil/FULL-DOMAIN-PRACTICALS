@@ -914,3 +914,14 @@
 //     console.log('Done!')
 // }
 // main()
+
+// -----------------------------------------------------
+
+//cluster module
+import cluster from 'cluster'
+import fs from 'fs'
+import os from 'os'
+
+if(cluster.isWorker){
+    os.cpus.
+}
