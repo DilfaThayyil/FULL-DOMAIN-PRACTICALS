@@ -894,3 +894,23 @@
 // beforeYesterday.setDate(beforeYesterday.getDate()-2)
 // console.log(beforeYesterday.toDateString())
 // ------------------------------------------------------
+
+// promise code
+// function fetchData(){
+//     return new Promise((resolve,reject)=>{
+//         setTimeout(()=>{
+//             resolve('data fetched successfully')
+//         },3000)
+//     })
+// }
+// async function main(){
+//     console.log('fetching data...')
+//     try{
+//         let result = await fetchData()
+//         console.log(result)
+//     }catch(err){
+//         console.error(err)
+//     }
+//     console.log('Done!')
+// }
+// main()
