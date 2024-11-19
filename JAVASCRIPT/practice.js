@@ -856,3 +856,31 @@
 // }
 // console.log(occurrence([1,4,2,1,5,3,6,2,4,3]))
 // --------------------------------------------------------
+//find count of each +ve,-ve,zero values from individual array
+// let a = [[4,-5,0,1,-4],[9,-1,2,-6],[-8,0,2]]
+// let result = a.map((subArray)=>{
+//    let p=0,n=0,z=0
+//       subArray.forEach((num)=>{
+//         if(num>0){
+//             p++
+//         }else if(num<0){
+//             n++
+//         }else{
+//             z++
+//         }
+//     })
+//     return {p,n,z}
+// })
+// console.log(result)
+// -------------------------------------------------------
+// find sum of digits from the array
+let a = [[{a:[1,1,1]}],[{b:[1,1,1]}],[{c:[1,1,1]}]]
+let totalSum = 0
+a.forEach((subArray)=>{
+    subArray.forEach((obj)=>{
+        for(let key in obj){
+            totalSum += obj[key].reduce((sum,val)=>sum+=val,0)
+        }
+    })
+})
+console.log(totalSum)
