@@ -119,27 +119,39 @@
 
 // -----------------------------------------------------------------------------
 
-//cluster module
-const cluster = require('cluster')
-const http = require('http')
-const os = require('os')
+// //cluster module
+// const cluster = require('cluster')
+// const http = require('http')
+// const os = require('os')
 
-if(cluster.isMaster){
-    os.cpus().forEach(()=>cluster.fork)
-}else{
-    http.createServer((req,res)=>{
-        res.end('handled by workers')
-    }).listen(8000)
-}
-//worker thread
-const {Worker,isMainThread,parentPort} = require('worker_threads')
+// if(cluster.isMaster){
+//     os.cpus().forEach(()=>cluster.fork)
+// }else{
+//     http.createServer((req,res)=>{
+//         res.end('handled by workers')
+//     }).listen(8000)
+// }
+// //worker thread
+// const {Worker,isMainThread,parentPort} = require('worker_threads')
 
-if(isMainThread){
-    const worker = new Worker(__filename)
-    worker.on('message',(message)=>console.log(message))
-    worker.postMessage('Do a heavy task')
-}else{
-    parentPort.on('message',()=>{
-        parentPort.postMessage('Task done..!')
-    })
-}
+// if(isMainThread){
+//     const worker = new Worker(__filename)
+//     worker.on('message',(message)=>console.log(message))
+//     worker.postMessage('Do a heavy task')
+// }else{
+//     parentPort.on('message',()=>{
+//         parentPort.postMessage('Task done..!')
+//     })
+// }
+
+
+//block all post requests
+
+const express = require('express')
+const app = express()
+
+app.use((req,res,next)=>{
+    if(req.method==='POST'){
+        res.status().send('POST requests are blocked')
+    }
+})
