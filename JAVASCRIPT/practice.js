@@ -786,7 +786,7 @@
 //     return removed
 // }
 
-// console.log(remove("shibilshibil"));
+// console.log(remove("hiaecyov"));
 
 // -------------------------------------------------------
 
@@ -873,14 +873,14 @@
 // })
 // console.log(result)
 // -------------------------------------------------------
-// find sum of digits from the array
-let a = [[{a:[1,1,1]}],[{b:[1,1,1]}],[{c:[1,1,1]}]]
-let totalSum = 0
-a.forEach((subArray)=>{
-    subArray.forEach((obj)=>{
-        for(let key in obj){
-            totalSum += obj[key].reduce((sum,val)=>sum+=val,0)
-        }
-    })
-})
-console.log(totalSum)
+// // find sum of digits from the array
+// let a = [[{a:[1,1,1]}],[{b:[1,1,1]}],[{c:[1,1,1]}]]
+// let totalSum = 0
+// a.forEach((subArray)=>{
+//     subArray.forEach((obj)=>{
+//         for(let key in obj){
+//             totalSum += obj[key].reduce((sum,val)=>sum+=val,0)
+//         }
+//     })
+// })
+// console.log(totalSum)
