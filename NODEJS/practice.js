@@ -147,16 +147,30 @@
 
 //block all post requests
 
-const express = require('express')
-const app = express()
+// const express = require('express')
+// const app = express()
 
-app.use((req,res,next)=>{
-    if(req.method==='POST'){
-        return res.status(403).send('POST requests are not allowed')
-    }
-    next()
-})
-app.get('/',(req,res)=>{
-    res.send('get requests are allowed')
-})
-app.listen(8000,()=>console.log('server running on port 8000'))
+// app.use((req,res,next)=>{
+//     if(req.method==='POST'){
+//         return res.status(403).send('POST requests are not allowed')
+//     }
+//     next()
+// })
+// app.get('/',(req,res)=>{
+//     res.send('get requests are allowed')
+// })
+// app.listen(8000,()=>console.log('server running on port 8000'))
+// --------------------------------------------------------------------------
+
+//validate csrf token
+// const express = require('express')
+// const app = express()
+
+// app.post('/updateProfile',(req,res)=>{
+//     const token = req.body.csrfToken
+//     if(token!==req.session.csrfToken){
+//         res.status(403).send('CSRF token validation failed')
+//     }
+//     res.send('user profile updated successfully')
+// })
+// -------------------------------------------------------------------------
