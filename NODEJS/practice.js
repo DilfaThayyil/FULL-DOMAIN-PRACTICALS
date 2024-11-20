@@ -176,4 +176,26 @@
 // -------------------------------------------------------------------------
 
 //setHeader , writeHeader
+// const http = require('http')
 
+// http.createServer('/',(req,res)=>{
+//     res.setHeader('Content-Type','application/json')
+//     res.writeHead(200,{
+//         'cache-control':'no-cache'
+//     })
+//     res.end('<h1>Hello world!</h1>')
+// }).listen(3000)
+// const express = require('express')
+// const app = express()
+
+// app.get('/',(req,res)=>{
+//     res.set('Content-Type','text/html')
+//     res.send('header send successfully!!!!')
+// })
+// app.get('/',(req,res)=>{
+//     res.set({
+//         'Content-Type':'text/html',
+//         'Cache-control':'no-cache'
+//     })
+//     res.json({message:'hello world!'})
+// })
