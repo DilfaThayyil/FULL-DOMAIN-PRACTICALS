@@ -174,3 +174,6 @@
 //     res.send('user profile updated successfully')
 // })
 // -------------------------------------------------------------------------
+
+//setHeader , writeHeader
+
