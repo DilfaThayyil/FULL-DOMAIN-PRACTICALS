@@ -152,13 +152,11 @@ const app = express()
 
 app.use((req,res,next)=>{
     if(req.method==='POST'){
-        return res.status(403).send('POST requests are blocked')
+        return res.status(403).send('POST requests are not allowed')
     }
     next()
 })
 app.get('/',(req,res)=>{
     res.send('get requests are allowed')
 })
-
-
-app.listen(3000,()=>console.log('server running on port 8000'))
+app.listen(8000,()=>console.log('server running on port 8000'))
