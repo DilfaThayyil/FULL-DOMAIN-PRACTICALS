@@ -15,6 +15,7 @@ import Counterr from './pages/counterrr'
 import SideEffect from './pages/useEffect'
 import Form from './pages/unControlled'
 import LazyParent from './pages/lazyCompon'
+import UseRef from './practice'
 
 
 function App() {
@@ -22,7 +23,7 @@ function App() {
  
    return (
     <>
-    <LazyParent/>
+    <UseRef/>
     </>
    )
 

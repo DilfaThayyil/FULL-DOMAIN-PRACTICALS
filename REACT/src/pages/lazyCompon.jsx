@@ -1,16 +1,16 @@
 import React,{ Suspense } from 'react'
 
-const LazyLoadedComponent = React.lazy(()=>import('./counterrr'))
+const LazyComp = React.lazy(()=>import('./counterrr'))
 
-const LazyParent = ()=>{
+const LazyPar = ()=>{
     return (
         <div>
-            <h1>React.lazy Example</h1>
+            <h1>react.lazy example</h1>
             <Suspense fallback={<div>Loading...</div>}>
-                <LazyLoadedComponent/>
+                <LazyComp/>
             </Suspense>
         </div>
     )
 }
 
-export default LazyParent
+export default LazyPar
