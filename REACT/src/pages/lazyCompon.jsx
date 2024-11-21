@@ -1,6 +1,6 @@
 import React,{ Suspense } from 'react'
 
-const LazyLoadedComponent = React.lazy(()=>import('./useEffect'))
+const LazyLoadedComponent = React.lazy(()=>import('./counterrr'))
 
 const LazyParent = ()=>{
     return (
