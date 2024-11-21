@@ -199,3 +199,35 @@
 //     })
 //     res.json({message:'hello world!'})
 // })
+
+// --------------------------------------------------------------------------------------------------------------
+//cluster module
+
+// const cluster = require('cluster')
+// const http = require('http')
+// const os = require('os')
+
+// if(cluster.isMaster){
+//     console.log(`master process started with : ${process.pid}`)
+//     os.cpus().forEach(()=>cluster.fork())
+// }else{
+//     console.log(`worker process started with : ${process.pid}`)
+//     http.createServer((req,res)=>{
+//         res.end('handled by workers')
+//     }).listen(8000)
+// }
+
+// --------------------------------------------------------------------------------------------------------------
+//worker thread
+
+const {Worker,isMainThread,parentPort} = require('worker_threads')
+
+if(isMainThread){
+    const worker = new Worker(__filename)
+    worker.on('message',(message)=>console.log(message))
+    worker.postMessage('Do a heavy task')
+}else{
+    parentPort.on('message',()=>{
+        parentPort.postMessage('Task is done!')
+    })
+}
