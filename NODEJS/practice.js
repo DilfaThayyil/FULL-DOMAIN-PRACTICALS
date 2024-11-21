@@ -220,14 +220,14 @@
 // --------------------------------------------------------------------------------------------------------------
 //worker thread
 
-const {Worker,isMainThread,parentPort} = require('worker_threads')
+// const {Worker,isMainThread,parentPort} = require('worker_threads')
 
-if(isMainThread){
-    const worker = new Worker(__filename)
-    worker.on('message',(message)=>console.log(message))
-    worker.postMessage('Do a heavy task')
-}else{
-    parentPort.on('message',()=>{
-        parentPort.postMessage('Task is done!')
-    })
-}
+// if(isMainThread){
+//     const worker = new Worker(__filename)
+//     worker.on('message',(message)=>console.log(message))
+//     worker.postMessage('Do a heavy task')
+// }else{
+//     parentPort.on('message',()=>{
+//         parentPort.postMessage('Task is done')
+//     })
+// }
