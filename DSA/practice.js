@@ -2629,10 +2629,13 @@ class HashTable{
 // ----------------------------------------------------------------
 
 
-class BinarySearchTree{
-    constructor(){
-        
+class MaxHeap{
+    constructor(value){
+        this.value = value
+        this.left = null
+        this.right = null
     }
+    
 }
 
 
