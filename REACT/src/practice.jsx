@@ -38,7 +38,7 @@ const ParentRef = ()=>{
     }
     return (
         <div>
-            <ChildRef ref={inputRef} placeholder="Typesomething.."/>
+            <ChildRef ref={inputRef} placeholder="Type Something.."/>
             <button onClick={focusInput}>clicke me</button>
         </div>
     )
