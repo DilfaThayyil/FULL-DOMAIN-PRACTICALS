@@ -1,25 +1,24 @@
-// // //useRef
+// //useRef
+// import { useRef } from "react"
+// function UnControlled (){
+//     const inputRef = useRef(null)
+//     const handleSubmit = (e)=>{
+//         e.preventDefault()
+//         alert(`${inputRef.current.value}`)
+//     }
+//     return (
+//         <div>
+//             <form onSubmit={handleSubmit}>
+//                 <input type="text" ref={inputRef}/>
+//                 <button type='submit'>submit</button>
+//             </form>
+//         </div>
+//     )
+// }
 
-import { useState } from "react";
+// export default UnControlled
 
-// import { forwardRef, useRef } from "react";
 
-// // import { useEffect, useRef } from "react"
-
-// // const UseRef = ()=>{
-// //     const inputRef = useRef(null)
-// //     useEffect(()=>{
-// //         inputRef.current.focus()
-// //     },[])
-// //     return (
-// //         <div>
-// //             <h1>useRef example</h1>
-// //             <input type="text" ref={inputRef}/>
-// //         </div>
-// //     )
-// // }
-
-// // export default UseRef
 
 // //forwardRef
 
