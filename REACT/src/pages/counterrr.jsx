@@ -1,4 +1,4 @@
-import { useReducer } from "react"
+import { useEffect, useReducer, useState } from "react"
 
 
 let initialState = {count:0}
@@ -17,9 +17,16 @@ function reducer(state,action){
 const Counterr = ()=>{
 
     const [state,dispatch] = useReducer(reducer,initialState)
+    const [count,setCount] = useState(0)
+
+    useEffect(()=>{
+        let timer = setInterval(()=>setCount(count+1),1000)
+        return (()=>clearInterval(timer))
+    },[count])
 
     return (
         <div>
+            {count}
             <h2>useReducer</h2>
             <p>count : {state.count}</p>
             <button onClick={()=>dispatch({type:'Increment'})}>Increment</button>

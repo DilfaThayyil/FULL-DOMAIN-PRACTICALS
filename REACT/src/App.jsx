@@ -11,7 +11,7 @@ import './App.css'
 // import ParentComponent from './pages/forwardRefParent'
 // import { Counter } from './pages/useReducer'
 // import Parent from './pages/parent'
-// import Counterr from './pages/counterrr'
+import Counterr from './pages/counterrr'
 // import SideEffect from './pages/useEffect'
 // import Form from './pages/unControlled'
 // import LazyParent from './pages/lazyCompon'
@@ -23,7 +23,7 @@ function App() {
  
    return (
     <>
-    <HandleClick/>
+    <Counterr/>
     </>
    )
 
