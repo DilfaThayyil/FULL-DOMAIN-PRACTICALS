@@ -70,7 +70,7 @@ class DoubleLinkedList{
             }
             this.size++
         }else{
-            console.log("index out of bounds")
+            console.log("index out of bounds") 
         }
     }
     deleteByIndex(index){
