@@ -35,7 +35,7 @@
 //     count++
 // }
 // console.log(count)
-// //////////////deepclone of an object
+// /////////  /////deepclone of an object
 
 // //structured clone()
 // let obj3 = {
