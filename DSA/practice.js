@@ -2626,17 +2626,8 @@ class HashTable{
 //     }
 // }
 
-// ----------------------------------------------------------------
+// ----------------------------------------------------27-11-2024------------------------------------------------
 
-
-class MaxHeap{
-    constructor(value){
-        this.value = value
-        this.left = null
-        this.right = null
-    }
-    
-}
 
 // let yesterday = new Date()
 // console.log(yesterday.toDateString())
@@ -2648,7 +2639,6 @@ class MaxHeap{
 // beforeYesterday.setDate(beforeYesterday.getDate()-2)
 // console.log(beforeYesterday.toDateString())
 
-// --------------------------------------------------------------------------------------------------------
 
 // // find sum of digits from the array
 // let a = [[{a:[1,1,1]}],[{b:[1,1,1]}],[{c:[1,1,1]}]]
