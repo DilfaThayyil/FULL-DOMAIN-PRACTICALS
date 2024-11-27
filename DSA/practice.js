@@ -2743,3 +2743,9 @@ class HashTable{
 // const proxy = new Proxy(obj,handler1)
 // proxy.place = 'vengara'
 // console.log(proxy)
+
+//remove last key value from obj
+let obj = {name:'dilfa',age:12}
+for(let num in obj){
+    console.log(num)
+}
