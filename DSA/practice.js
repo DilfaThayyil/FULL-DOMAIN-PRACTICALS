@@ -2702,5 +2702,27 @@ class HashTable{
 //         console.error(err)
 //     }
 // }
-
 // handleData()
+
+
+// //reverse even numbers by 1 sec delay
+// function* reversedEven(n){
+//     for(let i=n;i>=0;i--){
+//         if(i%2===0){
+//             yield i
+//         }
+//     }
+// }
+// function print(n){
+//     const generator = reversedEven(n)
+//     const intervalId = setInterval(()=>{
+//         const {value,done} = generator.next()
+//         if(done){
+//             clearInterval(intervalId)
+//         }else{
+//             console.log(value)
+//         }
+//     },1000)
+// }
+
+// print(9)
