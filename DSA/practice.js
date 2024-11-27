@@ -2654,18 +2654,18 @@ class HashTable{
 // console.log(sum)
 
 
-//reverse string word by word
-let s = 'life is simple'
-let sp = s.split(' ')
-let reversed = ''
-for(let i=0;i<sp.length;i++){
-    for(let j=sp[i].length-1;j>=0;j--){
-        reversed += sp[i][j]
-    }
-    if(i<sp.length){
-        reversed += ' '
-    }
-}
-console.log(reversed)
+// //reverse string word by word
+// let s = 'life is simple'
+// let sp = s.split(' ')
+// let reversed = ''
+// for(let i=0;i<sp.length;i++){
+//     for(let j=sp[i].length-1;j>=0;j--){
+//         reversed += sp[i][j]
+//     }
+//     if(i<sp.length){
+//         reversed += ' '
+//     }
+// }
+// console.log(reversed)
 
 
