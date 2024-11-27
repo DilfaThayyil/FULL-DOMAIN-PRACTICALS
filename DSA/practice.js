@@ -2744,8 +2744,9 @@ class HashTable{
 // proxy.place = 'vengara'
 // console.log(proxy)
 
-//remove last key value from obj
-let obj = {name:'dilfa',age:12}
-for(let num in obj){
-    console.log(num)
-}
+//some,every
+// let arr = [5,3,4,6,2,3]
+// let three = (a)=>a===3
+// console.log(arr.some(three))
+// console.log(arr.every(three))
+
