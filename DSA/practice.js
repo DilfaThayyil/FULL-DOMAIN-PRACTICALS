@@ -2650,18 +2650,18 @@ class MaxHeap{
 
 // --------------------------------------------------------------------------------------------------------
 
-// find sum of digits from the array
-let a = [[{a:[1,1,1]}],[{b:[1,1,1]}],[{c:[1,1,1]}]]
-let sum = 0
-for(let num of a){
-    for(let nu of num){
-        for(let n in nu){
-            console.log(nu[n])
-            sum += nu[n].reduce((acc,curr)=>acc+=curr,0)
-        }
-    }
-}
-console.log(sum)
+// // find sum of digits from the array
+// let a = [[{a:[1,1,1]}],[{b:[1,1,1]}],[{c:[1,1,1]}]]
+// let sum = 0
+// for(let num of a){
+//     for(let nu of num){
+//         for(let n in nu){
+//             console.log(nu[n])
+//             sum += nu[n].reduce((acc,curr)=>acc+=curr,0)
+//         }
+//     }
+// }
+// console.log(sum)
 
 
 
