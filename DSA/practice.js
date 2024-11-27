@@ -2726,3 +2726,20 @@ class HashTable{
 // }
 
 // print(9)
+
+
+// //proxy object
+// const obj = {name:'dilfa',age:12}
+// const handler = {
+//     get:function(obj,prop){
+//         return obj[prop]?obj[prop]:'property not defined'
+//     }
+// }
+// const handler1 = {
+//     set:function(obj,prop,value){
+//         return obj[prop] = value
+//     }
+// }
+// const proxy = new Proxy(obj,handler1)
+// proxy.place = 'vengara'
+// console.log(proxy)
