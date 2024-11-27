@@ -2638,7 +2638,15 @@ class MaxHeap{
     
 }
 
+let yesterday = new Date()
+console.log(yesterday.toDateString())
+yesterday.setDate(yesterday.getDate()-1)
+console.log(yesterday.toDateString())
 
+let beforeYesterday = new Date()
+console.log(beforeYesterday.toDateString())
+beforeYesterday.setDate(beforeYesterday.getDate()-2)
+console.log(beforeYesterday.toDateString())
 
 
 
