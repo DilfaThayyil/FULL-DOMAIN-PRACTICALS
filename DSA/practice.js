@@ -2750,12 +2750,12 @@ class HashTable{
 // console.log(arr.some(three))
 // console.log(arr.every(three))
 
-//sum of array
-let arr = [1,2,3,4]
-function sum(arr){
-    if(arr.length===0){
-        return false
-    }
-    return sum(arr.splice(1))+arr[0]
-}
-console.log(sum(arr))
+// //sum of array
+// let arr = [1,2,3,4]
+// function sum(arr){
+//     if(arr.length===0){
+//         return false
+//     }
+//     return sum(arr.splice(1))+arr[0]
+// }
+// console.log(sum(arr))
