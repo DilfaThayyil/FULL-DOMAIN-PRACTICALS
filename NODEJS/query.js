@@ -10,6 +10,6 @@ app.get('/',(req,res)=>{
 
 //URL consist of 
 // 1. HTTP (protocol)
-// 2. Domain(examle.com)
+// 2. Domain(example.com)
 // 3. path(/user)
 // 4. query parameters(?=search)
