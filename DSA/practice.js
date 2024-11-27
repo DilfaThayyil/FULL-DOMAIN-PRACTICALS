@@ -2669,3 +2669,38 @@ class HashTable{
 // console.log(reversed)
 
 
+// //callback hell into promise code
+// function fetchData(){
+//     return new Promise((resolve,reject)=>{
+//         setTimeout(()=>{
+//             resolve(`fetched data`)
+//         },1000)
+//     })
+// }
+// function processData(data){
+//     return new Promise((resolve,reject)=>{
+//         setTimeout(()=>{
+//             resolve(`processed data : ${data}`)
+//         },1000)
+//     })
+// }
+// function saveData(data){
+//     return new Promise((resolve,reject)=>{
+//         setTimeout(()=>{
+//             resolve(`saved data : ${data}`)
+//         },1000)
+//     })
+// }
+
+// async function handleData(){
+//     try{
+//         const data = await fetchData()
+//         const processedData = await processData(data)
+//         const savedData = await saveData(processedData)
+//         console.log(savedData)
+//     }catch(err){
+//         console.error(err)
+//     }
+// }
+
+// handleData()
