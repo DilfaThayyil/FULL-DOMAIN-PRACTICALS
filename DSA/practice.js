@@ -1215,877 +1215,877 @@
 
 // // --------------------------------------------Day 1---------------------------------------------------(11-11-2024)
 
-class Node{
-    constructor(value){
-        this.value = value
-        this.next = null
-        this.prev = null
-    }
-}
-class LinkedList{
-    constructor(){
-        this.head = null
-        this.tail = null
-    }
-    prepend(value){
-        const node = new Node(value)
-        if(!this.head){
-            this.head = node
-            this.tail = node
-        }else{
-            node.next = this.head
-            this.head.prev = node
-            this.head = node
-        }
-    }
-    append(value){
-        const node = new Node(value)
-        if(!this.head){
-            this.head = node
-            this.tail = node
-        }else{
-            this.tail.next = node
-            node.prev = this.tail
-            this.tail = node
-        }
-    }
-    insert(value){
-        const node = new Node(value)
-        if(index===0){
-            if(!this.head){
-                this.head = node
-                this.tail = node
-            }else{
-                node.next = this.head
-                this.head.prev = node
-                this.head = node
-            }
-            return
-        }
-        let curr = this.head
-        let currentIndex = 0
-        while(curr&&currentIndex<index){
-            curr = curr.next
-            currentIndex++
-        }
-        if(currentIndex===index){
-            if(curr){
-                node.next = curr
-                node.prev = curr.prev
-                if(curr.prev){
-                    curr.prev.next = node
-                }
-                curr.prev = node
-            }else{
-                this.tail.next = node
-                node.prev = this.tail
-                this.tail = node
-            }
-        }else{
-            console.log('index out of bounds')
-        }
-    }
-    reverse(){
-        let curr = this.head
-        let temp = null
-        while(curr){
-            temp = curr.prev
-            curr.prev = curr.next
-            curr.next = temp
-            curr = curr.prev
-        }
-        if(temp){
-            this.head = temp.prev
-        }
-    }
-    deleteByValue(value){
-        if(!this.head){
-            return 
-        }
-        if(this.head.value===value){
-            if(this.head===this.tail){
-                this.head = null
-                this.tail = null
-            }else{
-                this.head = this.head.next
-                this.head.prev = null
-            }
-            return
-        }
-        let curr = this.head
-        while(curr&&curr.value!==value){
-            curr = curr.next
-        }
-        if(!curr){
-            console.log('value not found')
-        }
-        if(curr===this.tail){
-            this.tail = curr.prev
-            this.tail.next = null
-        }else{
-            curr.prev.next = curr.next
-            if(curr.next){
-                curr.next.prev = curr.prev
-            }
-        }
-        return
-    }
-    deleteByIndex(index){
-        if(!this.head){
-            return arr
-        }
-        if(index===0){
-            if(this.head===this.tail){
-                this.head = null
-                this.tail = null
-            }else{
-                this.head = this.head.next
-                this.head.prev = null
-            }
-            return
-        }
-        let curr = this.head
-        let currentIndex = 0
-        while(curr&&currentIndex<index){
-            curr = curr.next
-            currentIndex++
-        }
-        if(!curr){
-            console.log('value not found')
-        }
-        if(curr===this.tail){
-            this.tail = curr.prev
-            this.tail.next = null
-        }else{
-            curr.prev.next = curr.next
-            if(curr.next){
-                curr.next.prev = curr.prev
-            }
-        }
-        return
-    }
-    print(){
-        let curr = this.head
-        while(curr){
-            console.log(curr.value)
-            curr = curr.next
-        }
-    }
-}
+// class Node{
+//     constructor(value){
+//         this.value = value
+//         this.next = null
+//         this.prev = null
+//     }
+// }
+// class LinkedList{
+//     constructor(){
+//         this.head = null
+//         this.tail = null
+//     }
+//     prepend(value){
+//         const node = new Node(value)
+//         if(!this.head){
+//             this.head = node
+//             this.tail = node
+//         }else{
+//             node.next = this.head
+//             this.head.prev = node
+//             this.head = node
+//         }
+//     }
+//     append(value){
+//         const node = new Node(value)
+//         if(!this.head){
+//             this.head = node
+//             this.tail = node
+//         }else{
+//             this.tail.next = node
+//             node.prev = this.tail
+//             this.tail = node
+//         }
+//     }
+//     insert(value){
+//         const node = new Node(value)
+//         if(index===0){
+//             if(!this.head){
+//                 this.head = node
+//                 this.tail = node
+//             }else{
+//                 node.next = this.head
+//                 this.head.prev = node
+//                 this.head = node
+//             }
+//             return
+//         }
+//         let curr = this.head
+//         let currentIndex = 0
+//         while(curr&&currentIndex<index){
+//             curr = curr.next
+//             currentIndex++
+//         }
+//         if(currentIndex===index){
+//             if(curr){
+//                 node.next = curr
+//                 node.prev = curr.prev
+//                 if(curr.prev){
+//                     curr.prev.next = node
+//                 }
+//                 curr.prev = node
+//             }else{
+//                 this.tail.next = node
+//                 node.prev = this.tail
+//                 this.tail = node
+//             }
+//         }else{
+//             console.log('index out of bounds')
+//         }
+//     }
+//     reverse(){
+//         let curr = this.head
+//         let temp = null
+//         while(curr){
+//             temp = curr.prev
+//             curr.prev = curr.next
+//             curr.next = temp
+//             curr = curr.prev
+//         }
+//         if(temp){
+//             this.head = temp.prev
+//         }
+//     }
+//     deleteByValue(value){
+//         if(!this.head){
+//             return 
+//         }
+//         if(this.head.value===value){
+//             if(this.head===this.tail){
+//                 this.head = null
+//                 this.tail = null
+//             }else{
+//                 this.head = this.head.next
+//                 this.head.prev = null
+//             }
+//             return
+//         }
+//         let curr = this.head
+//         while(curr&&curr.value!==value){
+//             curr = curr.next
+//         }
+//         if(!curr){
+//             console.log('value not found')
+//         }
+//         if(curr===this.tail){
+//             this.tail = curr.prev
+//             this.tail.next = null
+//         }else{
+//             curr.prev.next = curr.next
+//             if(curr.next){
+//                 curr.next.prev = curr.prev
+//             }
+//         }
+//         return
+//     }
+//     deleteByIndex(index){
+//         if(!this.head){
+//             return arr
+//         }
+//         if(index===0){
+//             if(this.head===this.tail){
+//                 this.head = null
+//                 this.tail = null
+//             }else{
+//                 this.head = this.head.next
+//                 this.head.prev = null
+//             }
+//             return
+//         }
+//         let curr = this.head
+//         let currentIndex = 0
+//         while(curr&&currentIndex<index){
+//             curr = curr.next
+//             currentIndex++
+//         }
+//         if(!curr){
+//             console.log('value not found')
+//         }
+//         if(curr===this.tail){
+//             this.tail = curr.prev
+//             this.tail.next = null
+//         }else{
+//             curr.prev.next = curr.next
+//             if(curr.next){
+//                 curr.next.prev = curr.prev
+//             }
+//         }
+//         return
+//     }
+//     print(){
+//         let curr = this.head
+//         while(curr){
+//             console.log(curr.value)
+//             curr = curr.next
+//         }
+//     }
+// }
 
 
 
-function bubbleSort(arr){
-    let swapped
-    do{
-        swapped = false
-        for(let i=0;i<arr.length-1;i++){
-            if(arr[i]<arr[i+1]){
-                let temp = arr[i]
-                arr[i] = arr[i+1]
-                arr[i+1] = temp
-                swapped = true
-            }
-        }
-    }while(swapped)
+// function bubbleSort(arr){
+//     let swapped
+//     do{
+//         swapped = false
+//         for(let i=0;i<arr.length-1;i++){
+//             if(arr[i]<arr[i+1]){
+//                 let temp = arr[i]
+//                 arr[i] = arr[i+1]
+//                 arr[i+1] = temp
+//                 swapped = true
+//             }
+//         }
+//     }while(swapped)
 
-    return arr
-}
+//     return arr
+// }
 
-function insertionSort(arr){
-    for(let i=1;i<arr.length;i++){
-        let numToIns = i
-        let j = i-1
-        while(j>=0&&arr[j]>numToIns){
-            arr[j+1] = arr[j]
-            j = j+1
-        }
-        arr[j+1] = numToIns
-    }
-    return arr
-}
+// function insertionSort(arr){
+//     for(let i=1;i<arr.length;i++){
+//         let numToIns = i
+//         let j = i-1
+//         while(j>=0&&arr[j]>numToIns){
+//             arr[j+1] = arr[j]
+//             j = j+1
+//         }
+//         arr[j+1] = numToIns
+//     }
+//     return arr
+// }
 
-function selectionSort(arr){
-    for(let i=1;i<arr.length;i++){
-        let minIndex = i
-        for(let j=i+1;j<arr.length;j++){
-            if(arr[j]>arr[minIndex]){
-                minIndex = j
-            }
-        }
-        if(minIndex!==i){
-            let temp = arr[i]
-            arr[i] = arr[minIndex]
-            arr[minIndex] = temp
-        }
-    }
-    return arr
-}
+// function selectionSort(arr){
+//     for(let i=1;i<arr.length;i++){
+//         let minIndex = i
+//         for(let j=i+1;j<arr.length;j++){
+//             if(arr[j]>arr[minIndex]){
+//                 minIndex = j
+//             }
+//         }
+//         if(minIndex!==i){
+//             let temp = arr[i]
+//             arr[i] = arr[minIndex]
+//             arr[minIndex] = temp
+//         }
+//     }
+//     return arr
+// }
 
-function quickSort(arr){
-    let pivot = arr[arr.length-1]
-    let left = []
-    let right = []
-    for(let i=0;i<arr.length-1;i++){
-        if(arr[i]<pivot){
-            left.push(arr[i])
-        }else{
-            right.push(arr[i])
-        }
-    }
-    return arr
-}
+// function quickSort(arr){
+//     let pivot = arr[arr.length-1]
+//     let left = []
+//     let right = []
+//     for(let i=0;i<arr.length-1;i++){
+//         if(arr[i]<pivot){
+//             left.push(arr[i])
+//         }else{
+//             right.push(arr[i])
+//         }
+//     }
+//     return arr
+// }
 
-function mergeSort(arr){
-    if(arr.length<2){
-        return arr
-    }
-    let mid = Math.floor((arr.length/2))
-    let leftArr = arr.slice(0,mid)
-    let rightArr = arr.slice(mid)
-    return merge(mergeSort(leftArr),mergeSort(rightArr))
-}
-function merge(left,right){
-    let sorted = []
-    while(left.length&&right.length){
-        if(left[0]<=right[0]){
-            sorted.push(left.shift())
-        }else{
-            sorted.push(right.shift())
-        }
-    }
-    return [...sorted,...left,...right]
-}
+// function mergeSort(arr){
+//     if(arr.length<2){
+//         return arr
+//     }
+//     let mid = Math.floor((arr.length/2))
+//     let leftArr = arr.slice(0,mid)
+//     let rightArr = arr.slice(mid)
+//     return merge(mergeSort(leftArr),mergeSort(rightArr))
+// }
+// function merge(left,right){
+//     let sorted = []
+//     while(left.length&&right.length){
+//         if(left[0]<=right[0]){
+//             sorted.push(left.shift())
+//         }else{
+//             sorted.push(right.shift())
+//         }
+//     }
+//     return [...sorted,...left,...right]
+// }
 
-function heapify(arr,n,i){
-    let largest = i
-    let leftChild = 2*i+1
-    let rightChild = 2*i+2
-    if(leftChild<n&&arr[leftChild]>arr[largest]){
-        largest = leftChild
-    }
-    if(rightChild<n&&arr[rightChild]>arr[largest]){
-        largest = rightChild
-    }
-    if(largest!==i){
-        [arr[i],arr[largest]] = [arr[largest],arr[i]]
-        heapify(arr,n,largest)
-    }
-}
+// function heapify(arr,n,i){
+//     let largest = i
+//     let leftChild = 2*i+1
+//     let rightChild = 2*i+2
+//     if(leftChild<n&&arr[leftChild]>arr[largest]){
+//         largest = leftChild
+//     }
+//     if(rightChild<n&&arr[rightChild]>arr[largest]){
+//         largest = rightChild
+//     }
+//     if(largest!==i){
+//         [arr[i],arr[largest]] = [arr[largest],arr[i]]
+//         heapify(arr,n,largest)
+//     }
+// }
 
-function heapSort(arr){
-    let n = arr.length-1
-    for(let i=Math.floor(n/2);i>=0;i--){
-        heapify(arr,n,i)
-    }
-    for(let i=n-1;i>=0;i--){
-        [arr[0],arr[i]] = [arr[i],arr[0]]
-        heapify(arr,i,0)
-    }
-}
-
-
-class Node{
-    constructor(value){
-        this.value = value
-        this.next = null
-    }
-}
-
-class LinkedList{
-    constructor(){
-        this.head = null
-    }
-    prepend(value){
-        const node = new Node(value)
-        if(!this.head){
-            this.head = node
-        }else{
-            node.next = this.head
-            this.head = node
-        }
-    }
-    append(value){
-        const node = new Node(value)
-        if(!this.head){
-            this.head = node
-        }else{
-            let curr = this.head
-            while(curr.next){
-                curr = curr.next
-            }
-            curr.next = node
-        }
-    }
-    insert(value,index){
-        const node = new Node(value)
-        if(index===0){
-            if(!this.head){
-                this.head = node
-            }else{
-                node.next = this.head
-                this.head = node
-            }
-            return
-        }
-        let curr = this.head
-        for(let i=0;i<index-1;i++){
-            curr = curr.next
-        }
-        node.next = curr.next
-        curr.next = node
-    }
-    deleteByIndex(index){
-        if(!this.head){
-            return
-        }
-        if(index===0){
-            this.head = this.head.next
-        }
-        let curr = this.head
-        for(let i=0;i<index-1;i++){
-            if(!curr.next){
-                return
-            }
-            curr = curr.next
-        }
-        if(curr.next){
-            curr.next = curr.next.next
-        }
-    }
-    deleteByValue(value){
-        if(!this.head){
-            return
-        }
-        if(this.head.value===value){
-            this.head = this.head.next
-        }
-        let curr = this.head
-        while(curr.next&&curr.next.value!==value){
-            curr = curr.next
-        }
-        if(curr.next){
-            curr.next = curr.next.next
-        }
-    }
-    reverse(){
-        let curr = this.head
-        let prev = null
-        while(curr){
-            let next = curr.next
-            curr.next = prev
-            prev = curr
-            curr = next
-        }
-        this.head = prev
-    }
-    findMiddle(){
-        let slow = this.head
-        let fast = this.head
-        while(fast&&fast.next){
-            slow = slow.next
-            fast = fast.next.next
-        }
-        return slow
-    }
-    search(value){
-        if(!this.head){
-            return -1
-        }
-        let curr = this.head
-        let i = 0
-        while(curr){
-            if(curr.value===value){
-                return i
-            }
-            curr = curr.next
-            i++
-        }
-        return -1
-    }
-    removeDuplicates(){
-        if(!this.head){
-            return null
-        }
-        let curr = this.head
-        let seen = new Set()
-        seen.add(curr.value)
-        while(curr.next){
-            if(seen.has(curr.next.value)){
-                curr.next = curr.next.next
-            }else{
-                seen.add(curr.value)
-                curr = curr.next
-            }
-        }
-    }
-    print(){
-        let curr = this.head
-        while(curr){
-            console.log(curr.value)
-            curr = curr.next
-        }
-    }
-}
+// function heapSort(arr){
+//     let n = arr.length-1
+//     for(let i=Math.floor(n/2);i>=0;i--){
+//         heapify(arr,n,i)
+//     }
+//     for(let i=n-1;i>=0;i--){
+//         [arr[0],arr[i]] = [arr[i],arr[0]]
+//         heapify(arr,i,0)
+//     }
+// }
 
 
-// ----------------------------------------------------Day 2--------------------------------------------(12-11-2024)
+// class Node{
+//     constructor(value){
+//         this.value = value
+//         this.next = null
+//     }
+// }
+
+// class LinkedList{
+//     constructor(){
+//         this.head = null
+//     }
+//     prepend(value){
+//         const node = new Node(value)
+//         if(!this.head){
+//             this.head = node
+//         }else{
+//             node.next = this.head
+//             this.head = node
+//         }
+//     }
+//     append(value){
+//         const node = new Node(value)
+//         if(!this.head){
+//             this.head = node
+//         }else{
+//             let curr = this.head
+//             while(curr.next){
+//                 curr = curr.next
+//             }
+//             curr.next = node
+//         }
+//     }
+//     insert(value,index){
+//         const node = new Node(value)
+//         if(index===0){
+//             if(!this.head){
+//                 this.head = node
+//             }else{
+//                 node.next = this.head
+//                 this.head = node
+//             }
+//             return
+//         }
+//         let curr = this.head
+//         for(let i=0;i<index-1;i++){
+//             curr = curr.next
+//         }
+//         node.next = curr.next
+//         curr.next = node
+//     }
+//     deleteByIndex(index){
+//         if(!this.head){
+//             return
+//         }
+//         if(index===0){
+//             this.head = this.head.next
+//         }
+//         let curr = this.head
+//         for(let i=0;i<index-1;i++){
+//             if(!curr.next){
+//                 return
+//             }
+//             curr = curr.next
+//         }
+//         if(curr.next){
+//             curr.next = curr.next.next
+//         }
+//     }
+//     deleteByValue(value){
+//         if(!this.head){
+//             return
+//         }
+//         if(this.head.value===value){
+//             this.head = this.head.next
+//         }
+//         let curr = this.head
+//         while(curr.next&&curr.next.value!==value){
+//             curr = curr.next
+//         }
+//         if(curr.next){
+//             curr.next = curr.next.next
+//         }
+//     }
+//     reverse(){
+//         let curr = this.head
+//         let prev = null
+//         while(curr){
+//             let next = curr.next
+//             curr.next = prev
+//             prev = curr
+//             curr = next
+//         }
+//         this.head = prev
+//     }
+//     findMiddle(){
+//         let slow = this.head
+//         let fast = this.head
+//         while(fast&&fast.next){
+//             slow = slow.next
+//             fast = fast.next.next
+//         }
+//         return slow
+//     }
+//     search(value){
+//         if(!this.head){
+//             return -1
+//         }
+//         let curr = this.head
+//         let i = 0
+//         while(curr){
+//             if(curr.value===value){
+//                 return i
+//             }
+//             curr = curr.next
+//             i++
+//         }
+//         return -1
+//     }
+//     removeDuplicates(){
+//         if(!this.head){
+//             return null
+//         }
+//         let curr = this.head
+//         let seen = new Set()
+//         seen.add(curr.value)
+//         while(curr.next){
+//             if(seen.has(curr.next.value)){
+//                 curr.next = curr.next.next
+//             }else{
+//                 seen.add(curr.value)
+//                 curr = curr.next
+//             }
+//         }
+//     }
+//     print(){
+//         let curr = this.head
+//         while(curr){
+//             console.log(curr.value)
+//             curr = curr.next
+//         }
+//     }
+// }
+
+
+// // ----------------------------------------------------Day 2--------------------------------------------(12-11-2024)
 
 
 
-class Node{
-    constructor(value){
-        this.value = value
-        this.next = null
-    }
-}
-class LinkedList{
-    constructor(){
-        this.head = null
-    }
-    prepend(value){
-        const node = new Node(value)
-        if(!this.head){
-            this.head = node
-        }else{
-            node.next = this.head
-            this.head = node
-        }
-    }
-    append(value){
-        const node = new Node(value)
-        if(!this.head){
-            this.head = node
-        }else{
-            let curr = this.head
-            while(curr){
-                curr = curr.next
-            }
-            curr.next = node
-        }
-    }
-    insert(value){
-        const node = new Node(value)
-        if(index===0){
-            if(!this.head){
-                this.head = node
-            }else{
-                node.next = this.head
-                this.head = node
-            }
-            return
-        }
-        let curr = this.head
-        for(let i=0;i<index-1;i++){
-            curr = curr.next
-        }
-        curr.next = node
-    }
-    deleteByIndex(index){
-        if(!this.head){
-            return
-        }
-        if(index===0){
-            this.head = this.head.next
-        }
-        let curr = this.head
-        for(let i=0;i<index-1;i++){
-            if(!curr.next){
-                return
-            }
-            curr = curr.next
-        }
-        if(curr.next){
-            curr.next = curr.next.next
-        }
-    }
-    deleteByValue(value){
-        if(!this.head){
-            return
-        }
-        if(this.head.value===value){
-            this.head = this.head.next
-        }
-        let curr = this.head
-        while(curr.next&&curr.next.value!==value){
-            curr = curr.next
-        }
-        if(curr.next){
-            curr.next = curr.next.next
-        }
-    }
-    reverse(){
-        let curr = this.head
-        let prev = null
-        while(curr){
-            let next = curr.next
-            curr.next = prev
-            prev = curr
-            curr = next
-        }
-        this.head = prev
-    }
-    findMiddle(){
-        let slow = this.head
-        let fast = this.head
-        while(fast&&fast.next){
-            slow = slow.next
-            fast = fast.next.next
-        }
-        return slow
-    }
-    search(value){
-        if(!this.head){
-            return
-        }
-        let curr = this.head
-        let i = 0
-        while(curr.next){
-            if(curr.value===value){
-                return i
-            }else{
-                curr = curr.next
-                i++
-            }
-        }
-        return -1
-    }
-    removeDuplicates(){
-        if(!this.head){
-            return null
-        }
-        let curr = this.head
-        let seen = new Set()
-        seen.add(curr.value)
-        while(curr.next){
-            if(seen.has(curr.next.value)){
-                curr.next = curr.next.next
-            }else{
-                seen.add(curr.next.value)
-                curr = curr.next
-            }
-        }
-    }
-}
+// class Node{
+//     constructor(value){
+//         this.value = value
+//         this.next = null
+//     }
+// }
+// class LinkedList{
+//     constructor(){
+//         this.head = null
+//     }
+//     prepend(value){
+//         const node = new Node(value)
+//         if(!this.head){
+//             this.head = node
+//         }else{
+//             node.next = this.head
+//             this.head = node
+//         }
+//     }
+//     append(value){
+//         const node = new Node(value)
+//         if(!this.head){
+//             this.head = node
+//         }else{
+//             let curr = this.head
+//             while(curr){
+//                 curr = curr.next
+//             }
+//             curr.next = node
+//         }
+//     }
+//     insert(value){
+//         const node = new Node(value)
+//         if(index===0){
+//             if(!this.head){
+//                 this.head = node
+//             }else{
+//                 node.next = this.head
+//                 this.head = node
+//             }
+//             return
+//         }
+//         let curr = this.head
+//         for(let i=0;i<index-1;i++){
+//             curr = curr.next
+//         }
+//         curr.next = node
+//     }
+//     deleteByIndex(index){
+//         if(!this.head){
+//             return
+//         }
+//         if(index===0){
+//             this.head = this.head.next
+//         }
+//         let curr = this.head
+//         for(let i=0;i<index-1;i++){
+//             if(!curr.next){
+//                 return
+//             }
+//             curr = curr.next
+//         }
+//         if(curr.next){
+//             curr.next = curr.next.next
+//         }
+//     }
+//     deleteByValue(value){
+//         if(!this.head){
+//             return
+//         }
+//         if(this.head.value===value){
+//             this.head = this.head.next
+//         }
+//         let curr = this.head
+//         while(curr.next&&curr.next.value!==value){
+//             curr = curr.next
+//         }
+//         if(curr.next){
+//             curr.next = curr.next.next
+//         }
+//     }
+//     reverse(){
+//         let curr = this.head
+//         let prev = null
+//         while(curr){
+//             let next = curr.next
+//             curr.next = prev
+//             prev = curr
+//             curr = next
+//         }
+//         this.head = prev
+//     }
+//     findMiddle(){
+//         let slow = this.head
+//         let fast = this.head
+//         while(fast&&fast.next){
+//             slow = slow.next
+//             fast = fast.next.next
+//         }
+//         return slow
+//     }
+//     search(value){
+//         if(!this.head){
+//             return
+//         }
+//         let curr = this.head
+//         let i = 0
+//         while(curr.next){
+//             if(curr.value===value){
+//                 return i
+//             }else{
+//                 curr = curr.next
+//                 i++
+//             }
+//         }
+//         return -1
+//     }
+//     removeDuplicates(){
+//         if(!this.head){
+//             return null
+//         }
+//         let curr = this.head
+//         let seen = new Set()
+//         seen.add(curr.value)
+//         while(curr.next){
+//             if(seen.has(curr.next.value)){
+//                 curr.next = curr.next.next
+//             }else{
+//                 seen.add(curr.next.value)
+//                 curr = curr.next
+//             }
+//         }
+//     }
+// }
 
 
-class Node{
-    constructor(value){
-        this.value = value
-        this.next = null
-        this.prev = null
-    }
-}
-class LinkedList{
-    constructor(){
-        this.head = null
-        this.tail = null
-    }
-    prepend(value){
-        const node = new Node(value)
-        if(!this.head){
-            this.head = node
-            this.tail = node
-        }else{
-            node.next = this.head
-            this.head.prev = node
-            this.head = node
-        }
-    }
-    append(value){
-        const node = new Node(value)
-        if(!this.head){
-            this.head = node
-            this.tail = node
-        }else{
-            this.tail.next = node
-            node.prev = this.tail
-            this.tail = node
-        }
-    }
-    insert(value,index){
-        const node = new Node(value)
-        if(index===0){
-            if(!this.head){
-                this.head = node
-                this.tail = node
-            }else{
-                node.next = this.head
-                this.head.prev = node
-                this.head = node
-            }
-            return
-        }
-        let curr = this.head
-        let currentIndex = 0
-        while(curr&&currentIndex<index){
-            curr = curr.next
-            currentIndex++
-        }
-        if(currentIndex===index){
-            if(curr){
-                node.next = curr
-                node.prev = curr.prev
-                if(curr.prev){
-                    curr.prev.next = node
-                }
-                curr.prev = node
-            }else{
-                this.tail.next = node
-                node.prev = this.tail
-                this.tail = node
-            }
-        }else{
-            console.log('index out of bounds')
-        }
-    }
-    deleteByIndex(index){
-        if(!this.head){
-            return
-        }
-        if(index===0){
-            if(this.head===this.tail){
-                this.head = null
-                this.tail = null
-            }else{
-                this.head = this.head.next
-                this.head.prev = null
-            }
-            return
-        }
-        let curr = this.head
-        let currentIndex = 0
-        while(curr&&currentIndex<index){
-            curr = curr.next
-            currentIndex++
-        }
-        if(!curr){
-            console.log('value not found')
-        }
-        if(curr===this.tail){
-            this.tail = curr.prev
-            this.tail.next = null
-        }else{
-            curr.prev.next = curr.next
-            if(curr.next){
-                curr.next.prev = curr.prev
-            }
-        }
-        return
-    }
-    deleteByValue(value){
-        if(!this.head){
-            return
-        }
-        if(this.head.value===value){
-            if(this.head===this.tail){
-                this.head = null
-                this.tail = null
-            }else{
-                this.head = this.head.next
-                this.head.prev = null
-            }
-            return
-        }
-        let curr = this.head
-        while(curr&&curr.value!==value){
-            curr = curr.next
-        }
-        if(!curr){
-            console.log('value not found')
-        }
-        if(curr===this.tail){
-            this.tail = curr.prev
-            this.tail.next = null
-        }else{
-            curr.prev.next = curr.next
-            if(curr.next){
-                curr.next.prev = curr.prev
-            }
-        }
-        return
-    }
-    reverse(){
-        let curr = this.head
-        let temp = null
-        while(curr){
-            temp = curr.prev
-            curr.prev = curr.next
-            curr.next = temp
-            curr = curr.prev
-        }
-        if(temp){
-            this.head = temp.prev
-        }
-    }
+// class Node{
+//     constructor(value){
+//         this.value = value
+//         this.next = null
+//         this.prev = null
+//     }
+// }
+// class LinkedList{
+//     constructor(){
+//         this.head = null
+//         this.tail = null
+//     }
+//     prepend(value){
+//         const node = new Node(value)
+//         if(!this.head){
+//             this.head = node
+//             this.tail = node
+//         }else{
+//             node.next = this.head
+//             this.head.prev = node
+//             this.head = node
+//         }
+//     }
+//     append(value){
+//         const node = new Node(value)
+//         if(!this.head){
+//             this.head = node
+//             this.tail = node
+//         }else{
+//             this.tail.next = node
+//             node.prev = this.tail
+//             this.tail = node
+//         }
+//     }
+//     insert(value,index){
+//         const node = new Node(value)
+//         if(index===0){
+//             if(!this.head){
+//                 this.head = node
+//                 this.tail = node
+//             }else{
+//                 node.next = this.head
+//                 this.head.prev = node
+//                 this.head = node
+//             }
+//             return
+//         }
+//         let curr = this.head
+//         let currentIndex = 0
+//         while(curr&&currentIndex<index){
+//             curr = curr.next
+//             currentIndex++
+//         }
+//         if(currentIndex===index){
+//             if(curr){
+//                 node.next = curr
+//                 node.prev = curr.prev
+//                 if(curr.prev){
+//                     curr.prev.next = node
+//                 }
+//                 curr.prev = node
+//             }else{
+//                 this.tail.next = node
+//                 node.prev = this.tail
+//                 this.tail = node
+//             }
+//         }else{
+//             console.log('index out of bounds')
+//         }
+//     }
+//     deleteByIndex(index){
+//         if(!this.head){
+//             return
+//         }
+//         if(index===0){
+//             if(this.head===this.tail){
+//                 this.head = null
+//                 this.tail = null
+//             }else{
+//                 this.head = this.head.next
+//                 this.head.prev = null
+//             }
+//             return
+//         }
+//         let curr = this.head
+//         let currentIndex = 0
+//         while(curr&&currentIndex<index){
+//             curr = curr.next
+//             currentIndex++
+//         }
+//         if(!curr){
+//             console.log('value not found')
+//         }
+//         if(curr===this.tail){
+//             this.tail = curr.prev
+//             this.tail.next = null
+//         }else{
+//             curr.prev.next = curr.next
+//             if(curr.next){
+//                 curr.next.prev = curr.prev
+//             }
+//         }
+//         return
+//     }
+//     deleteByValue(value){
+//         if(!this.head){
+//             return
+//         }
+//         if(this.head.value===value){
+//             if(this.head===this.tail){
+//                 this.head = null
+//                 this.tail = null
+//             }else{
+//                 this.head = this.head.next
+//                 this.head.prev = null
+//             }
+//             return
+//         }
+//         let curr = this.head
+//         while(curr&&curr.value!==value){
+//             curr = curr.next
+//         }
+//         if(!curr){
+//             console.log('value not found')
+//         }
+//         if(curr===this.tail){
+//             this.tail = curr.prev
+//             this.tail.next = null
+//         }else{
+//             curr.prev.next = curr.next
+//             if(curr.next){
+//                 curr.next.prev = curr.prev
+//             }
+//         }
+//         return
+//     }
+//     reverse(){
+//         let curr = this.head
+//         let temp = null
+//         while(curr){
+//             temp = curr.prev
+//             curr.prev = curr.next
+//             curr.next = temp
+//             curr = curr.prev
+//         }
+//         if(temp){
+//             this.head = temp.prev
+//         }
+//     }
     
-}
+// }
 
 
-//linear search
-function linearSearch(arr,target){
-    for(let i=0;i<arr.length;i++){
-        if(arr[i]===target){
-            return i
-        }
-    }
-    return -1
-}
+// //linear search
+// function linearSearch(arr,target){
+//     for(let i=0;i<arr.length;i++){
+//         if(arr[i]===target){
+//             return i
+//         }
+//     }
+//     return -1
+// }
 
-//binary search
-function binarySearch(arr,target){
-    let left = 0
-    let right = arr.length-1
-    let mid = Math.floor((left+right)/2)
-    while(left<right){
-        if(arr[mid]===target){
-            return mid
-        }else if(arr[mid]>target){
-            left = mid-1
-        }else{
-            right = mid+1
-        }
-    }
-    return -1
-}
+// //binary search
+// function binarySearch(arr,target){
+//     let left = 0
+//     let right = arr.length-1
+//     let mid = Math.floor((left+right)/2)
+//     while(left<right){
+//         if(arr[mid]===target){
+//             return mid
+//         }else if(arr[mid]>target){
+//             left = mid-1
+//         }else{
+//             right = mid+1
+//         }
+//     }
+//     return -1
+// }
 
-//recursive binarySearch
-function binarySearch(arr,target,left=0,right=arr.length-1){
-    if(left>right){
-        return -1
-    }
-    let mid = Math.floor((left+right)/2)
-    if(arr[mid]===target){
-        return mid
-    }else if(arr[mid]>target){
-        return binarySearch(arr,target,mid-1,right)
-    }else{
-        return binarySearch(arr,target,left,mid+1)
-    }
-}
+// //recursive binarySearch
+// function binarySearch(arr,target,left=0,right=arr.length-1){
+//     if(left>right){
+//         return -1
+//     }
+//     let mid = Math.floor((left+right)/2)
+//     if(arr[mid]===target){
+//         return mid
+//     }else if(arr[mid]>target){
+//         return binarySearch(arr,target,mid-1,right)
+//     }else{
+//         return binarySearch(arr,target,left,mid+1)
+//     }
+// }
 
-//stack
-class Stack{
-    constructor(){
-        this.items = []
-    }
-    push(element){
-        this.items.push(element)
-    }
-    pop(){
-        if(this.items.length===0){
-            return 
-        }
-        return this.items.pop()
-    }
-    reverse(){
-        if(this.items.length===0){
-            return null
-        }
-        let top = this.pop()
-        this.reverse()
-        this.insertAtBottom(top)
-    }
-    insertAtBottom(element){
-        if(this.items.length===0){
-            this.push(element)
-        }else{
-            let top = this.pop()
-            this.insertAtBottom(element)
-            this.push(top)
-        }
-    }
-    peek(){
-        return this.items[0]
-    }
-    print(){
-        console.log(this.items.toString())
-    }
-}
+// //stack
+// class Stack{
+//     constructor(){
+//         this.items = []
+//     }
+//     push(element){
+//         this.items.push(element)
+//     }
+//     pop(){
+//         if(this.items.length===0){
+//             return 
+//         }
+//         return this.items.pop()
+//     }
+//     reverse(){
+//         if(this.items.length===0){
+//             return null
+//         }
+//         let top = this.pop()
+//         this.reverse()
+//         this.insertAtBottom(top)
+//     }
+//     insertAtBottom(element){
+//         if(this.items.length===0){
+//             this.push(element)
+//         }else{
+//             let top = this.pop()
+//             this.insertAtBottom(element)
+//             this.push(top)
+//         }
+//     }
+//     peek(){
+//         return this.items[0]
+//     }
+//     print(){
+//         console.log(this.items.toString())
+//     }
+// }
 
-//queue
-class Queue{
-    constructor(){
-        this.items = []
-    }
-    enqueue(element){
-        this.items.push(element)
-    }
-    dequeue(){
-        if(this.items.length===0){
-            return null
-        }
-        return this.items.shift()
-    }
-    reverse(){
-        if(this.items.length===0){
-            return null
-        }
-        let front = this.dequeue()
-        this.reverse()
-        this.enqueue(front)
-    }
-    print(){
-        console.log(this.items.toString())
-    }
-}
+// //queue
+// class Queue{
+//     constructor(){
+//         this.items = []
+//     }
+//     enqueue(element){
+//         this.items.push(element)
+//     }
+//     dequeue(){
+//         if(this.items.length===0){
+//             return null
+//         }
+//         return this.items.shift()
+//     }
+//     reverse(){
+//         if(this.items.length===0){
+//             return null
+//         }
+//         let front = this.dequeue()
+//         this.reverse()
+//         this.enqueue(front)
+//     }
+//     print(){
+//         console.log(this.items.toString())
+//     }
+// }
 
-//hashTable
-class HashTable{
-    constructor(size){
-        this.table = new Array(size)
-        this.size = 0
-    }
-    hash(key){
-        let total = 0
-        for(let i=0;i<key.length;i++){
-            total += charCodeAt(i)
-        }
-        return total%this.size
-    }
-    set(key){
-        let index = this.hash(key)
-        let bucket = this.table[index]
-        if(!bucket){
-            this.table[index] = [[key,value]]
-        }else{
-            const sameKeyItem = bucket.find(item=>item[0]===key)
-            if(sameKeyItem){
-                sameKeyItem[1] = value
-            }else{
-                bucket.push([key,value])
-            }
-        }
-    }
-    get(key){
-        let index = this.hash(key)
-        let bucket = this.table[index]
-        if(bucket){
-            const sameKeyItem = bucket.find(item[0]===key)
-            if(sameKeyItem){
-                return sameKeyItem[1]
-            }
-        }    
-        return undefined
-    }
-    remove(key){
-        const index = this.hash(key)
-        const bucket = this.table[index]
-        if(bucket){
-            const sameKeyItem = bucket.find(item=>item[0]===key)
-            if(sameKeyItem){
-                return bucket.splice(bucket.indexOf(sameKeyItem))
-            }
-        }
-    }
-    display(){
-        for(let i=0;i<this.table.length;i++){
-            if(this.table[i]){
-                console.log(i,this.table[i])
-            }
-        }
-    }
-}
+// //hashTable
+// class HashTable{
+//     constructor(size){
+//         this.table = new Array(size)
+//         this.size = 0
+//     }
+//     hash(key){
+//         let total = 0
+//         for(let i=0;i<key.length;i++){
+//             total += charCodeAt(i)
+//         }
+//         return total%this.size
+//     }
+//     set(key){
+//         let index = this.hash(key)
+//         let bucket = this.table[index]
+//         if(!bucket){
+//             this.table[index] = [[key,value]]
+//         }else{
+//             const sameKeyItem = bucket.find(item=>item[0]===key)
+//             if(sameKeyItem){
+//                 sameKeyItem[1] = value
+//             }else{
+//                 bucket.push([key,value])
+//             }
+//         }
+//     }
+//     get(key){
+//         let index = this.hash(key)
+//         let bucket = this.table[index]
+//         if(bucket){
+//             const sameKeyItem = bucket.find(item[0]===key)
+//             if(sameKeyItem){
+//                 return sameKeyItem[1]
+//             }
+//         }    
+//         return undefined
+//     }
+//     remove(key){
+//         const index = this.hash(key)
+//         const bucket = this.table[index]
+//         if(bucket){
+//             const sameKeyItem = bucket.find(item=>item[0]===key)
+//             if(sameKeyItem){
+//                 return bucket.splice(bucket.indexOf(sameKeyItem))
+//             }
+//         }
+//     }
+//     display(){
+//         for(let i=0;i<this.table.length;i++){
+//             if(this.table[i]){
+//                 console.log(i,this.table[i])
+//             }
+//         }
+//     }
+// }
 
 // -----------------------------------------------------Day3----------------------------------------(14-11-2024)
 
@@ -2773,3 +2773,26 @@ class HashTable{
 // console.log(obj[symbol2])
 
 
+
+// const fs = require('fs')
+
+// function main(){
+//     return new Promise((resolve,reject)=>{
+//         const currentDate = new Date()
+//         resolve(currentDate.toDateString())
+//     })
+// }
+
+// main()
+// .then((currentDate)=>{
+//     fs.writeFile('promise.txt',currentDate,(err)=>{
+//         if(err){
+//             console.log('error writing into file')
+//         }else{
+//             console.log('written into file successfully..!!')
+//         }
+//     })
+// })
+// .catch((err)=>{
+//     console.log('error occurred')
+// })
