@@ -2759,3 +2759,17 @@ class HashTable{
 //     return sum(arr.splice(1))+arr[0]
 // }
 // console.log(sum(arr))
+
+// ----------------------------------------------------28-11-2024--------------------------------------------
+// let symbol1 = Symbol('key')
+// let symbol2 = Symbol('key')
+
+// const obj = {
+//     [symbol1]:'key1',
+//     [symbol2]:'key2'                     //Symbol()
+// }
+
+// console.log(obj[symbol1])
+// console.log(obj[symbol2])
+
+
