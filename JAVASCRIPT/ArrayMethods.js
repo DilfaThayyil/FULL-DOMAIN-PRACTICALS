@@ -43,7 +43,7 @@
 // //     console.log('hello ',name)
 // //     greet()
 // // }
-// // greet('Shibil',function(){console.log('Callback executed')}) 
+// // greet('maria',function(){console.log('Callback executed')}) 
 
 // //splice
 // let arr7 = [4,2,8,1,0,6]
