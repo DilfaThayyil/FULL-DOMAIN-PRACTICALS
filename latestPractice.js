@@ -96,19 +96,19 @@
 // })
 // emitter.emit('sum',10,20)
 ///////////////////////////////////////////////////////////////////////
-const fs = require('fs')
-const readableStreams = fs.createReadStream('abc.txt','utf-8')
-readableStreams.on('data',(chunk)=>{
-    console.log('received data ',chunk)
-})
-readableStreams.on('end',()=>{
-    console.log('finished reading')
-})
+// const fs = require('fs')
+// const readableStreams = fs.createReadStream('abc.txt','utf-8')
+// readableStreams.on('data',(chunk)=>{
+//     console.log('received data ',chunk)
+// })
+// readableStreams.on('end',()=>{
+//     console.log('finished reading')
+// })
 
-const fs = require('fs')
-const writableStreams = fs.createWriteStream('ouput.txt')
-writableStreams.write('Hello')
-writableStreams.end()
-writableStreams.on('finish',()=>{
-    console.log('finished writing into file')
-})
+// const fs = require('fs')
+// const writableStreams = fs.createWriteStream('ouput.txt')
+// writableStreams.write('Hello')
+// writableStreams.end()
+// writableStreams.on('finish',()=>{
+//     console.log('finished writing into file')
+// })
