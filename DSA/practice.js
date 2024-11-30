@@ -2820,7 +2820,7 @@ class Graph{
         return (
             this.adjacencyList[vertex1].has(vertex2)&&
             this.adjacencyList[vertex2].has(vertex1)
-            )
+        )
     }
     removeEdge(vertex1,vertex2){
         this.adjacencyList[vertex1]?.delete(vertex2)
