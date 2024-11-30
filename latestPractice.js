@@ -113,13 +113,18 @@
 //     console.log('finished writing into file')
 // })
 ///////////////////////////////////////////////////////////////////////
+
+// app.use('/secure-route',(req,res,next)=>{
+//     const token = req.headers['authentication']
+//     if(token==='valid-token'){
+//         next()
+//     }
+//     res.status(403).send('token is not found')
+// })
+
+////////////////////////////////////////////////////////////////////////
+
 const express = require('express')
 const app = express()
 
-app.use('/secure-route',(req,res,next)=>{
-    const token = req.headers['authentication']
-    if(token==='valid-token'){
-        next()
-    }
-    res.status(403).send('token is not found')
-})
+         
