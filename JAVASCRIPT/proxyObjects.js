@@ -1,17 +1,17 @@
-let student = {
-    name  : "Dilfa",
-    age : 20
-}
+// let student = {
+//     name  : "Dilfa",
+//     age : 20
+// }
 
-let handler = {
-    get:function(obj,prop){
-        return obj[prop]?obj[prop]:"property does not exist"
-    }
-}
-const proxies = new Proxy(student,handler)
-console.log(proxies.name)//Dilfa
-console.log(proxies.age)//20
-console.log(proxies.class)//Property does not exist
+// let handler = {
+//     get:function(obj,prop){
+//         return obj[prop]?obj[prop]:"property does not exist"
+//     }
+// }
+// const proxies = new Proxy(student,handler)
+// console.log(proxies.name)//Dilfa
+// console.log(proxies.age)//20
+// console.log(proxies.class)//Property does not exist
 
 // -----------------------------------------------------------
 
