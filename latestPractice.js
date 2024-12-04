@@ -337,11 +337,11 @@
 
 /////////////////////////////no.of days
 // no.of days untill 2025
-// let today = new Date()
-// let target = new Date('2025-01-01')
-// let difference = target-today
-// let inDays = Math.ceil(difference/(1000*60*60*24))
-// console.log(`number of days untill 2025 : ${inDays}`)
+let today = new Date()
+let target = new Date('2025-01-01')
+let difference = target-today
+let inDays = Math.ceil(difference/(1000*60*60*24))
+console.log(`number of days untill 2025 : ${inDays}`)
 
 ////////////////////////////extract from string
 // let s = 'trtteeeey'
