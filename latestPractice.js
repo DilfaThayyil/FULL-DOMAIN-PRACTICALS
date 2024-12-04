@@ -132,25 +132,25 @@
 // // let b = a.myMethod()
 // // console.log(b)
 
-let sentence = "i love eating burger", searchWord = "burg"
-function getIndex(sentence,searchWord){
-    let words = sentence.split(' ')
-    for(let i=0;i<words.length;i++){
-        let word = words[i]
-        let isPrefix = true
-        for(let j=0;j<searchWord.length;j++){
-            if(j>=word.length||word[j]!==searchWord[j]){
-                isPrefix = false
-                break
-            }
-        }
-        if(isPrefix){
-            return i+1
-        }
-    }
-    return -1
-}
-console.log(getIndex(sentence,searchWord))
+// let sentence = "i love eating burger", searchWord = "burg"
+// function getIndex(sentence,searchWord){
+//     let words = sentence.split(' ')
+//     for(let i=0;i<words.length;i++){
+//         let word = words[i]
+//         let isPrefix = true
+//         for(let j=0;j<searchWord.length;j++){
+//             if(j>=word.length||word[j]!==searchWord[j]){
+//                 isPrefix = false
+//                 break
+//             }
+//         }
+//         if(isPrefix){
+//             return i+1
+//         }
+//     }
+//     return -1
+// }
+// console.log(getIndex(sentence,searchWord))
 /////////////////////////////////////////////////////////////
 // let ref = new WeakRef()
 // ref.set({name:'abc'})
