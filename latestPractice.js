@@ -152,30 +152,30 @@
 // }
 // console.log(getIndex(sentence,searchWord))
 /////////////////////////////////////////////////////////////
-// let ref = new WeakRef()
-// ref.set({name:'abc'})
-// console.log(ref)
-// let obj = {name : 'abc'}
-// let obj2  = obj
-// obj2.name = 'dil'
-// console.log(obj)
-// console.log(obj2)
+let ref = new WeakRef()
+ref.set({name:'abc'})
+console.log(ref)
+let obj = {name : 'abc'}
+let obj2  = obj
+obj2.name = 'dil'
+console.log(obj)
+console.log(obj2)
 
-// yield elements from a multidimensional array
-function* gener(arr){
-    for(let i=0;i<arr.length;i++){
-        for(let j=0;j<arr[i].length;j++){
-            yield arr[i][j]
-        }
-    }
-}
-let arr = [[1,2],[3,4],[5,6]]
-let elem = gener(arr)
-let result = elem.next()
-while(!result.done){
-    console.log(result.value)
-    result = elem.next()
-}
+// // yield elements from a multidimensional array
+// function* gener(arr){
+//     for(let i=0;i<arr.length;i++){
+//         for(let j=0;j<arr[i].length;j++){
+//             yield arr[i][j]
+//         }
+//     }
+// }
+// let arr = [[1,2],[3,4],[5,6]]
+// let elem = gener(arr)
+// let result = elem.next()
+// while(!result.done){
+//     console.log(result.value)
+//     result = elem.next()
+// }
 
 
 //find largest digit from a number
