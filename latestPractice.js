@@ -402,3 +402,22 @@
 //     }
 // },1000)
 ////////////////////////////////////////////////////////////////////
+// //sort a string based on occurrence
+// let s = 'abcaab'
+// // output = 'aaabbc'
+// let obj = {}
+// for(let char of s){
+//     obj[char] = (obj[char]||0)+1
+// }
+// console.log(obj)
+// s = s.split('')
+// console.log(s)
+// s = s.sort((a,b)=>{
+//     if(obj[a]!==obj[b]){
+//         return obj[b]-obj[a]
+//     }
+//     return a.charCodeAt(0)-b.charCodeAt(0)
+// })
+// console.log(s)
+// s = s.join('')
+// console.log(s)
