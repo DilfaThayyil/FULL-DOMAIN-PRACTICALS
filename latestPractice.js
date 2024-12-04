@@ -161,21 +161,21 @@
 // console.log(obj)
 // console.log(obj2)
 
-// // yield elements from a multidimensional array
-// function* gener(arr){
-//     for(let i=0;i<arr.length;i++){
-//         for(let j=0;j<arr[i].length;j++){
-//             yield arr[i][j]
-//         }
-//     }
-// }
-// let arr = [[1,2],[3,4],[5,6]]
-// let elem = gener(arr)
-// let result = elem.next()
-// while(!result.done){
-//     console.log(result.value)
-//     result = elem.next()
-// }
+// yield elements from a multidimensional array
+function* gener(arr){
+    for(let i=0;i<arr.length;i++){
+        for(let j=0;j<arr[i].length;j++){
+            yield arr[i][j]
+        }
+    }
+}
+let arr = [[1,2],[3,4],[5,6]]
+let elem = gener(arr)
+let result = elem.next()
+while(!result.done){
+    console.log(result.value)
+    result = elem.next()
+}
 
 
 //find largest digit from a number
@@ -337,11 +337,11 @@
 
 /////////////////////////////no.of days
 // no.of days untill 2025
-let today = new Date()
-let target = new Date('2025-01-01')
-let difference = target-today
-let inDays = Math.ceil(difference/(1000*60*60*24))
-console.log(`number of days untill 2025 : ${inDays}`)
+// let today = new Date()
+// let target = new Date('2025-01-01')
+// let difference = target-today
+// let inDays = Math.ceil(difference/(1000*60*60*24))
+// console.log(`number of days untill 2025 : ${inDays}`)
 
 ////////////////////////////extract from string
 // let s = 'trtteeeey'
