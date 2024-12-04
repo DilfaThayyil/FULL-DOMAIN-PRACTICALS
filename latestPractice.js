@@ -371,23 +371,33 @@
 // console.log(longestCharacter(s))
 // // output = eeee
 
-//  generator function to print multiples of 5 between 1-100 in reverse order
-function* mulFive(){
-    for(let i=100;i>=0;i--){
-        if(i%5===0){
-            yield i
-        }
+// //  generator function to print multiples of 5 between 1-100 in reverse order
+// function* mulFive(){
+//     for(let i=100;i>=0;i--){
+//         if(i%5===0){
+//             yield i
+//         }
+//     }
+// }
+// function print(){
+//     const gen = mulFive()
+//     const intervalId = setInterval(()=>{
+//         let result = gen.next()
+//         if(!result.done){
+//             console.log(result.value)
+//         }else{
+//             clearInterval(intervalId)
+//         }
+//     },1000)
+// }
+// print()
+
+//print from 10-1 in interval of 1s
+let count = 10
+const intervalId = setInterval(()=>{
+    console.log(count)
+    count--
+    if(count===0){
+        clearInterval(intervalId)
     }
-}
-function print(){
-    const gen = mulFive()
-    const intervalId = setInterval(()=>{
-        let result = gen.next()
-        if(!result.done){
-            console.log(result.value)
-        }else{
-            clearInterval(intervalId)
-        }
-    },1000)
-}
-print()
+},1000)
