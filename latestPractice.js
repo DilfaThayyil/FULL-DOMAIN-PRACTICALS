@@ -478,6 +478,30 @@ class Graph{
             console.log(vertex,'=>',[...this.adjacencyList[vertex]])
         }
     }
+    dfs(start){
+        let stack = [start]
+        let visited = new Set()
+        while(stack.length>0){
+            let vertex = stack.pop()
+            if(!visited.has(vertex)){
+                console.log(vertex)
+                visited.add(vertex)
+                stack.push(...this.adjacencyList[vertex])
+            }
+        }
+    }
+    bfs(start){
+        let queue = [start]
+        let visited = new Set()
+        while(queue.length>0){
+            let vertex = queue.shift()
+            if(!visited.has(vertex)){
+                console.log(vertex)
+                visited.add(vertex)
+                queue.push(...this.adjacencyList[vertex])
+            }
+        }
+    }
     hasCycle(){
         let visited = new Set()
         const dfsCycle = (vertex,parent)=>{
@@ -536,4 +560,7 @@ graph.addEdge('B','C')
 graph.addEdge('C','D')
 graph.addEdge('D','A')
 graph.display()
-graph.dfs()
+console.log('dfs : ')
+graph.dfs('A')
+console.log('bfs : ')
+graph.bfs('A')
