@@ -422,14 +422,14 @@
 // s = s.join('')
 // console.log(s)
 //////////////////////////////////////////////////////////////////////
-// palindrome recursion
-function check(s,left=0,right=s.length-1){
-    if(left>right){
-        return true
-    }
-    if(s[left]!==s[right]){
-        return false
-    }
-    return check(s,left+1,right-1)
-}
-console.log(check('ab1cc1ba'))
+// // palindrome recursion
+// function check(s,left=0,right=s.length-1){
+//     if(left>right){
+//         return true
+//     }
+//     if(s[left]!==s[right]){
+//         return false
+//     }
+//     return check(s,left+1,right-1)
+// }
+// console.log(check('ab1cc1ba'))
