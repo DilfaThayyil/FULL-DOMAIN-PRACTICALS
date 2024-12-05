@@ -434,133 +434,144 @@
 // }
 // console.log(check('ab1cc1ba'))
 //////////////////////////////////////////////////////////////////////
-//dfs in graph
-class Graph{
-    constructor(){
-        this.adjacencyList = {}
-    }
-    addVertex(vertex){
-        if(!this.adjacencyList[vertex]){
-            this.adjacencyList[vertex] = new Set()
-        }
-    }
-    addEdge(vertex1,vertex2){
-        if(!this.adjacencyList[vertex1]){
-            this.addVertex(vertex1)
-        }
-        if(!this.adjacencyList[vertex2]){
-            this.addVertex(vertex2)
-        }
-        this.adjacencyList[vertex1].add(vertex2)
-        this.adjacencyList[vertex2].add(vertex1)
-    }
-    hasEdge(vertex1,vertex2){
-        return (
-            this.adjacencyList[vertex1].has(vertex2)&&
-            this.adjacencyList[vertex2].has(vertex1)
-        )
-    }
-    removeEdge(vertex1,vertex2){
-        this.adjacencyList[vertex1].delete(vertex2)
-        this.adjacencyList[vertex2].delete(vertex1)
-    }
-    removeVertex(vertex){
-        if(!this.adjacencyList[vertex]){
-            return
-        }
-        for(let neighbour of this.adjacencyList[vertex]){
-            this.removeEdge(neighbour)
-        }
-        delete this.adjacencyList[vertex]
-    }
-    display(){
-        for(let vertex in this.adjacencyList){
-            console.log(vertex,'=>',[...this.adjacencyList[vertex]])
-        }
-    }
-    dfs(start){
-        let stack = [start]
-        let visited = new Set()
-        while(stack.length>0){
-            let vertex = stack.pop()
-            if(!visited.has(vertex)){
-                console.log(vertex)
-                visited.add(vertex)
-                stack.push(...this.adjacencyList[vertex])
-            }
-        }
-    }
-    bfs(start){
-        let queue = [start]
-        let visited = new Set()
-        while(queue.length>0){
-            let vertex = queue.shift()
-            if(!visited.has(vertex)){
-                console.log(vertex)
-                visited.add(vertex)
-                queue.push(...this.adjacencyList[vertex])
-            }
-        }
-    }
-    hasCycle(){
-        let visited = new Set()
-        const dfsCycle = (vertex,parent)=>{
-            visited.add(vertex)
-            for(let neighbour of this.adjacencyList[vertex]){
-                if(!visited.has(neighbour)){
-                    if(dfsCycle(neighbour,vertex)){
-                        return true
-                    }
-                }else if(neighbour!==parent){
-                    return true
-                }
-            }
-            return false
-        }
-        for(let vertex in this.adjacencyList){
-            if(!visited.has(vertex)){
-                if(dfsCycle(vertex,null)){
-                    return false
-                }
-            }
-        }
-    }
-    countCycle(){
-        let visited = new Set()
-        const dfsCycle = (vertex,parent)=>{
-            visited.add(vertex)
-            for(let neighbour of this.adjacencyList[vertex]){
-                if(!visited.has(neighbour)){
-                    if(dfsCycle(neighbour,vertex)){
-                        return true
-                    }
-                }else if(neighbour!==parent){
-                    return true
-                }
-            }
-            return false
-        }
-        for(let vertex in this.adjacencyList){
-            if(!visited.has(vertex)){
-                if(dfsCycle(vertex,null)){
-                    return false
-                }
-            }
-        }
-    }
-}
+// //dfs in graph
+// class Graph{
+//     constructor(){
+//         this.adjacencyList = {}
+//     }
+//     addVertex(vertex){
+//         if(!this.adjacencyList[vertex]){
+//             this.adjacencyList[vertex] = new Set()
+//         }
+//     }
+//     addEdge(vertex1,vertex2){
+//         if(!this.adjacencyList[vertex1]){
+//             this.addVertex(vertex1)
+//         }
+//         if(!this.adjacencyList[vertex2]){
+//             this.addVertex(vertex2)
+//         }
+//         this.adjacencyList[vertex1].add(vertex2)
+//         this.adjacencyList[vertex2].add(vertex1)
+//     }
+//     hasEdge(vertex1,vertex2){
+//         return (
+//             this.adjacencyList[vertex1].has(vertex2)&&
+//             this.adjacencyList[vertex2].has(vertex1)
+//         )
+//     }
+//     removeEdge(vertex1,vertex2){
+//         this.adjacencyList[vertex1].delete(vertex2)
+//         this.adjacencyList[vertex2].delete(vertex1)
+//     }
+//     removeVertex(vertex){
+//         if(!this.adjacencyList[vertex]){
+//             return
+//         }
+//         for(let neighbour of this.adjacencyList[vertex]){
+//             this.removeEdge(neighbour)
+//         }
+//         delete this.adjacencyList[vertex]
+//     }
+//     display(){
+//         for(let vertex in this.adjacencyList){
+//             console.log(vertex,'=>',[...this.adjacencyList[vertex]])
+//         }
+//     }
+//     dfs(start){
+//         let stack = [start]
+//         let visited = new Set()
+//         while(stack.length>0){
+//             let vertex = stack.pop()
+//             if(!visited.has(vertex)){
+//                 console.log(vertex)
+//                 visited.add(vertex)
+//                 stack.push(...this.adjacencyList[vertex])
+//             }
+//         }
+//     }
+//     bfs(start){
+//         let queue = [start]
+//         let visited = new Set()
+//         while(queue.length>0){
+//             let vertex = queue.shift()
+//             if(!visited.has(vertex)){
+//                 console.log(vertex)
+//                 visited.add(vertex)
+//                 queue.push(...this.adjacencyList[vertex])
+//             }
+//         }
+//     }
+//     hasCycle(){
+//         let visited = new Set()
+//         const dfsCycle = (vertex,parent)=>{
+//             visited.add(vertex)
+//             for(let neighbour of this.adjacencyList[vertex]){
+//                 if(!visited.has(neighbour)){
+//                     if(dfsCycle(neighbour,vertex)){
+//                         return true
+//                     }
+//                 }else if(neighbour!==parent){
+//                     return true
+//                 }
+//             }
+//             return false
+//         }
+//         for(let vertex in this.adjacencyList){
+//             if(!visited.has(vertex)){
+//                 if(dfsCycle(vertex,null)){
+//                     return false
+//                 }
+//             }
+//         }
+//     }
+//     countCycle(){
+//         let visited = new Set()
+//         const dfsCycle = (vertex,parent)=>{
+//             visited.add(vertex)
+//             for(let neighbour of this.adjacencyList[vertex]){
+//                 if(!visited.has(neighbour)){
+//                     if(dfsCycle(neighbour,vertex)){
+//                         return true
+//                     }
+//                 }else if(neighbour!==parent){
+//                     return true
+//                 }
+//             }
+//             return false
+//         }
+//         for(let vertex in this.adjacencyList){
+//             if(!visited.has(vertex)){
+//                 if(dfsCycle(vertex,null)){
+//                     return false
+//                 }
+//             }
+//         }
+//     }
+// }
 
-const graph = new Graph()
-graph.addVertex('A')
-graph.addVertex('B')
-graph.addVertex('C')
-graph.addVertex('D')
-graph.addEdge('A','B')
-graph.addEdge('B','C')
-graph.addEdge('C','D')
-graph.addEdge('D','A')
-graph.display()
-console.log('dfs : ')
-graph.dfs('A')
-console.log('bfs : ')
-graph.bfs('A')
+// const graph = new Graph()
+// graph.addVertex('A')
+// graph.addVertex('B')
+// graph.addVertex('C')
+// graph.addVertex('D')
+// graph.addEdge('A','B')
+// graph.addEdge('B','C')
+// graph.addEdge('C','D')
+// graph.addEdge('D','A')
+// graph.display()
+// console.log('dfs : ')
+// graph.dfs('A')
+// console.log('bfs : ')
+// graph.bfs('A')
+/////////////////////////////////////////////////////////////////////
+// node write file and delete
+
+const fs = require('fs')
+fs.writeFile('example.txt',content,(err)=>{
+    if(err){
+        console.log('error writing into file')
+    }else{
+        console.log('successfully wrote into file')
+    }
+})
