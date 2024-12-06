@@ -12,19 +12,20 @@ import './App.css'
 // import { Counter } from './pages/useReducer'
 // import Parent from './pages/parent'
 import Counterr from './pages/counterrr'
+import ErrorBoundary from './components/errorBoundary'
 // import SideEffect from './pages/useEffect'
 // import Form from './pages/unControlled'
 // import LazyParent from './pages/lazyCompon'
 // import UnControlled from './practice'
-import HandleClick from './pages/righClick'
+// import HandleClick from './pages/righClick'
 
 function App() {
 
  
    return (
-    <>
+    <ErrorBoundary>
     <Counterr/>
-    </>
+    </ErrorBoundary>
    )
 
 }
