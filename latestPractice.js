@@ -568,10 +568,18 @@
 // node write file and delete
 
 const fs = require('fs')
+let content = 'dilfa thayyil'
 fs.writeFile('example.txt',content,(err)=>{
     if(err){
         console.log('error writing into file')
     }else{
         console.log('successfully wrote into file')
+    }
+})
+fs.unlink('example.txt',(err)=>{
+    if(err){
+        console.log('error deleting file')
+    }else{
+        console.log('deleted file successfully')
     }
 })
