@@ -1,11 +1,7 @@
-import React from "react";
-
-function BuggyComponent({ name }) {
-  if (!name) {
-    throw new Error("The 'name' prop is missing!");
-  }
-
-  return <h1>Hello, {name}!</h1>;
+function BuggyComponent({name}){
+    if(typeof name!=='string'){
+        throw new Error('invalid name prop!! expected a string.')
+    }
+    return <h1>Hello, {name}!</h1>
 }
-
-export default BuggyComponent;
+export default BuggyComponent
