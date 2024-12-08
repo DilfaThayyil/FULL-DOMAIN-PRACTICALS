@@ -2860,3 +2860,112 @@
 // graph.removeVertex('A')
 // graph.removeEdge('C','B')
 // graph.display()
+
+///////////////////////////////////////////////////////////////////////////////////////////////
+
+class Node{
+    constructor(value){
+        this.value = value
+        this.next = null
+    }
+}
+class LL{
+    constructor(){
+        this.head = null
+    }
+    prepend(value){
+        const node = new Node(value)
+        if(!this.head){
+            this.head = node
+        }else{
+            node.next = this.head
+            this.head = node
+        }
+    }
+    append(value){
+        const node = new Node(value)
+        if(!this.head){
+            this.head = node
+        }else{
+            let prev = this.head
+            while(prev.next){
+                prev = prev.next
+            }
+            prev.next = node 
+        }
+    }
+    insert(value,index){
+        const node = new Node(value)
+        if(index===0){
+            if(!this.head){
+                this.head = node
+            }else{
+                node.next = this.head
+                this.head = node
+            }
+        }
+        let prev = this.head
+        for(let i=0;i<index-1;i++){
+            prev = prev.next
+        }
+        node.next = prev.next
+        prev.next = node
+    }
+    deleteByIndex(index){
+        if(!this.head){
+            return
+        }
+        if(index===0){
+            this.head = this.head.next
+        }
+        let prev  = this.head
+        for(let i=0;i<index-1;i++){
+            if(!prev.next){
+                return
+            }
+            prev = prev.next
+        }
+        if(prev.next){
+            prev.next = prev.next.next
+        }
+    }
+    deleteByValue(value){
+        if(!this.head){
+            return
+        }
+        let prev = this.head
+        while(prev.next&&prev.next.value!==value){
+            if(!prev.next){
+                return
+            }
+            prev = prev.next
+        }
+        if(prev.next){
+            prev.next = prev.next.next
+        }
+    }
+    reverse(){
+        let curr = this.head
+        let prev = null
+        while(curr){
+            let next = curr.next
+            curr.next = prev
+            prev = curr
+            curr = next
+        }
+        this.head = prev
+    }
+    isPalindrome(){
+        if(!this.head||!this.head.next){
+            return
+        }
+        let slow = this.head
+        let fast = this.head
+        while(fast&&fast.next){
+            let prev = slow
+            slow = slow.next
+            fast = fast.next.next
+        }
+        
+    }
+}
