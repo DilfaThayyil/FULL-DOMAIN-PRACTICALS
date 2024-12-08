@@ -2894,5 +2894,22 @@ class LL{
             prev.next = node 
         }
     }
+    insert(value,index){
+        const node = new Node(value)
+        if(index===0){
+            if(!this.head){
+                this.head = node
+            }else{
+                node.next = this.head
+                this.head = node
+            }
+        }
+        let prev = this.head
+        for(let i=0;i<index-1;i++){
+            prev = prev.next
+        }
+        node.next = prev.next
+        prev.next = node
+    }
     
 }
