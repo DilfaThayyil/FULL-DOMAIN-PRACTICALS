@@ -2955,5 +2955,33 @@ class LL{
         }
         this.head = prev
     }
-    
+    isPalindrome(){
+        if(!this.head){
+            return true
+        }
+        let slow = this.head
+        let fast = this.head
+        while(fast&&fast.next){
+            slow = slow.next
+            fast = fast.next.next
+        }
+        let prev = null
+        let curr = slow
+        while(curr){
+            let next = curr.next
+            curr.next = prev
+            prev = curr
+            curr = next
+        }
+        let left = this.head
+        let right = prev
+        while(right){
+            if(left.value!==right.value){
+                return false
+            }
+            left = left.next
+            right = right.next
+        }
+        return true
+    }
 }
