@@ -2984,5 +2984,27 @@ class LL{
         }
         return true
     }
+    removeDuplicates(){
+        let seen = new Set()
+        let curr = this.head
+        seen.add(curr.value)
+        while(curr.next){
+            if(curr.next.value===value){
+                curr.next = curr.next.next
+            }else{
+                curr = curr.next
+                seen.add(curr)
+            }
+        }
+    }
+    findMiddle(){
+        let slow = this.head
+        let fast = this.head
+        while(fast&&fast.next){
+            slow = slow.next
+            fast = fast.next.next
+        }
+        return slow
+    }
 }
 
