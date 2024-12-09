@@ -2929,5 +2929,20 @@ class LL{
             prev.next = prev.next.next
         }
     }
+    deleteByValue(value){
+        if(!this.head){
+            return
+        }
+        let prev = this.head
+        while(prev.next&&prev.next.value!==value){
+            if(!prev.next){
+                return
+            }
+            prev = prev.next
+        }
+        if(prev.next){
+            prev.next = prev.next.next
+        }
+    }
     
 }
