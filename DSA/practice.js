@@ -2911,5 +2911,23 @@ class LL{
         node.next = prev.next
         prev.next = node
     }
+    deleteByIndex(index){
+        if(!this.head){
+            return
+        }
+        if(index===0){
+            this.head = this.head.next
+        }
+        let prev  = this.head
+        for(let i=0;i<index-1;i++){
+            if(!prev.next){
+                return
+            }
+            prev = prev.next
+        }
+        if(prev.next){
+            prev.next = prev.next.next
+        }
+    }
     
 }
