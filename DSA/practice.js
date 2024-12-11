@@ -3081,10 +3081,16 @@ class BST{
         }
     }
     levelOrder(){
-        let queue = []
-        let visited = new Set()
-        while(queue.length>0){
-            if(!visited.has())
+        const queue = []
+        queue.push(this.root)
+        while(queue.length){
+            let curr = queue.shift()
+            console.log(curr.value)
+            if(curr.left){
+                queue.push(curr.left)
+            }else{
+                queue.push(curr.right)
+            }
         }
     }
 }
