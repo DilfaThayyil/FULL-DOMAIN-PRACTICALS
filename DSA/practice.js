@@ -2863,161 +2863,165 @@
 
 ///////////////////////////////////////////////////////////////////////////////////////////////
 
-class Node{
-    constructor(value){
-        this.value = value
-        this.next = null
-    }
-}
-class LL{
-    constructor(){
-        this.head = null
-    }
-    prepend(value){
-        const node = new Node(value)
-        if(!this.head){
-            this.head = node
-        }else{
-            node.next = this.head
-            this.head = node
-        }
-    }
-    append(value){
-        const node = new Node(value)
-        if(!this.head){
-            this.head = node
-        }else{
-            let prev = this.head
-            while(prev.next){
-                prev = prev.next
-            }
-            prev.next = node 
-        }
-    }
-    insert(value,index){
-        const node = new Node(value)
-        if(index===0){
-            if(!this.head){
-                this.head = node
-            }else{
-                node.next = this.head
-                this.head = node
-            }
-        }
-        let prev = this.head
-        for(let i=0;i<index-1;i++){
-            prev = prev.next
-        }
-        node.next = prev.next
-        prev.next = node
-    }
-    deleteByIndex(index){
-        if(!this.head){
-            return
-        }
-        if(index===0){
-            this.head = this.head.next
-        }
-        let prev  = this.head
-        for(let i=0;i<index-1;i++){
-            if(!prev.next){
-                return
-            }
-            prev = prev.next
-        }
-        if(prev.next){
-            prev.next = prev.next.next
-        }
-    }
-    deleteByValue(value){
-        if(!this.head){
-            return
-        }
-        let prev = this.head
-        while(prev.next&&prev.next.value!==value){
-            if(!prev.next){
-                return
-            }
-            prev = prev.next
-        }
-        if(prev.next){
-            prev.next = prev.next.next
-        }
-    }
-    reverse(){
-        let curr = this.head
-        let prev = null
-        while(curr){
-            let next = curr.next
-            curr.next = prev
-            prev = curr
-            curr = next
-        }
-        this.head = prev
-    }
-    isPalindrome(){
-        if(!this.head){
-            return true
-        }
-        let slow = this.head
-        let fast = this.head
-        while(fast&&fast.next){
-            slow = slow.next
-            fast = fast.next.next
-        }
-        let prev = null
-        let curr = slow
-        while(curr){
-            let next = curr.next
-            curr.next = prev
-            prev = curr
-            curr = next
-        }
-        let left = this.head
-        let right = prev
-        while(right){
-            if(left.value!==right.value){
-                return false
-            }
-            left = left.next
-            right = right.next
-        }
-        return true
-    }
-    removeDuplicates(){
-        let seen = new Set()
-        let curr = this.head
-        seen.add(curr.value)
-        while(curr.next){
-            if(curr.next.value===value){
-                curr.next = curr.next.next
-            }else{
-                curr = curr.next
-                seen.add(curr)
-            }
-        }
-    }
-    findMiddle(){
-        let slow = this.head
-        let fast = this.head
-        while(fast&&fast.next){
-            slow = slow.next
-            fast = fast.next.next
-        }
-        return slow
-    }
-    print(){
-        let curr = this.head
-        while(curr){
-            console.log(curr.value)
-            curr = curr.next
-        }
-    }
-}
+// class Node{
+//     constructor(value){
+//         this.value = value
+//         this.next = null
+//     }
+// }
+// class LL{
+//     constructor(){
+//         this.head = null
+//     }
+//     prepend(value){
+//         const node = new Node(value)
+//         if(!this.head){
+//             this.head = node
+//         }else{
+//             node.next = this.head
+//             this.head = node
+//         }
+//     }
+//     append(value){
+//         const node = new Node(value)
+//         if(!this.head){
+//             this.head = node
+//         }else{
+//             let prev = this.head
+//             while(prev.next){
+//                 prev = prev.next
+//             }
+//             prev.next = node 
+//         }
+//     }
+//     insert(value,index){
+//         const node = new Node(value)
+//         if(index===0){
+//             if(!this.head){
+//                 this.head = node
+//             }else{
+//                 node.next = this.head
+//                 this.head = node
+//             }
+//         }
+//         let prev = this.head
+//         for(let i=0;i<index-1;i++){
+//             prev = prev.next
+//         }
+//         node.next = prev.next
+//         prev.next = node
+//     }
+//     deleteByIndex(index){
+//         if(!this.head){
+//             return
+//         }
+//         if(index===0){
+//             this.head = this.head.next
+//         }
+//         let prev  = this.head
+//         for(let i=0;i<index-1;i++){
+//             if(!prev.next){
+//                 return
+//             }
+//             prev = prev.next
+//         }
+//         if(prev.next){
+//             prev.next = prev.next.next
+//         }
+//     }
+//     deleteByValue(value){
+//         if(!this.head){
+//             return
+//         }
+//         let prev = this.head
+//         while(prev.next&&prev.next.value!==value){
+//             if(!prev.next){
+//                 return
+//             }
+//             prev = prev.next
+//         }
+//         if(prev.next){
+//             prev.next = prev.next.next
+//         }
+//     }
+//     reverse(){
+//         let curr = this.head
+//         let prev = null
+//         while(curr){
+//             let next = curr.next
+//             curr.next = prev
+//             prev = curr
+//             curr = next
+//         }
+//         this.head = prev
+//     }
+//     isPalindrome(){
+//         if(!this.head){
+//             return true
+//         }
+//         let slow = this.head
+//         let fast = this.head
+//         while(fast&&fast.next){
+//             slow = slow.next
+//             fast = fast.next.next
+//         }
+//         let prev = null
+//         let curr = slow
+//         while(curr){
+//             let next = curr.next
+//             curr.next = prev
+//             prev = curr
+//             curr = next
+//         }
+//         let left = this.head
+//         let right = prev
+//         while(right){
+//             if(left.value!==right.value){
+//                 return false
+//             }
+//             left = left.next
+//             right = right.next
+//         }
+//         return true
+//     }
+//     removeDuplicates(){
+//         let seen = new Set()
+//         let curr = this.head
+//         seen.add(curr.value)
+//         while(curr.next){
+//             if(curr.next.value===value){
+//                 curr.next = curr.next.next
+//             }else{
+//                 curr = curr.next
+//                 seen.add(curr)
+//             }
+//         }
+//     }
+//     findMiddle(){
+//         let slow = this.head
+//         let fast = this.head
+//         while(fast&&fast.next){
+//             slow = slow.next
+//             fast = fast.next.next
+//         }
+//         return slow
+//     }
+//     print(){
+//         let curr = this.head
+//         while(curr){
+//             console.log(curr.value)
+//             curr = curr.next
+//         }
+//     }
+// }
 
-const list = new LL()
-list.prepend(10)
-list.prepend(15)
-list.append(20)
-list.append(30)
-list.print()
+// const list = new LL()
+// list.prepend(10)
+// list.prepend(15)
+// list.append(20)
+// list.append(30)
+// list.print()
+
+// ------------------------------------------------------------------------------------------------------------------
+
+
