@@ -3006,5 +3006,12 @@ class LL{
         }
         return slow
     }
+    print(){
+        let curr = this.head
+        while(curr){
+            console.log(curr.value)
+            curr = curr.next
+        }
+    }
 }
 
