@@ -3036,4 +3036,28 @@ class BST{
     constructor(){
         this.root = null
     }
+    insert(value){
+        const node = new Node(value)
+        if(!this.root){
+            this.root = node
+        }else{
+            this.insertNode(node,value)
+        }
+    }
+    insertNode(root,node){
+        if(node.value<root.value){
+            if(!root.left){
+                root.left = node
+            }else{
+                this.insertNode(root.right,node)
+            }
+        }else{
+            if(!root.right){
+                root.right = node
+            }else{
+                this.insertNode(root.left,node)
+            }
+        }
+    }
+    
 }
