@@ -3015,3 +3015,9 @@ class LL{
     }
 }
 
+const list = new LL()
+list.prepend(10)
+list.prepend(15)
+list.append(20)
+list.append(30)
+list.print()
