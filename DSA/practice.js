@@ -3095,15 +3095,16 @@
 //     }
 // }
 
-function sub(a,b){
-    return a+b
-}
+//async fn execution order
+// function sub(a,b){
+//     return a+b
+// }
 
-async function main(){
-    console.log(sub(5,5))
-    const result = await sub(5,5)
-    console.log(result)
-    console.log('kdfk')
-}
+// async function main(){
+//     console.log(sub(5,5))
+//     const result = await sub(5,5)
+//     console.log(result)
+//     console.log('kdfk')
+// }
 
-main()
+// main()
