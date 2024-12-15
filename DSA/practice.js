@@ -3025,74 +3025,72 @@
 // ------------------------------------------------------------------------------------------------------------------
 
 
-class Node{
-    constructor(value){
-        this.value = this.value
-        this.left = null
-        this.right = null
-    }
-}
-class BST{
-    constructor(){
-        this.root = null
-    }
-    insert(value){
-        const node = new Node(value)
-        if(!this.root){
-            this.root = node
-        }else{
-            this.insertNode(node,value)
-        }
-    }
-    insertNode(root,node){
-        if(node.value<root.value){
-            if(!root.left){
-                root.left = node
-            }else{
-                this.insertNode(root.right,node)
-            }
-        }else{
-            if(!root.right){
-                root.right = node
-            }else{
-                this.insertNode(root.left,node)
-            }
-        }
-    }
-    preOrder(root){
-        if(root){
-            console.log(root.value)
-            this.preOrder(root.left)
-            this.preOrder(root.right)
-        }
-    }
-    inOrder(root){
-        if(root){
-            this.inOrder(root.left)
-            console.log(root.value)
-            this.inOrder(root.right)
-        }
-    }
-    postOrder(root){
-        if(root){
-            this.postOrder(root.left)
-            this.postOrder(root.right)
-            console.log(root.value)
-        }
-    }
-    levelOrder(){
-        const queue = []
-        queue.push(this.root)
-        while(queue.length){
-            let curr = queue.shift()
-            console.log(curr.value)
-            if(curr.left){
-                queue.push(curr.left)
-            }else{
-                queue.push(curr.right)
-            }
-        }
-    }
+// class Node{
+//     constructor(value){
+//         this.value = this.value
+//         this.left = null
+//         this.right = null
+//     }
 // }
-
-
+// class BST{
+//     constructor(){
+//         this.root = null
+//     }
+//     insert(value){
+//         const node = new Node(value)
+//         if(!this.root){
+//             this.root = node
+//         }else{
+//             this.insertNode(node,value)
+//         }
+//     }
+//     insertNode(root,node){
+//         if(node.value<root.value){
+//             if(!root.left){
+//                 root.left = node
+//             }else{
+//                 this.insertNode(root.right,node)
+//             }
+//         }else{
+//             if(!root.right){
+//                 root.right = node
+//             }else{
+//                 this.insertNode(root.left,node)
+//             }
+//         }
+//     }
+//     preOrder(root){
+//         if(root){
+//             console.log(root.value)
+//             this.preOrder(root.left)
+//             this.preOrder(root.right)
+//         }
+//     }
+//     inOrder(root){
+//         if(root){
+//             this.inOrder(root.left)
+//             console.log(root.value)
+//             this.inOrder(root.right)
+//         }
+//     }
+//     postOrder(root){
+//         if(root){
+//             this.postOrder(root.left)
+//             this.postOrder(root.right)
+//             console.log(root.value)
+//         }
+//     }
+//     levelOrder(){
+//         const queue = []
+//         queue.push(this.root)
+//         while(queue.length){
+//             let curr = queue.shift()
+//             console.log(curr.value)
+//             if(curr.left){
+//                 queue.push(curr.left)
+//             }else{
+//                 queue.push(curr.right)
+//             }
+//         }
+//     }
+// }
