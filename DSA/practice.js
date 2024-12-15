@@ -3094,7 +3094,7 @@
 //         }
 //     }
 // }
-
+// ------------------------------------------
 //async fn execution order
 // function sub(a,b){
 //     return a+b
@@ -3108,3 +3108,12 @@
 // }
 
 // main()
+
+
+//Linkedlist
+
+class Node{
+    constructor(value){
+        this.value = value
+    }
+}
