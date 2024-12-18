@@ -3112,16 +3112,16 @@
 
 //Linkedlist
 
-class Node{
-    constructor(value){
-        this.value = value
-        this.next = null
-    }
-}
-class LL{
-    constructor(){
-        this.head = null
-    }
+// class Node{
+//     constructor(value){
+//         this.value = value
+//         this.next = null
+//     }
+// }
+// class LL{
+//     constructor(){
+//         this.head = null
+//     }
     prepend(value){
         const node = new Node(value)
         if(!this.head){
