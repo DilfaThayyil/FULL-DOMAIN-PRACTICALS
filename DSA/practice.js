@@ -3112,46 +3112,46 @@
 
 //Linkedlist
 
-// class Node{
-//     constructor(value){
-//         this.value = value
-//         this.next = null
-//     }
-// }
-// class LL{
-//     constructor(){
-//         this.head = null
-//     }
-//     prepend(value){
-//         const node = new Node(value)
-//         if(!this.head){
-//             this.head = node
-//         }else{
-//             node.next = this.head
-//             this.head = node
-//         }
-//     }
-//     append(value){
-//         const node = new Node(value)
-//         if(!this.head){
-//             this.head = node
-//         }else{
-//             let curr = this.head
-//             while(curr){
+class Node{
+    constructor(value){
+        this.value = value
+        this.next = null
+    }
+}
+class LL{
+    constructor(){
+        this.head = null
+    }
+    prepend(value){
+        const node = new Node(value)
+        if(!this.head){
+            this.head = node
+        }else{
+            node.next = this.head
+            this.head = node
+        }
+    }
+    append(value){
+        const node = new Node(value)
+        if(!this.head){
+            this.head = node
+        }else{
+            let curr = this.head
+            while(curr){
                 
-//             }
-//         }
-//     }
-//     insert(value,index){
-//         const node = new Node(value)
-//         if(index===0){
-//             if(!this.head){
-//                 this.head = node
-//             }else{
-//                 node.next = this.head
-//                 this.head = node
-//             }
-//             return        
-//         }
-//     }
-// }
+            }
+        }
+    }
+    insert(value,index){
+        const node = new Node(value)
+        if(index===0){
+            if(!this.head){
+                this.head = node
+            }else{
+                node.next = this.head
+                this.head = node
+            }
+            return        
+        }
+    }
+}
