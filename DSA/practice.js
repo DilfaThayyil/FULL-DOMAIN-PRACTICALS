@@ -3122,36 +3122,36 @@
 //     constructor(){
 //         this.head = null
 //     }
-    prepend(value){
-        const node = new Node(value)
-        if(!this.head){
-            this.head = node
-        }else{
-            node.next = this.head
-            this.head = node
-        }
-    }
-    append(value){
-        const node = new Node(value)
-        if(!this.head){
-            this.head = node
-        }else{
-            let curr = this.head
-            while(curr){
+//     prepend(value){
+//         const node = new Node(value)
+//         if(!this.head){
+//             this.head = node
+//         }else{
+//             node.next = this.head
+//             this.head = node
+//         }
+//     }
+//     append(value){
+//         const node = new Node(value)
+//         if(!this.head){
+//             this.head = node
+//         }else{
+//             let curr = this.head
+//             while(curr){
                 
-            }
-        }
-    }
-    insert(value,index){
-        const node = new Node(value)
-        if(index===0){
-            if(!this.head){
-                this.head = node
-            }else{
-                node.next = this.head
-                this.head = node
-            }
-            return        
-        }
-    }
-}
+//             }
+//         }
+//     }
+//     insert(value,index){
+//         const node = new Node(value)
+//         if(index===0){
+//             if(!this.head){
+//                 this.head = node
+//             }else{
+//                 node.next = this.head
+//                 this.head = node
+//             }
+//             return        
+//         }
+//     }
+// }
