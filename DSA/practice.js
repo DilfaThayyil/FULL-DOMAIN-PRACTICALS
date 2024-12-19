@@ -3151,7 +3151,6 @@ class LL{
                 node.next = this.head
                 this.head = node
             }
-            return        
         }
     }
 }
