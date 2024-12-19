@@ -3151,6 +3151,13 @@ class LL{
                 node.next = this.head
                 this.head = node
             }
+            return
         }
+        let prev = this.head
+        for(let i=0;i<index-1;i++){
+            prev = prev.next
+        }
+        node.next = prev.next
+        prev.next = node
     }
 }
