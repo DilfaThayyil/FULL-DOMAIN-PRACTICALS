@@ -3190,7 +3190,7 @@ class LL{
             prev = prev.next
         }
         if(prev.next){
-            prev.next = prev.next.next
+            // prev.next = prev.next.next
         }
     }
 }
