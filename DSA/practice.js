@@ -3189,8 +3189,8 @@ class LL{
         while(prev.next&&prev.next.value!==value){
             prev = prev.next
         }
-        // if(prev.next){
-        //     prev.next = prev.next.next
-        // }
+        if(prev.next){
+            prev.next = prev.next.next
+        }
     }
 }
