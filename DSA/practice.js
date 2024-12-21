@@ -3193,4 +3193,15 @@ class LL{
             prev.next = prev.next.next
         }
     }
+    reverse(){
+        let curr = this.head
+        let prev = null
+        while(curr){
+            let next = curr.next
+            curr.next = prev
+            prev = curr
+            curr = next
+        }
+        this.head = prev
+    }
 }
