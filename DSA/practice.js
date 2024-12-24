@@ -3203,5 +3203,67 @@ class LL{
             curr = next
         }
         this.head = prev
-    } 
+    }
+    removeDuplicates(){
+        if(!this.head){
+            return
+        }
+        let curr = this.head
+        let seen = new Set()
+        seen.add(curr.value)
+        while(curr.next){
+            if(seen.has(curr.next.value)){
+                curr.next = curr.next.next
+            }else{
+                curr = curr.next
+            }
+        }
+    }
+    findMiddle(){
+        if(!this.head){
+            return
+        }
+        let slow = this.head
+        let fast = this.head
+        while(fast&&fast.next){
+            slow = slow.next
+            fast = fast.next.next
+        } 
+        return slow
+    }
+    isPalindrome(){
+        if(!this.head){
+            return
+        }
+        let slow = this.head
+        let fast = this.head
+        while(fast&&fast.next){
+            slow = slow.next
+            fast = fast.next.next
+        }
+        let curr = slow
+        let prev = null
+        while(curr){
+            let next = curr.next
+            curr.next = prev
+            prev = curr
+            curr = next
+        }
+        let left = this.head
+        let right = prev
+        while(right){
+            if(left.value!==right.value){
+                return false
+            }
+            left = left.next
+            right= right.next
+        }
+    }
+    print(){
+        let curr = this.head
+        while(curr){
+            console.log(curr.value)
+            curr = curr.next
+        }
+    }
 }
