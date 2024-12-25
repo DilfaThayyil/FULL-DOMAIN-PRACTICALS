@@ -20,6 +20,7 @@ import BuggyComponent from './components/BuggyComponent'
 // import UnControlled from './practice'
 // import HandleClick from './pages/righClick'
 import LoginPage from './pages/login'
+import RegisterPage from './pages/Register'
 
 
 
@@ -28,7 +29,7 @@ function App() {
  
    return (
       <>
-      <LoginPage/>
+      <RegisterPage/>
       </>
    )
 
