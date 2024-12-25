@@ -19,17 +19,17 @@ import BuggyComponent from './components/BuggyComponent'
 // import LazyParent from './pages/lazyCompon'
 // import UnControlled from './practice'
 // import HandleClick from './pages/righClick'
+import LoginPage from './pages/login'
+
+
 
 function App() {
 
  
    return (
-      <div>
-         
-         <ErrorBoundary>
-         <BuggyComponent/>
-         </ErrorBoundary>
-      </div>
+      <>
+      <LoginPage/>
+      </>
    )
 
 }
