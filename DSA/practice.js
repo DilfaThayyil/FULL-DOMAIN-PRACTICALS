@@ -3308,8 +3308,8 @@ class DLL{
                 let prev = this.head
                 while(prev.next){
                     prev = prev.next
-                }
-            }
+                };
+            };
         }
     }
 }
