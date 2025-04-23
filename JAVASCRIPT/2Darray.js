@@ -10,8 +10,8 @@ function flatten(arr){
     }
     return result
 }
-const arr = [[1,2],[3,4],[5,6]]
-console.log(flatten(arr))
+const arr = [[1,2],[3,4],[5,6]];
+console.log(flatten(arr));
 
 
 
