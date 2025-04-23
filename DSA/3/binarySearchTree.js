@@ -212,7 +212,7 @@ class binarySearchTree{
     findHeight(root=this.root){
         if(root===null){
             return -1
-        }
+        };
         let left = this.findHeight(root.left)
         let right = this.findHeight(root.right)
         return Math.max(left,right)+1
