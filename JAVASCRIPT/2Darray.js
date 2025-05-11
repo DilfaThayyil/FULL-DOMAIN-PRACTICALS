@@ -13,9 +13,6 @@ function flatten(arr){
 const arr = [[1,2],[3,4],[5,6]];
 console.log(flatten(arr));
 
-
-
-
 //yield numbers from a 2D array using Generator fn
 function* yieldNumbers(arr){
     for(let row of arr){
