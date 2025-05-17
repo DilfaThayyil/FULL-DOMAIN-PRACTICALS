@@ -3,10 +3,10 @@ import { AlertCircle, Wallet, CheckCircle2 } from 'lucide-react';
 
 const RegisterPage = () => {
   const [formData, setFormData] = useState({
-    username: '',
-    email: '',
-    password: '',
-    confirmPassword: ''
+    username: "",
+    email: "",
+    password: "",
+    confirmPassword: ""
   });
   const [error, setError] = useState('');
 
