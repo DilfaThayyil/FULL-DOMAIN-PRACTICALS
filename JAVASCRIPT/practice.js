@@ -719,7 +719,7 @@
 //     }
 //     return recurse(str.slice(1))+str[0]
 // }
-// let str = 'shibil'
+// let str = 'abcd'
 // console.log(recurse(str))
 
 //string reverse 
