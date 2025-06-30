@@ -17,3 +17,4 @@ function sortStack(originalStack){
 
 let stack = [5,2,4,9,6,0]
 console.log(sortStack(stack))
+

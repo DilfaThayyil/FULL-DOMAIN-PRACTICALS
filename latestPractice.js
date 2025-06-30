@@ -567,19 +567,127 @@
 /////////////////////////////////////////////////////////////////////
 // node write file and delete
 
-const fs = require('fs')
-let content = 'dilfa thayyil'
-fs.writeFile('example.txt',content,(err)=>{
-    if(err){
-        console.log('error writing into file')
-    }else{
-        console.log('successfully wrote into file')
-    }
+// const fs = require('fs')
+// let content = 'dilfa thayyil'
+// fs.writeFile('example.txt',content,(err)=>{
+//     if(err){
+//         console.log('error writing into file')
+//     }else{
+//         console.log('successfully wrote into file')
+//     }
+// })
+// fs.unlink('example.txt',(err)=>{
+//     if(err){
+//         console.log('error deleting file')
+//     }else{
+//         console.log('deleted file successfully')
+//     }
+// })
+
+//////////////////////////////////////////////////////////
+
+
+// const fs = require('fs')
+// function main(){
+//     return new Promise((resolve=>{
+//         const currentDate = new Date()
+//         resolve(currentDate.toDateString())
+//     }))
+// }
+// main()
+// .then((currentDate)=>{
+//     fs.writeFile('promise.txt',currentDate,(err)=>{
+//         if(err){
+//             console.log('error wiring into file')
+//         }else{
+//             console.log('written into file successfully')
+//         }
+//     })
+// })
+// .catch((err)=>{
+//     console.log('error occurred : ',err)
+// })
+
+
+
+
+// const port = 8000
+// const http = require('http')
+// const server = http.createServer((req,res)=>{
+//     res.end('helll No')
+// })
+// .listen(port,()=>{
+//     console.log(`server listening on port http://localhost:${port}`)
+// })
+
+
+
+// const express = require('express')
+// const app = express()
+// const port = 8000
+// app.use(morgan('dev'))
+// app.use(express.json())
+// app.use(express.static('public'))
+// app.use((req,res,next)=>{
+//     if(req.method==='GET'){
+//         return res.status(403).json({message:'GET requests are blocked'})
+//     }
+//     next()
+// })
+// app.get('/',(req,res)=>{
+//     res.send('welcome to home page')
+// })
+// app.post('/data',(req,res)=>{
+//     res.status(200).json({message:'data received success'})
+// })
+// app.use((err,req,res,next)=>{
+//     res.status(500).json({message:'Internal server error'})
+// })
+// app.listen(port,()=>{
+//     console.log(`server listening on http://localhost:${port}`)
+// })
+
+
+
+
+//////////////////////////////////////////////////
+
+
+
+// const express = require('express')
+// const app = express()
+// const port = 3001
+// app.use(express.json())
+// app.post('/divide',(req,res)=>{
+//     const {numerator,denomenator} = req.body
+//     if(numerator===undefined||denomenator===undefined){
+//         return res.status(400).json({message:'values are required'})
+//     }
+//     if(typeof numerator!=='number'||typeof denomenator!=='number'){
+//         return res.status(400).json({message:'values should be number'})
+//     }
+//     if(denomenator===0){
+//         return res.status(400).json({message:'denomenator shouldnot be zero'})
+//     }
+//     let result = numerator/denomenator
+//     res.status(200).json({message:'result received successfully',data:result})
+// })
+// app.listen(port,()=>{
+//     console.log(`server listening on http://localhost:${port}`)
+// })
+
+
+
+/////////////////////////////////////////////////////////
+
+
+const EventEmitter = require('events')
+const emitter = new EventEmitter()
+emitter.on('greet',()=>{
+    console.log('hello from Dilfaaaa...!')
 })
-fs.unlink('example.txt',(err)=>{
-    if(err){
-        console.log('error deleting file')
-    }else{
-        console.log('deleted file successfully')
-    }
+emitter.emit('greet')
+emitter.on('sum',(a,b)=>{
+    console.log(`The sum is ${a+b}`)
 })
+emitter.emit('sum',10,20)
